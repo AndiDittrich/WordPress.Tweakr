@@ -233,7 +233,7 @@ class Tweakr{
     public function showUpgradeMessage(){
         // styling
         echo '<div class="notice notice-success is-dismissible"><p>';
-        echo '<strong>Tweakr Plugin Upgrade:</strong> The Plugin has been upgraded to <strong>', CRYPTEX_VERSION, '</strong>';
+        echo '<strong>Tweakr Plugin Upgrade:</strong> The Plugin has been upgraded to <strong>', TWEAKR_VERSION, '</strong>';
         echo '</p></div>';
     }
 
