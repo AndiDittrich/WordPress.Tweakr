@@ -1,0 +1,173 @@
+/*  AUTO GENERATED FILE - DO NOT EDIT !!
+    WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
+    ------------------------------------
+    Corporate Plugin Settings Page Styles
+*/
+
+/* Page Layout
+-------------------------------- */
+#tweakr-settings .maintitle {
+    margin: 15px 0px 15px 0px;
+}
+
+#tweakr-title-badge {
+    display: inline-block;
+    padding: 0px 10px 0px 0px;
+    width: 35px;
+    height: 29px;
+    vertical-align: middle;
+    background-image: url(badge35.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}
+
+#tweakr-settings #post-body-content ul {
+    padding-left: 30px;
+    list-style: square;
+}
+
+#tweakr-settings #post-body-content li {
+    line-height: 20px;
+}
+
+/* Form Structure
+-------------------------------- */
+.tweakr-setting-section h4 {
+    color: #0074a2;
+    display: block;
+    border-bottom: dotted 2px #c0c0c0;
+}
+
+.tweakr-setting-section img {
+    padding-left: 15px;
+}
+
+.tweakr-setting {
+    display: block;
+    padding: 5px 10px 5px 15px;
+}
+
+.tweakr-setting-title {
+    float: left;
+    width: 250px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+
+.tweakr-setting-input{
+    width: auto;
+    margin-left: 250px;
+}
+
+/* Form Elements
+-------------------------------- */
+.tweakr-setting input[type="text"] {
+    margin: 0px 20px 0px 0px;
+    width: 100px;
+}
+
+.tweakr-setting input[type="checkbox"] {
+    padding-top: 5px;
+}
+
+.tweakr-setting:after{
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+
+.tweakr-setting label {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 5px 0px 0px;
+}
+
+.tweakr-setting select{
+    margin: 0px 20px 0px 0px;
+}
+
+.tweakr-setting-description{
+    font-style: italic;
+    color: #909090;
+}
+
+/* Text Helper
+-------------------------------- */
+
+.tweakr-text-true {
+    font-weight: bold;
+    color: #7ad03a;
+}
+
+.tweakr-text-false {
+    font-weight: bold;
+    color: #d03a3a;
+}
+
+/* Error Messages
+-------------------------------- */
+.tweakr-error {
+    color: #d03a3a;
+    background-color: #fff1f1;
+    padding: 10px;
+    border: dotted 1px #d03a3a;
+    border-left: solid 3px #d03a3a;
+}
+
+.tweakr-warning {
+    color: #a56d06;
+    background-color: #fff8e3;
+    padding: 10px;
+    border: dotted 1px #d69621;
+    border-left: solid 3px #d69621;
+}
+
+.tweakr-error code, .tweakr-warning code {
+    background-color: #ffffff;
+}
+
+/* Column Layout
+-------------------------------- */
+#tweakr-settings .postbox h3 {
+    background-color: #23282d !important;
+    color: #ffffff !important;
+    cursor: default;
+    font-style: italic;
+}
+
+/* Footer
+-------------------------------- */
+#tweakr-settings .credits {
+    color: #333333;
+    font-style: italic;
+}
+
+/* Tab Nav
+-------------------------------- */
+#tweakr-tabnav {
+    display: none;
+    position: relative !important;
+}
+
+#tweakr-tabnav a {
+    cursor: pointer;
+}
+
+/* Contextual Help
+-------------------------------- */
+
+/* Fix the Contextual Help Link */
+#screen-meta-links, #contextual-help-link-wrap, #contextual-help-link {
+    z-index: 100 !important;
+}
+
+/* Highlight pre tags like code tags */
+.contextual-help-tabs-wrap pre{
+    background: rgba(0,0,0,0.07) !important;
+    padding: 5px;
+    display: inline-block;
+    margin: 0px !important;
+}

@@ -1,0 +1,16 @@
+<p>The following shortcode attributes/options are supported - they will override the global options. All shortcodes (<code>[email]</code>, <code>[telephone]</code> and <code>[cryptex]</code>) are supported.</p>
+
+<p><strong>Syntax: </strong><code>[email color="" size="" security="" offset="" font=""]info@example.com[/email]</code></p>
+
+<p>
+<ul>
+	<li><strong>size</strong>: the font-size in px or pt. Example: <code>[email size="12px"]..[/email]</code></li>
+	<li><strong>color</strong>: the font-color as hex value. Example: <code>[email color="#cc00a1"]..[/email]</code></li>
+	<li><strong>security</strong>: the e-mail output type/security level to use. Example: <code>[email security="0"]..[/email]</code><br />
+		<small>"0" - Plain Text; "1" - Single Image; "2" - Multipart Image; "3" - Advanced Multipart Image</small>
+	</li>
+	<li><strong>offset</strong>: the image-offsets (X,Y,A,B) in px - 4 values required! Example: <code>[email offset="1,1,10,0"]..[/email]</code></li>
+	<li><strong>font</strong>: the font-file used to render the text. Example: <code>[email font="/usr/share/fonts/OpenSans-Light.otf"]..[/email]</code></li>
+	<li><strong>type</strong>(email|telephone): set the shortcode type/uri scheme. Only available in legacy mode Example: <code>[cryptex type="telephone"]..[/telephone]</code></li>
+	<li><strong>href</strong>: override the href attibute of the generated link - allows you to use other uri schemes. Example: <code>[email href="skype:myaccount@skype?call"]..[/email]</code></li>
+</ul></p>

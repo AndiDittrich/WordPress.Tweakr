@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Tweakr" default="devcopy" basedir=".">
+
+    <!-- ANT-contrib !-->
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
+    <!-- Generate Build -->
+    <target name="js-min">
+        <condition property="uglifyjs" value="uglifyjs.cmd">
+            <os family="windows" />
+        </condition>
+        <condition property="uglifyjs" value="uglifyjs">
+            <os family="unix" />
+        </condition>
+
+        <!-- Compressed Version -->
+        <echo message="Generating minified version.." />
+        <exec executable="${uglifyjs}">
+            <arg line="--compress"></arg>
+            <arg line="--mangle"></arg>
+            <arg line="--output resources/CryptexHyperlinkDecoder.min.js"></arg>
+            <arg line="--"></arg>
+            <arg line="resources/CryptexHyperlinkDecoder.js"></arg>
+        </exec>
+    </target>
+
+    <!-- Plugin Test - DEVELOPMENT ONLY -->
+    <target name="devcopy">
+        <!-- Credentials, Host Settings !-->
+        <loadproperties srcFile=".credentials/account.conf" prefix="dev"/>
+
+        <!-- transfer deploy plugin !-->
+        <echo message="Uploading files"/>
+
+        <scp todir="${dev.user}@${dev.host}:${dev.path}" trust="true" port="${dev.port}"
+             keyfile="${user.home}/${dev.keyfile}">
+            <fileset dir="."/>
+        </scp>
+    </target>
+
+    <!-- GitHub readme + changes => WordPress transformation !-->
+    <target name="readme">
+        <!-- merge readme + changes !-->
+        <concat destfile="readme.txt" append="false">
+            <filelist files="README.md, CHANGES.md"/>
+        </concat>
+
+        <!-- replace headings !-->
+        <replaceregexp file="readme.txt" match="^###(.*)###" replace="=\1=" byline="true"/>
+        <replaceregexp file="readme.txt" match="^##(.*)##" replace="==\1==" byline="true"/>
+        <replaceregexp file="readme.txt" match="^#(.*)#" replace="===\1===" byline="true"/>
+    </target>
+
+    <!-- Generate Langage Files -->
+    <target name="potgen">
+        <!-- Merge required source files !-->
+        <exec executable="php">
+            <arg value="util/GeneratePOT.php"/>
+        </exec>
+    </target>
+
+    <!-- Create Release Tag !-->
+    <target name="release" depends="readme, potgen">
+        <input message="Enter release version" addproperty="release.version"/>
+
+        <!-- Set Tag path !-->
+        <property name="svn.tag.path" value="../svn/tags/${release.version}" />
+
+        <if>
+            <available file="${svn.tag.path}" type="dir"/>
+            <then>
+                <fail message="SVN Tag ${release.version} already exists!"/>
+            </then>
+            <else>
+                <echo message="Creating new SVN Tag"/>
+
+                <!-- Create Tag !-->
+                <mkdir dir="${svn.tag.path}"/>
+
+                <!-- Copy Plugin !-->
+                <copy todir="${svn.tag.path}">
+                    <fileset dir=".">
+                        <include name="skltn/**" />
+                        <include name="cache/**" />
+                        <include name="class/**" />
+                        <include name="fonts/**" />
+                        <include name="lang/**" />
+                        <include name="resources/**" />
+                        <include name="views/**" />
+                        <include name="upgrade/**" />
+
+                        <include name="Cryptex.php" />
+                        <include name="readme.txt" />
+                        <include name="LICENSE.txt" />
+                    </fileset>
+                </copy>
+
+            </else>
+        </if>
+    </target>
+</project>

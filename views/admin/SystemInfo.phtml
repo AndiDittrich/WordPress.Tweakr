@@ -1,0 +1,21 @@
+<?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
+
+<div class="postbox">
+<h3 class="hndle"><?php _e('System Info', 'tweakr'); ?></h3>
+<div class="inside">
+<!-- Metabox-Content -->
+   <ul> 
+        <?php 
+        echo '<li>', __('PHP Version:', 'tweakr'), ' <span class="tweakr-text-true">', phpversion() , '</span></li>';
+        
+        // server os
+        echo '<li>', __('Server Software:', 'tweakr'), ' <span class="tweakr-text-true">', PHP_OS, '</span></li>';
+        
+        // tweakr version
+        echo '<li>', __('Tweakr Plugin Version:', 'tweakr'), ' <span class="tweakr-text-true">', TWEAKR_VERSION, '</span></li>';
+
+        ?>
+    </ul>
+
+<!-- // Metabox-Content -->
+</div></div>

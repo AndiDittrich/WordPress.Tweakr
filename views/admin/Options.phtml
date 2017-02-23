@@ -1,0 +1,123 @@
+<?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
+
+
+    <!-- General -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('General', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php 
+            // Hide Generator Tag
+            $this->_settingsUtility->displayCheckbox(__('Generator Tag', 'tweakr'), 'hide-generator', array(
+                'label' => 'Hide WordPress Generator Tag',
+                'description' => 'The Generator Meta Tag displays your current WordPress Version.'
+            ));
+            
+        ?>
+
+    <!-- // General -->
+    </div></div>
+
+    <!-- Frontend -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('Frontend', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php
+            // Hide Adminbar
+            $this->_settingsUtility->displayCheckbox(__('Adminbar', 'tweakr'), 'hide-adminbar', array(
+                'label' => 'Hide Admin-Toolbar',
+                'description' => 'Maybe you do not need the Admin Toolbar or it breaks your theme styles.'
+            ));
+
+            // hide Windows Live Writer manifest file link
+            $this->_settingsUtility->displayCheckbox(__('Windows Live Writer Manifest', 'tweakr'), 'hide-wlwmlink', array(
+                'label' => 'Hide Windows Live Writer Manifest Link',
+                'description' => 'Windows Live Writer is an application for managing blog post. If you do not need it, disable the link.'
+            ));
+
+            // Hide Meta Pagination
+            $this->_settingsUtility->displayCheckbox(__('Meta Pagination', 'tweakr'), 'hide-meta-pagination-link', array(
+                'label' => 'Hide Meta Pagination Links',
+                'description' => 'These Links contains the next/prev page used for page preloading.'
+            ));
+
+            // Disable Emojis
+            $this->_settingsUtility->displayCheckbox(__('Emojis', 'tweakr'), 'disable-emojis', array(
+                'label' => 'Disable Emojis',
+                'description' => 'In case you do not like the Emoji icons - this option also disables related scripts/styles.'
+            ));
+
+            // Disable OEmbeds
+            $this->_settingsUtility->displayCheckbox(__('oEmbed', 'tweakr'), 'disable-oembed', array(
+                'label' => 'Disable oEmbeds',
+                'description' => 'Removes related tags + scripts.'
+            ));
+
+             // Hide Resource Hints
+            $this->_settingsUtility->displayCheckbox(__('Resource Hints', 'tweakr'), 'hide-resource-hints', array(
+                'label' => 'Hide Resource Hints',
+                'description' => 'Standard Resource Hints might not be useful (like w.org). This option will hide all registered types.'
+            ));
+
+        ?>
+
+    <!-- // Frontend -->
+    </div></div>
+
+    <!-- API -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('API (REST/XMLRPC)', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php
+            // Disable XMLRPC
+            $this->_settingsUtility->displayCheckbox(__('XMLRPC', 'tweakr'), 'disable-xmlrpc-api', array(
+                'label' => 'Disable XMLRPC API',
+                'description' => 'The XMLRPC API is used for Pingback Communication with external services but is generally a common security risk.'
+            ));
+
+            // Restrict REST API
+            $this->_settingsUtility->displayCheckbox(__('REST API', 'tweakr'), 'restrict-rest-api', array(
+                'label' => 'Restrict REST API Access',
+                'description' => 'The REST JSON API will be restricted to Admin and Editor Users. Its not available for public access anymore.'
+            ));
+        ?>
+
+    <!-- // API -->
+    </div></div>
+
+    <!-- Feeds -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('Feeds (RSS/RDF/ATOM)', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php
+
+            // Disable Feed Links
+            $this->_settingsUtility->displayCheckbox(__('Links', 'tweakr'), 'hide-feed-link', array(
+                'label' => 'Hide Feed Links',
+                'description' => 'Removes the Content and Comments Feed links from your Site.'
+            ));
+
+            // Disable RSS
+            $this->_settingsUtility->displayCheckbox(__('RSS', 'tweakr'), 'disable-rss', array(
+                'label' => 'Disable RSS Feeds',
+                'description' => 'Removes RSS Endpoints from Content and Comments. User get redirected to homepage.'
+            ));
+
+            // Disable Atom
+            $this->_settingsUtility->displayCheckbox(__('Atom', 'tweakr'), 'disable-atom', array(
+                'label' => 'Disable Atom Feeds',
+                'description' => 'Removes Atom Endpoints from Content and Comments. User get redirected to homepage.'
+            ));
+
+            // Disable RDF
+            $this->_settingsUtility->displayCheckbox(__('RDF', 'tweakr'), 'disable-rdf', array(
+                'label' => 'Disable RDF Feeds',
+                'description' => 'Removes the RDF Endpoint. User get redirected to homepage.'
+            ));
+        ?>
+
+    <!-- // Feeds -->
+    </div></div>

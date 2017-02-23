@@ -1,0 +1,13 @@
+<p>It is also possible to use Cryptex directly in your Theme's PHP files. All options (local overrides) are exactly like the shortcode attributes.<br />
+Notice: all calls to the cryptex-functions have to be done <strong>before</strong> calling <code>wp_footer()</code> in retina/high-dpi mode!</p>
+
+<p><strong>Example (Direct output): </strong>
+<code>... &lt;?php Cryptex::crypt('address@example.com' [, $options=array()]); ?&gt; ...</code></p>
+
+<p><strong>Example (Capture output): </strong>
+<code>&lt;?php $addr = Cryptex::getEncryptedAddress('address@example.com' [, $options=array()]); ?&gt;</code></p>
+
+<br />
+<p>Need some local options ? You can easily use all shortcode-attributes by passing them as array (second argument)</p>
+<p><strong>Example (use options): </strong>
+<code>... &lt;?php Cryptex::crypt('address@example.com', array('color' => '#0031f0', 'size' => '13pt')); ?&gt; ...</code></p>
