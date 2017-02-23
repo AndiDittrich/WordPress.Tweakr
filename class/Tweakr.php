@@ -59,13 +59,13 @@ class Tweakr{
             add_action('in_plugin_update_message-tweakr/Tweakr.php', array($this, 'showUpgradeAvailabilityNotification'), 10, 2);
 
             // plugin upgraded ?
-            if (get_option('tweakr-upgrade', false) === true){
+            if (get_option('tweakr-upgrade', '-') === 'true'){
                 // add admin message handler
                 add_action('admin_notices', array($this, 'showUpgradeMessage'));
                 add_action('network_admin_notices', array($this, 'showUpgradeMessage'));
 
                 // clear flag - avoid issues with caching plugin - override AND delete the flag
-                update_option('tweakr-upgrade', false);
+                update_option('tweakr-upgrade', '-');
                 delete_option('tweakr-upgrade');
             }
 
@@ -256,15 +256,20 @@ class Tweakr{
             // fetch plugin version
             $version = get_option('tweakr-version', '0.0.0');
 
+            // plugin installed ?
+            if ($version == '0.0.0'){
+                // store new version
+                update_option('tweakr-version', '1.0-BETA3');
+
             // plugin upgraded ?
-            if (version_compare('1.0-BETA1', $version, '>')){
+            }else if (version_compare('1.0-BETA3', $version, '>')){
                 // run upgrade hook
                 if ($i->_wp_plugin_upgrade($version)){
                     // store new version
-                    update_option('tweakr-version', '1.0-BETA1');
+                    update_option('tweakr-version', '1.0-BETA3');
 
-                    // set flag
-                    update_option('tweakr-upgrade', true);
+                    // set flag (string!)
+                    update_option('tweakr-upgrade', 'true');
                 }
             }
         }
