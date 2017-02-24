@@ -12,7 +12,7 @@ Extends your WordPress Blog with a bunch of common Tweaks and Utilities.
 == Description ==
 
 This plugin is a collection of common used tweaks to get control of WordPress Core Features.
-It is designed as **all-in-one** solution espacially designed for **Web-Agencies** and **Advanced Users**.
+It is designed as **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
 
 = Plugin Features =
 

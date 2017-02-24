@@ -61,7 +61,7 @@
     </target>
 
     <!-- Create Release Tag !-->
-    <target name="release" depends="readme, potgen">
+    <target name="release" depends="readme">
         <input message="Enter release version" addproperty="release.version"/>
 
         <!-- Set Tag path !-->

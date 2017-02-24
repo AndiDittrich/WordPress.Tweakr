@@ -48,7 +48,6 @@ if (version_compare(phpversion(), '5.3', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/PluginConfig.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/Hash.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/API.php');
-    require_once(TWEAKR_PLUGIN_PATH.'/class/ContextualHelp.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Feeds.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Frontend.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/ResourceLoader.php');
