@@ -84,13 +84,11 @@
                         <include name="skltn/**" />
                         <include name="cache/**" />
                         <include name="class/**" />
-                        <include name="fonts/**" />
                         <include name="lang/**" />
                         <include name="resources/**" />
                         <include name="views/**" />
-                        <include name="upgrade/**" />
 
-                        <include name="Cryptex.php" />
+                        <include name="Tweakr.php" />
                         <include name="readme.txt" />
                         <include name="LICENSE.txt" />
                     </fileset>
