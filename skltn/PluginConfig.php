@@ -27,7 +27,8 @@ class PluginConfig{
         'disable-rdf' => false,
         'google-analytics-enabled' => false,
         'google-analytics-trackingid' => '',
-        'google-analytics-anonymizeip' => true
+        'google-analytics-anonymizeip' => true,
+        'google-analytics-optout-shortcode' => false
     );
 
     // validation
@@ -49,7 +50,8 @@ class PluginConfig{
         'disable-rdf' => 'boolean',
         'google-analytics-enabled' => 'boolean',
         'google-analytics-trackingid' => 'string',
-        'google-analytics-anonymizeip' => 'boolean'
+        'google-analytics-anonymizeip' => 'boolean',
+        'google-analytics-optout-shortcode' => 'boolean'
     );
 
     // get the default plugin config

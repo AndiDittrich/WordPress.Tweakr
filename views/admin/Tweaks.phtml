@@ -100,25 +100,29 @@
             // Disable Feed Links
             $this->_settingsUtility->displayCheckbox(__('Links', 'tweakr'), 'hide-feed-link', array(
                 'label' => 'Hide Feed Links',
-                'description' => 'Removes the Content and Comments Feed links from your Site.'
+                'description' => 'Removes the Content and Comments Feed links from your Site.',
+                'readmore' => 'https://codex.wordpress.org/WordPress_Feeds'
             ));
 
             // Disable RSS
             $this->_settingsUtility->displayCheckbox(__('RSS', 'tweakr'), 'disable-rss', array(
                 'label' => 'Disable RSS Feeds',
-                'description' => 'Removes RSS Endpoints from Content and Comments. User get redirected to homepage.'
+                'description' => 'Removes RSS Endpoints from Content and Comments. User get redirected to homepage.',
+                'readmore' => 'https://codex.wordpress.org/WordPress_Feeds'
             ));
 
             // Disable Atom
             $this->_settingsUtility->displayCheckbox(__('Atom', 'tweakr'), 'disable-atom', array(
                 'label' => 'Disable Atom Feeds',
-                'description' => 'Removes Atom Endpoints from Content and Comments. User get redirected to homepage.'
+                'description' => 'Removes Atom Endpoints from Content and Comments. User get redirected to homepage.',
+                'readmore' => 'https://codex.wordpress.org/WordPress_Feeds'
             ));
 
             // Disable RDF
             $this->_settingsUtility->displayCheckbox(__('RDF', 'tweakr'), 'disable-rdf', array(
                 'label' => 'Disable RDF Feeds',
-                'description' => 'Removes the RDF Endpoint. User get redirected to homepage.'
+                'description' => 'Removes the RDF Endpoint. User get redirected to homepage.',
+                'readmore' => 'https://codex.wordpress.org/WordPress_Feeds'
             ));
         ?>
 

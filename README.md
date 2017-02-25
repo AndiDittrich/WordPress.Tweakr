@@ -16,11 +16,11 @@ It is designed as **all-in-one** solution espacially for **Web-Agencies** and **
 
 ### Plugin Features ###
 
-### Analytics ###
+### Google Analytics ###
 
-* Google Universal Analytics Support - just add your Tracking-ID
+* Google Analytics Support - just add your Tracking-ID
 * AnonymizeIP Option
-* OPT-OUT Shortcode
+* OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers!
 
 ### Tweaks ###
 The following WordPress Core Features can be **disabled/hidden separately**

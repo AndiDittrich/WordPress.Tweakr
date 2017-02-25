@@ -92,6 +92,7 @@
 .tweakr-setting-description{
     font-style: italic;
     color: #909090;
+    max-width: 700px;
 }
 
 /* Text Helper

@@ -73,6 +73,9 @@ class Tweakr{
             $this->_settingsUtility = new Tweakr\skltn\SettingsViewHelper($this->_settingsManager);
         }else{
 
+            // GA instance
+            $googleAnalytics = new Tweakr\GoogleAnalytics();
+
             // API
             // ------------------------------------------------------------------
             // xmlrpc
@@ -146,10 +149,15 @@ class Tweakr{
 
             // Google Universal Analytics
             if ($this->_settingsManager->getOption('google-analytics-enabled') && !empty($this->_settingsManager->getOption('google-analytics-trackingid'))){
-                Tweakr\GoogleAnalytics::init(
+                $googleAnalytics->init(
                     $this->_settingsManager->getOption('google-analytics-trackingid'),
                     $this->_settingsManager->getOption('google-analytics-anonymizeip')
                 );
+            }
+
+            // Google Universal Analytics OptOut Button
+            if ($this->_settingsManager->getOption('google-analytics-optout-shortcode')){
+                add_shortcode('googleanalytics-optout', array($googleAnalytics, 'optButtonShortcode'));
             }
             
             // apply frontend resource loading hooks
