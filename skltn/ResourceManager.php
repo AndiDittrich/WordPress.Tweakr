@@ -59,4 +59,23 @@ class ResourceManager{
         }
     }
 
+    // cache
+    private static $__dynamicScriptBuffer = false;
+
+    // enqueue dynamics scripts
+    public static function enqueueDynamicScript($script){
+        // initialized ?
+        if (self::$__dynamicScriptBuffer === false){
+            // hook into footer print script action
+            add_action('wp_print_footer_scripts', function(){
+                echo '<script type="text/javascript">/* <![CDATA[ */', self::$__dynamicScriptBuffer ,' /* ]]> */</script>';
+            });
+
+            // clear buffer
+            self::$__dynamicScriptBuffer = '';
+        }
+
+        // append
+        self::$__dynamicScriptBuffer .= $script;
+    }
 }

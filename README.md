@@ -16,6 +16,13 @@ It is designed as **all-in-one** solution espacially for **Web-Agencies** and **
 
 ### Plugin Features ###
 
+### Analytics ###
+
+* Google Universal Analytics Support - just add your Tracking-ID
+* AnonymizeIP Option
+* OPT-OUT Shortcode
+
+### Tweaks ###
 The following WordPress Core Features can be **disabled/hidden separately**
 
 * Disable XMLRPC API
@@ -35,7 +42,7 @@ The following WordPress Core Features can be **disabled/hidden separately**
 ## Installation ##
 
 ### System requirements ###
-* PHP 5.3 or greater
+* PHP 5.4 or greater
 
 ### Installation ###
 1. Upload the complete `tweakr` folder (Wordpress Plugin) to the `/wp-content/plugins/` directory

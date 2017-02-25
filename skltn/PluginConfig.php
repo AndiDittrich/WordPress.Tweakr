@@ -24,7 +24,10 @@ class PluginConfig{
         'hide-resource-hints' => false,
         'disable-rss' => false,
         'disable-atom' => false,
-        'disable-rdf' => false
+        'disable-rdf' => false,
+        'google-analytics-enabled' => false,
+        'google-analytics-trackingid' => '',
+        'google-analytics-anonymizeip' => true
     );
 
     // validation
@@ -43,7 +46,10 @@ class PluginConfig{
         'hide-resource-hints' => 'boolean',
         'disable-rss' => 'boolean',
         'disable-atom' => 'boolean',
-        'disable-rdf' => 'boolean'
+        'disable-rdf' => 'boolean',
+        'google-analytics-enabled' => 'boolean',
+        'google-analytics-trackingid' => 'string',
+        'google-analytics-anonymizeip' => 'boolean'
     );
 
     // get the default plugin config

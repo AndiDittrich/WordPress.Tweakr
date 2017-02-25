@@ -16,6 +16,33 @@ class SettingsViewHelper{
         // load all options
         $this->_config = $settingsManager->getOptions();
     }
+
+    // Generates a selectform  based on settings-name
+    public function displaySelect($title, $optionName, $values){
+        
+        // open setting block
+        $this->settingsHeader($optionName, $title);
+
+        // element attributes
+        $attb = array(
+            'name' => 'tweakr-options[' . $optionName . ']',
+            'id'   => 'tweakr-' . $optionName
+        );
+
+        // generate tag, escape attributes
+        echo HtmlUtil::generateTag('select', $attb, false);
+
+        // generate option list
+        foreach ($values as $key=>$value){
+            $selected = ($this->_config[$optionName] == $value) ? 'selected="selected"' : '';
+            echo '<option value="', esc_attr($value), '" '.$selected.'>', esc_html($key), '</option>';
+        }
+        
+        echo '</select>';
+
+        // close setting block
+        $this->settingsFooter();
+    }
     
     // Generates a checkbox based on the settings-name
     public function displayCheckbox($title, $optionName, $options=array()){
@@ -64,40 +91,18 @@ class SettingsViewHelper{
         // close setting block
         $this->settingsFooter($options);
     }
-        
-    // Generates a selectform  based on settings-name
-    public function displaySelect($title, $optionName, $values){
-        
-        // open setting block
-        $this->settingsHeader($optionName, $title);
+ 
 
-        // element attributes
-        $attb = array(
-            'name' => 'tweakr-options[' . $optionName . ']',
-            'id'   => 'tweakr-' . $optionName
-        );
-
-        // generate tag, escape attributes
-        echo HtmlUtil::generateTag('select', $attb, false);
-
-        // generate option list
-        foreach ($values as $key=>$value){
-            $selected = ($this->_config[$optionName] == $value) ? 'selected="selected"' : '';
-            echo '<option value="', esc_attr($value), '" '.$selected.'>', esc_html($key), '</option>';
-        }
-        
-        echo '</select>';
-
-        // close setting block
-        $this->settingsFooter();
-    }
-        
-        
     // Generates a input-form
-    public function displayInput($title, $optionName, $label, $cssClass=''){
+    public function displayInput($title, $optionName, $options = array()){
 
         // open setting block
         $this->settingsHeader($optionName, $title);
+
+        // wrap into label
+        echo HtmlUtil::generateTag('label', array(
+            'for' => 'tweakr[' . $optionName . ']'
+        ), false);
 
         // element attributes
         $attb = array(
@@ -106,24 +111,23 @@ class SettingsViewHelper{
             'type' => 'text',
             'title' => $title,
             'value' => $this->_config[$optionName],
-            'class' => $cssClass
+            'class' => (isset($options['cssClass']) ? $options['cssClass'] : ''),
+            'placeholder' => (isset($options['placeholder']) ? $options['placeholder'] : '')
         );
-
-        // option selected ?
-        if ($this->_config[$optionName]){ 
-            $attb['checked'] = 'checked';
-        }
 
         // generate tag, escape attributes
         echo HtmlUtil::generateTag('input', $attb, true);
 
-        // generate label
-        echo HtmlUtil::generateTag('label', array(
-            'for' => 'tweakr[' . $optionName . ']'  
-        ), true, $label);
+        // add label text ?
+        if (isset($options['label'])){
+            echo esc_html($options['label']);
+        }
+
+        // close label
+        echo '</label>';
 
         // close setting block
-        $this->settingsFooter();
+        $this->settingsFooter($options);
     }
 
     private function settingsHeader($optionName, $title){
@@ -135,9 +139,19 @@ class SettingsViewHelper{
 
         // show description ?
         if (isset($options['description']) && !empty($options['description'])){
-           echo HtmlUtil::generateTag('div', array(
-                'class' => 'tweakr-setting-description'
-            ), true, $options['description']);
+            echo '<div class="tweakr-setting-description">';
+            echo esc_html($options['description']);
+
+            // read-more link available ?
+            if (isset($options['readmore'])){
+                echo ' ', HtmlUtil::generateTag('a', array(
+                    'href' => $options['readmore'],
+                    'title' => 'Read More',
+                    'target' => '_blank'
+                ), true, 'Read More');
+            }
+
+            echo '</div>';
         }
 
         // close setting block, close input block

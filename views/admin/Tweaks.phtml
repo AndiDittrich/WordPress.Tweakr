@@ -26,7 +26,7 @@
         <?php
             // Hide Adminbar
             $this->_settingsUtility->displayCheckbox(__('Adminbar', 'tweakr'), 'hide-adminbar', array(
-                'label' => 'Hide Admin-Toolbar',
+                'label' => 'Global hide Admin-Toolbar',
                 'description' => 'Maybe you do not need the Admin Toolbar or it breaks your theme styles.'
             ));
 
@@ -45,7 +45,8 @@
             // Disable Emojis
             $this->_settingsUtility->displayCheckbox(__('Emojis', 'tweakr'), 'disable-emojis', array(
                 'label' => 'Disable Emojis',
-                'description' => 'In case you do not like the Emoji icons - this option also disables related scripts/styles.'
+                'description' => 'In case you do not like the Emoji icons - this option also disables related scripts/styles.',
+                'readmore' => 'https://codex.wordpress.org/Emoji'
             ));
 
             // Disable OEmbeds
@@ -74,13 +75,15 @@
             // Disable XMLRPC
             $this->_settingsUtility->displayCheckbox(__('XMLRPC', 'tweakr'), 'disable-xmlrpc-api', array(
                 'label' => 'Disable XMLRPC API',
-                'description' => 'The XMLRPC API is used for Pingback Communication with external services but is generally a common security risk.'
+                'description' => 'The XMLRPC API is used for Pingback Communication with external services but is generally a common security risk.',
+                'readmore' => 'https://codex.wordpress.org/XML-RPC_Support'
             ));
 
             // Restrict REST API
             $this->_settingsUtility->displayCheckbox(__('REST API', 'tweakr'), 'restrict-rest-api', array(
                 'label' => 'Restrict REST API Access',
-                'description' => 'The REST JSON API will be restricted to Admin and Editor Users. Its not available for public access anymore.'
+                'description' => 'The REST JSON API will be restricted to Admin and Editor Users. Its not available for public access anymore.',
+                'readmore' => 'https://developer.wordpress.org/rest-api/'
             ));
         ?>
 

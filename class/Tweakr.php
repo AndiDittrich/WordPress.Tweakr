@@ -140,6 +140,17 @@ class Tweakr{
             if ($this->_settingsManager->getOption('disable-atom')){
                 Tweakr\Feeds::disableAtom();
             }
+
+            // Analytics
+            // ------------------------------------------------------------------
+
+            // Google Universal Analytics
+            if ($this->_settingsManager->getOption('google-analytics-enabled') && !empty($this->_settingsManager->getOption('google-analytics-trackingid'))){
+                Tweakr\GoogleAnalytics::init(
+                    $this->_settingsManager->getOption('google-analytics-trackingid'),
+                    $this->_settingsManager->getOption('google-analytics-anonymizeip')
+                );
+            }
             
             // apply frontend resource loading hooks
             $this->_resourceLoader->frontend();
@@ -259,14 +270,14 @@ class Tweakr{
             // plugin installed ?
             if ($version == '0.0.0'){
                 // store new version
-                update_option('tweakr-version', '1.0');
+                update_option('tweakr-version', '1.1-BETA1');
 
             // plugin upgraded ?
-            }else if (version_compare('1.0', $version, '>')){
+            }else if (version_compare('1.1-BETA1', $version, '>')){
                 // run upgrade hook
                 if ($i->_wp_plugin_upgrade($version)){
                     // store new version
-                    update_option('tweakr-version', '1.0');
+                    update_option('tweakr-version', '1.1-BETA1');
 
                     // set flag (string!)
                     update_option('tweakr-upgrade', 'true');

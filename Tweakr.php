@@ -3,7 +3,7 @@
     Plugin Name: Tweakr Toolkit
     Plugin URI: https://andidittrich.de/go/tweakr
     Description: Extends your WordPress Blog with a bunch of common Tweaks and Utilities
-    Version: 1.0
+    Version: 1.1-BETA1
     Author: Andi Dittrich
     Author URI: https://andidittrich.de
     License: MIT X11 License
@@ -23,7 +23,7 @@
     Plugin Bootstrap Operation
 */
 define('TWEAKR_INIT', true);
-define('TWEAKR_VERSION', '1.0');
+define('TWEAKR_VERSION', '1.1-BETA1');
 define('TWEAKR_PLUGIN_PATH', dirname(__FILE__));
 define('TWEAKR_PLUGIN_URL', plugins_url('/tweakr/'));
 
@@ -31,14 +31,14 @@ define('TWEAKR_PLUGIN_URL', plugins_url('/tweakr/'));
 // PHP Version Error Notice
 function Tweakr_PhpEnvironmentError(){
     // error message
-    $message = '<strong>Tweakr Plugin Error:</strong> Your PHP Version <strong style="color: #cc0a00">('. phpversion() .')</strong> is outdated! <strong>PHP 5.3 or greater</strong> is required to run this plugin!';
+    $message = '<strong>Tweakr Plugin Error:</strong> Your PHP Version <strong style="color: #cc0a00">('. phpversion() .')</strong> is outdated! <strong>PHP 5.4 or greater</strong> is required to run this plugin!';
 
     // styling
     echo '<div class="notice notice-error is-dismissible"><p>', $message, '</p></div>';
 }
 
 // check php version
-if (version_compare(phpversion(), '5.3', '>=')){
+if (version_compare(phpversion(), '5.4', '>=')){
     // load classes
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/HtmlUtil.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/SettingsManager.php');
@@ -50,6 +50,7 @@ if (version_compare(phpversion(), '5.3', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/class/API.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Feeds.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Frontend.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/GoogleAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/ResourceLoader.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Tweakr.php');
 
