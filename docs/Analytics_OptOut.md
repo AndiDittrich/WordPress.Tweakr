@@ -1,7 +1,7 @@
 Opt-Out Shortcode to Disable Google Analytics
 ==================================================
 
-![Screenshot](assets/Example_AnalyticsOptOut.png)
+![Screenshot](../assets/Example_AnalyticsOptOut.png)
 
 ### Shortcode ###
 
