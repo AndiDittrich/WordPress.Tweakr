@@ -16,12 +16,6 @@ It is designed as **all-in-one** solution espacially for **Web-Agencies** and **
 
 ### Plugin Features ###
 
-### Google Analytics ###
-
-* Google Analytics Support - just add your Tracking-ID
-* AnonymizeIP Option
-* OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers!
-
 ### Tweaks ###
 The following WordPress Core Features can be **disabled/hidden separately**
 
@@ -38,6 +32,14 @@ The following WordPress Core Features can be **disabled/hidden separately**
 * Disable RSS Feeds
 * Disable Atom Feeds
 * Disable RDF Feeds
+
+### Google Analytics ###
+
+* Google Analytics Support - just add your Tracking-ID
+* AnonymizeIP Option
+* OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers
+* IE8 Compatible
+
 
 ## Installation ##
 
@@ -57,6 +59,7 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 ## Screenshots ##
 
 1. Settings Page
+2. Google Analytics OPT-OUT Button
 
 ## Upgrade Notice ##
 
