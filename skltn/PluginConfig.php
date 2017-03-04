@@ -28,7 +28,11 @@ class PluginConfig{
         'google-analytics-enabled' => false,
         'google-analytics-trackingid' => '',
         'google-analytics-anonymizeip' => true,
-        'google-analytics-optout-shortcode' => false
+        'google-analytics-optout-shortcode' => false,
+        'piwik-analytics-enabled' => false,
+        'piwik-analytics-host' => '',
+        'piwik-analytics-siteid' => -1,
+        'piwik-analytics-optout-shortcode' => false
     );
 
     // validation
@@ -51,7 +55,11 @@ class PluginConfig{
         'google-analytics-enabled' => 'boolean',
         'google-analytics-trackingid' => 'string',
         'google-analytics-anonymizeip' => 'boolean',
-        'google-analytics-optout-shortcode' => 'boolean'
+        'google-analytics-optout-shortcode' => 'boolean',
+        'piwik-analytics-enabled' => 'boolean',
+        'piwik-analytics-host' => 'string',
+        'piwik-analytics-siteid' => 'int',
+        'piwik-analytics-optout-shortcode' => 'boolean'
     );
 
     // get the default plugin config

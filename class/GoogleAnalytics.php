@@ -8,9 +8,19 @@ use \Tweakr\skltn\HtmlUtil as HtmlUtil;
 class GoogleAnalytics{
 
     // add google analytics tracking code
-    public function init($trackingID, $anonymizeIP = false){
+    public static function init($settingsManager){
+
+        // get options
+        $trackingID = $settingsManager->getOption('google-analytics-trackingid');
+        $anonymizeIP = $settingsManager->getOption('google-analytics-anonymizeip');
+
+        // tracking id set ?
+        if (empty($trackingID)){
+            return;
+        }
+
         // get minified tracking code
-        $code = file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/google-analytics.min.js');
+        $code = file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/analytics/google-analytics.min.js');
 
         // strip closing bracket
         $code = substr($code, 0, -2);
@@ -23,7 +33,7 @@ class GoogleAnalytics{
     }
 
     // display user profile (render as html)
-    public function optButtonShortcode($attb = array()){
+    public static function optButtonShortcode($attb = array()){
 
         // set defaults
         $attb = shortcode_atts( array(

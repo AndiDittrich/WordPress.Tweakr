@@ -73,9 +73,6 @@ class Tweakr{
             $this->_settingsUtility = new Tweakr\skltn\SettingsViewHelper($this->_settingsManager);
         }else{
 
-            // GA instance
-            $googleAnalytics = new Tweakr\GoogleAnalytics();
-
             // API
             // ------------------------------------------------------------------
             // xmlrpc
@@ -144,20 +141,34 @@ class Tweakr{
                 Tweakr\Feeds::disableAtom();
             }
 
-            // Analytics
+            // Google Analytics
             // ------------------------------------------------------------------
 
             // Google Universal Analytics
-            if ($this->_settingsManager->getOption('google-analytics-enabled') && !empty($this->_settingsManager->getOption('google-analytics-trackingid'))){
-                $googleAnalytics->init(
-                    $this->_settingsManager->getOption('google-analytics-trackingid'),
-                    $this->_settingsManager->getOption('google-analytics-anonymizeip')
-                );
+            if ($this->_settingsManager->getOption('google-analytics-enabled')){
+                
+                // initialize
+                Tweakr\GoogleAnalytics::init($this->_settingsManager);
+
+                // Google Universal Analytics OptOut Button
+                if ($this->_settingsManager->getOption('google-analytics-optout-shortcode')){
+                    add_shortcode('googleanalytics-optout', array('\Tweakr\GoogleAnalytics', 'optButtonShortcode'));
+                }
             }
 
-            // Google Universal Analytics OptOut Button
-            if ($this->_settingsManager->getOption('google-analytics-optout-shortcode')){
-                add_shortcode('googleanalytics-optout', array($googleAnalytics, 'optButtonShortcode'));
+            // Piwik Analytics
+            // ------------------------------------------------------------------
+
+            // Piwik Analytics
+            if ($this->_settingsManager->getOption('piwik-analytics-enabled')){
+                
+                // initialize
+                Tweakr\PiwikAnalytics::init($this->_settingsManager);
+                
+                // Piwik Analytics OptOut Button
+                if ($this->_settingsManager->getOption('piwik-analytics-optout-shortcode')){
+                    add_shortcode('piwikanalytics-optout', array('\Tweakr\PiwikAnalytics', 'optButtonShortcode'));
+                }
             }
             
             // apply frontend resource loading hooks
