@@ -1,11 +1,11 @@
 // Tweakr Analytics Tracking Code with OPT-OUT Button
 (function(_window, _document, cookieName, trackingID, anonymizeIP){
     // get optout button
-    var optoutButton = _document.getElementById('tweakr-analytics-optout');
+    var optoutButton = _document.getElementById('tweakr-ga-optout');
 
     var buttonDisabled = function(){
         optoutButton.innerHTML = optoutButton.getAttribute('data-text-disabled');
-        optoutButton.className = 'tweakr-analytics-out';
+        optoutButton.className = 'tweakr-ga-out';
     };
 
     // opt-out cookie not set ?
@@ -68,4 +68,4 @@
     }
 
 // initialize
-})(window, document, 'tweakr-analytics-optout=');
+})(window, document, 'tweakr-ga-optout=');

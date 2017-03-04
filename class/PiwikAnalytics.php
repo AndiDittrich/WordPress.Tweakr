@@ -36,7 +36,7 @@ class PiwikAnalytics{
         $params[] = array('setSiteId', $piwikSiteID);
 
         // get minified tracking code
-        $code = file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/analytics/piwik-analytics.js');
+        $code = file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/analytics/piwik-analytics.min.js');
 
         // strip closing bracket
         $code = substr($code, 0, -2);
