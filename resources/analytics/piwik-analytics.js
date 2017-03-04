@@ -1,5 +1,5 @@
 // Tweakr Piwik Analytics Tracking Code with OPT-OUT Button
-(function(_window, _document, host, piwikParams){
+(function(_window, _document, cookieName, host, piwikParams){
     // get optout button
     var optoutButton = _document.getElementById('tweakr-piwik-optout');
     
@@ -9,7 +9,7 @@
     };
 
     // opt-out cookie not set ?
-    if (_document.cookie.indexOf('tweakr-piwik-optout=') == -1){
+    if (_document.cookie.indexOf(cookieName) == -1){
         // opt-out button visible on current page ?
         if (optoutButton){
             // listen to onclick event
@@ -21,7 +21,7 @@
                 expire.setTime(expire.getTime() + 1000 * 60 * 60 * 24 * 365 * 10);
 
                 // set cookie
-                _document.cookie = 'tweakr-piwik-optout=1;path=/;expires=' + expire.toGMTString() + ';';
+                _document.cookie = cookieName + '1;path=/;expires=' + expire.toGMTString() + ';';
 
                 // trigger disabled action
                 buttonDisabled();
@@ -29,11 +29,20 @@
         }
 
         // PIWIK Tracking Code
+        // @see https://developer.piwik.org/guides/tracking-javascript-guide
         _window._paq = piwikParams;
         _window._paq.push(['setTrackerUrl', host + 'piwik.php']);
         (function(){
-            var g=_document.createElement('script'), s=_document.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.defer=true; g.src=host + 'piwik.js'; s.parentNode.insertBefore(g,s);
+            // create script tag
+            var trackerScript = _document.createElement('script');
+            trackerScript.type = 'text/javascript'; 
+            trackerScript.async = true;
+            trackerScript.defer = true;
+            trackerScript.src= host + 'piwik.js'; 
+            
+            // insert script element to the top and load piwik.js
+            var scriptElementAnchor = _document.getElementsByTagName('script')[0];
+            scriptElementAnchor.parentNode.insertBefore(trackerScript, scriptElementAnchor);
         })();
 
     // cookie set
@@ -45,4 +54,4 @@
     }
 
 // initialize
-})(window, document);
+})(window, document, 'tweakr-piwik-optout=');
