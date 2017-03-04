@@ -2,7 +2,7 @@
     "slug": "tweakr",
     "name": "Tweakr",
     "namespace": "Tweakr",
-    "version": "1.1-BETA2",
+    "version": "1.1-BETA3",
     "license": "MIT X11 License",
     "licenseFile": "LICENSE.txt",
     "constants": {},
@@ -13,5 +13,5 @@
         "author": "Andi Dittrich",
         "authorUrl": "https://andidittrich.de"
     },
-    "skltnVersion": "0.5.0"
+    "skltnVersion": "0.6.0"
 }

@@ -35,7 +35,10 @@
 .tweakr-setting-section h4 {
     color: #0074a2;
     display: block;
-    border-bottom: dotted 2px #c0c0c0;
+    border-bottom: solid 4px #efefef;
+    font-size: 1.1em;
+    line-height: 2em;
+    max-width: 1000px;
 }
 
 .tweakr-setting-section img {
