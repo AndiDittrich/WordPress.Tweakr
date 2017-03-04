@@ -49,7 +49,7 @@
             trackerScript.async = true;
             trackerScript.src= 'https://www.google-analytics.com/analytics.js'; 
             
-            // insert script element to the top and load piwik.js
+            // insert script element to the top and load analytics.js
             var scriptElementAnchor = _document.getElementsByTagName('script')[0];
             scriptElementAnchor.parentNode.insertBefore(trackerScript, scriptElementAnchor);
         })();

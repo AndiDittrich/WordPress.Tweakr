@@ -43,8 +43,8 @@ class GoogleAnalytics{
 
         // enabled or disabled ? visual user feedback
         return HtmlUtil::generateTag('button', array(
-            'name' => 'tweakr-analytics-optout',
-            'id' => 'tweakr-analytics-optout',
+            'name' => 'tweakr-ga-optout',
+            'id' => 'tweakr-ga-optout',
             'type' => 'button',
             'value' => '1',
             'data-text-disabled' => $attb['out'],
