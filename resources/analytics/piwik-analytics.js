@@ -32,18 +32,18 @@
         // @see https://developer.piwik.org/guides/tracking-javascript-guide
         _window._paq = piwikParams;
         _window._paq.push(['setTrackerUrl', host + 'piwik.php']);
-        (function(){
+        (function(scriptTag){
             // create script tag
-            var trackerScript = _document.createElement('script');
+            var trackerScript = _document.createElement(scriptTag);
             trackerScript.type = 'text/javascript'; 
             trackerScript.async = true;
             trackerScript.defer = true;
             trackerScript.src= host + 'piwik.js'; 
             
             // insert script element to the top and load piwik.js
-            var scriptElementAnchor = _document.getElementsByTagName('script')[0];
+            var scriptElementAnchor = _document.getElementsByTagName(scriptTag)[0];
             scriptElementAnchor.parentNode.insertBefore(trackerScript, scriptElementAnchor);
-        })();
+        })('script');
 
     // cookie set
     }else{

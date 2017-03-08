@@ -40,6 +40,13 @@ The following WordPress Core Features can be **disabled/hidden separately**
 * OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers
 * IE8 Compatible
 
+### Piwik Analytics ###
+
+* Piwik3 Support - add your Piwik Host URL + Site ID - thats it!
+* OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers
+* Simple Page Name Option (Records the Document Title without Blog Name)
+* DoNoTrack Option
+* Option to add the Hostname to your Document Title (useful for multidomain sites)
 
 ## Installation ##
 

@@ -32,7 +32,11 @@ class PluginConfig{
         'piwik-analytics-enabled' => false,
         'piwik-analytics-host' => '',
         'piwik-analytics-siteid' => -1,
-        'piwik-analytics-optout-shortcode' => false
+        'piwik-analytics-optout-shortcode' => false,
+        'piwik-analytics-subdomain-tracking' => false,
+        'piwik-analytics-prepend-domain' => false,
+        'piwik-analytics-dnt' => true,
+        'pwiki-analytics-simple-pagetitle' => false
     );
 
     // validation
@@ -59,7 +63,11 @@ class PluginConfig{
         'piwik-analytics-enabled' => 'boolean',
         'piwik-analytics-host' => 'string',
         'piwik-analytics-siteid' => 'int',
-        'piwik-analytics-optout-shortcode' => 'boolean'
+        'piwik-analytics-optout-shortcode' => 'boolean',
+        'piwik-analytics-subdomain-tracking' => 'boolean',
+        'piwik-analytics-prepend-domain' => 'boolean',
+        'piwik-analytics-dnt' => 'boolean',
+        'pwiki-analytics-simple-pagetitle' => 'boolean'
     );
 
     // get the default plugin config

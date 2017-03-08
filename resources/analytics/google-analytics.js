@@ -30,7 +30,7 @@
 
         // Google Analytics Code Snippet
         // @see https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference
-        (function(){
+        (function(scriptTag){
             // Acts as a pointer to support renaming - Not used by Tweakr
             _window['GoogleAnalyticsObject'] = 'ga';
 
@@ -44,15 +44,15 @@
             _window.ga.l = 1 * new Date();
 
             // create script tag
-            var trackerScript = _document.createElement('script');
+            var trackerScript = _document.createElement(scriptTag);
             trackerScript.type = 'text/javascript';
             trackerScript.async = true;
             trackerScript.src= 'https://www.google-analytics.com/analytics.js'; 
             
             // insert script element to the top and load analytics.js
-            var scriptElementAnchor = _document.getElementsByTagName('script')[0];
+            var scriptElementAnchor = _document.getElementsByTagName(scriptTag)[0];
             scriptElementAnchor.parentNode.insertBefore(trackerScript, scriptElementAnchor);
-        })();
+        })('script');
 
         // Google Analytics Init
         ga('create', trackingID, 'auto');

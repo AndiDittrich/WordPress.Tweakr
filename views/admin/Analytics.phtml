@@ -3,7 +3,7 @@
 
     <!-- Google Analytics -->
     <div class="postbox">
-    <h3 class="hndle"><span><?php _e('Google Universal Analytics', 'tweakr'); ?></span></h3>
+    <h3 class="hndle"><span><?php _e('Google Analytics', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
         <h4><?php _e('General Settings', 'tweakr'); ?></h4>
@@ -11,33 +11,37 @@
         <?php 
             // Enable
             $this->_settingsUtility->displayCheckbox(__('Enable', 'tweakr'), 'google-analytics-enabled', array(
-                'label' => 'Enable Google Universal Analytics',
+                'label' => 'Enable Google Analytics Tracking',
                 'description' => 'The required Javascript Tracking Code will be added to your frontend including opt-out wrapper code.',
                 'readmore' => 'https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference'
-            ));
-
-            // Anonamize IP
-            $this->_settingsUtility->displayCheckbox(__('Anonymize IP', 'tweakr'), 'google-analytics-anonymizeip', array(
-                'label' => 'IP Anonymization in Analytics',
-                'description' => 'Anonymize the Visitors IP Address to comply with privacy laws, especially in the European Union.',
-                'readmore' => 'https://support.google.com/analytics/answer/2763052?hl=en'
             ));
 
             // Tracking ID
             $this->_settingsUtility->displayInput(__('Tracking-ID', 'tweakr'), 'google-analytics-trackingid', array(
                 'placeholder' => 'UA-XXXXX-Y',
-                'label' => 'The Unique Tracking ID for this Project',
+                'label' => 'The Unique Tracking ID of this Project',
                 'description' => 'Add your tracking-ID here.',
                 'readmore' => 'https://support.google.com/analytics/answer/1008080?hl=en'
             ));
 
+        ?>
+
+        <h4><?php _e('Options', 'tweakr'); ?></h4>
+
+        <?php
             // OPT-OUT
-            $this->_settingsUtility->displayCheckbox(__('OPT-OUT', 'tweakr'), 'google-analytics-optout-shortcode', array(
+            $this->_settingsUtility->displayCheckbox(__('User Optional Out', 'tweakr'), 'google-analytics-optout-shortcode', array(
                 'label' => 'Enable opt-out shortcode',
                 'description' => 'An additional shortcode will become available which generates an opt-out button. Google Analytics can be disabled by each user individually - in this case a persistent cookie is set which blocks the tracking code. It is recommended to add this button to the end of your privacy policy.',
                 'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Analytics_OptOut.md'
             ));
-            
+
+            // Anonymize IP
+            $this->_settingsUtility->displayCheckbox(__('Anonymize IP', 'tweakr'), 'google-analytics-anonymizeip', array(
+                'label' => 'IP Anonymization in Analytics',
+                'description' => 'Anonymize the Visitors IP Address to comply with privacy laws, especially in the European Union.',
+                'readmore' => 'https://support.google.com/analytics/answer/2763052?hl=en'
+            ));
         ?>
 
     <!-- // Google Analytics -->
@@ -63,6 +67,7 @@
             $this->_settingsUtility->displayInput(__('Piwik Host', 'tweakr'), 'piwik-analytics-host', array(
                 'placeholder' => 'https://piwik.example.org',
                 'label' => 'Your Piwik Host',
+                'cssClass' => 'input-large',
                 'description' => 'Insert the full URL of your Piwik installation.',
                 'readmore' => 'https://developer.piwik.org/guides/tracking-javascript-guide'
             ));
@@ -70,21 +75,50 @@
             // Site ID
             $this->_settingsUtility->displayInput(__('Site-ID', 'tweakr'), 'piwik-analytics-siteid', array(
                 'placeholder' => '123',
-                'label' => 'The Unique Site-ID for this Project',
+                'label' => 'The Unique Site-ID of this Project',
                 'description' => 'Add your Site-ID here.',
                 'readmore' => 'https://piwik.org/faq/general/faq_19212/'
-            ));
-
-            // OPT-OUT
-            $this->_settingsUtility->displayCheckbox(__('OPT-OUT', 'tweakr'), 'piwik-analytics-optout-shortcode', array(
-                'label' => 'Enable opt-out shortcode',
-                'description' => 'An additional shortcode will become available which generates an opt-out button. Piwik Analytics can be disabled by each user individually - in this case a persistent cookie is set which blocks the tracking code. It is recommended to add this button to the end of your privacy policy.',
-                'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Analytics_OptOut.md'
             ));
             
         ?>
 
         <h4><?php _e('Options', 'tweakr'); ?></h4>
+
+        <?php
+
+            // OPT-OUT
+            $this->_settingsUtility->displayCheckbox(__('User Optional Out', 'tweakr'), 'piwik-analytics-optout-shortcode', array(
+                'label' => 'Enable opt-out shortcode',
+                'description' => 'An additional shortcode will become available which generates an opt-out button. Piwik Analytics can be disabled by each user individually - in this case a persistent cookie is set which blocks the tracking code. It is recommended to add this button to the end of your privacy policy.',
+                'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Analytics_OptOut.md'
+            ));
+
+            // Subdomain Tracking
+            $this->_settingsUtility->displayCheckbox(__('Subdomain Tracking', 'tweakr'), 'piwik-analytics-subdomain-tracking', array(
+                'label' => 'Track users across all subdomains',
+                'description' => 'In case someone visits a.example.org as well as b.example.org it will be counted as one unique visit.',
+                'readmore' => 'http://developer.piwik.org/guides/tracking-javascript-guide#measuring-domains-andor-sub-domains'
+            ));
+
+            // Prepend Domain
+            $this->_settingsUtility->displayCheckbox(__('Prepend Domain', 'tweakr'), 'piwik-analytics-prepend-domain', array(
+                'label' => 'Prepend the Subdomain to the Document Title',
+                'description' => 'By Visiting A.example.com/MyPage the pageview is recorded as A/MyPage.'
+            ));
+
+             // ClientSide DoNotTrack
+            $this->_settingsUtility->displayCheckbox(__('DoNotTrack', 'tweakr'), 'piwik-analytics-dnt', array(
+                'label' => 'Enable Client-Side DoNotTrack recognition.',
+                'description' => 'Visitors with DoNotTrack preference set will no be tracked. Normally this option should be permanently enabled within your Piwik Website settings!'
+            ));
+
+            // Simple Document Title
+            $this->_settingsUtility->displayCheckbox(__('Simple Page Title', 'tweakr'), 'pwiki-analytics-simple-pagetitle', array(
+                'label' => 'Use Simple Page Titles.',
+                'description' => 'Instead of the full Page Title (Title + Blogname) the pure WordPress Page Name is used to record visits.'
+            ));
+
+        ?>
 
     <!-- // PIWIK Analytics -->
     </div></div>

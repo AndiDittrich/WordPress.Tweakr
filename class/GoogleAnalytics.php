@@ -8,7 +8,7 @@ use \Tweakr\skltn\HtmlUtil as HtmlUtil;
 class GoogleAnalytics{
 
     // add google analytics tracking code
-    public static function init($settingsManager){
+    public function __construct($settingsManager){
 
         // get options
         $trackingID = $settingsManager->getOption('google-analytics-trackingid');
@@ -32,8 +32,8 @@ class GoogleAnalytics{
         ResourceManager::enqueueDynamicScript($code);
     }
 
-    // display user profile (render as html)
-    public static function optButtonShortcode($attb = array()){
+    // display opt-out button
+    public function optButtonShortcode($attb = array()){
 
         // set defaults
         $attb = shortcode_atts( array(

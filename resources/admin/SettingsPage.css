@@ -35,10 +35,12 @@
 .tweakr-setting-section h4 {
     color: #0074a2;
     display: block;
+    text-indent: 15px;
     border-bottom: solid 4px #efefef;
-    font-size: 1.1em;
     line-height: 2em;
     max-width: 1000px;
+    text-transform: uppercase;
+    font-style: italic;
 }
 
 .tweakr-setting-section img {
@@ -68,6 +70,10 @@
 .tweakr-setting input[type="text"] {
     margin: 0px 20px 0px 0px;
     width: 150px;
+}
+
+.tweakr-setting input[type="text"].input-large{
+    width: 300px;
 }
 
 .tweakr-setting input[type="checkbox"] {

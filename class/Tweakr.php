@@ -148,11 +148,11 @@ class Tweakr{
             if ($this->_settingsManager->getOption('google-analytics-enabled')){
                 
                 // initialize
-                Tweakr\GoogleAnalytics::init($this->_settingsManager);
+                $googleAnalytics = new Tweakr\GoogleAnalytics($this->_settingsManager);
 
                 // Google Universal Analytics OptOut Button
                 if ($this->_settingsManager->getOption('google-analytics-optout-shortcode')){
-                    add_shortcode('googleanalytics-optout', array('\Tweakr\GoogleAnalytics', 'optButtonShortcode'));
+                    add_shortcode('googleanalytics-optout', array($googleAnalytics, 'optButtonShortcode'));
                 }
             }
 
@@ -161,13 +161,13 @@ class Tweakr{
 
             // Piwik Analytics
             if ($this->_settingsManager->getOption('piwik-analytics-enabled')){
-                
+
                 // initialize
-                Tweakr\PiwikAnalytics::init($this->_settingsManager);
+                $piwikAnalytics = new Tweakr\PiwikAnalytics($this->_settingsManager);
                 
                 // Piwik Analytics OptOut Button
                 if ($this->_settingsManager->getOption('piwik-analytics-optout-shortcode')){
-                    add_shortcode('piwikanalytics-optout', array('\Tweakr\PiwikAnalytics', 'optButtonShortcode'));
+                    add_shortcode('piwikanalytics-optout', array($piwikAnalytics, 'optButtonShortcode'));
                 }
             }
             
