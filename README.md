@@ -65,8 +65,10 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 
 ## Screenshots ##
 
-1. Settings Page
-2. Google Analytics OPT-OUT Button
+1. General Tweaks
+2. Analytics OPT-OUT Button
+2. Google Analytics Options
+2. Piwik Analytics Options
 
 ## Upgrade Notice ##
 
