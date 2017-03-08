@@ -20,7 +20,7 @@ It is designed as **all-in-one** solution espacially for **Web-Agencies** and **
 The following WordPress Features can be **controlled separately**
 
 * Fix phpmailerExceptions by setting the mail-from parameter to a valid address
-* Disable New User Registration E-Mails (send to admin and/or user)
+* Control New User Registration E-Mails (send to admin and/or user)
 * Disable XMLRPC API
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
 * Disable Emojis
