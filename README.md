@@ -1,9 +1,9 @@
 # Tweakr Toolkit #
 Contributors: Andi Dittrich, aenondynamics
-Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed
+Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 1.0
+Stable tag: 1.1
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
@@ -11,13 +11,13 @@ Extends your WordPress Blog with a bunch of common Tweaks and Utilities.
 
 ## Description ##
 
-This plugin is a collection of common used tweaks to get control of WordPress Core Features.
+This plugin is a collection of common tweaks to get control of WordPress functions as well as a set of often used features we've created for our customers.
 It is designed as **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
 
 ### Plugin Features ###
 
 ### Tweaks ###
-The following WordPress Core Features can be **disabled/hidden separately**
+The following WordPress Features can be **controlled separately**
 
 * Disable XMLRPC API
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
@@ -52,6 +52,7 @@ The following WordPress Core Features can be **disabled/hidden separately**
 
 ### System requirements ###
 * PHP 5.4 or greater
+* WordPress 4.7
 
 ### Installation ###
 1. Upload the complete `tweakr` folder (Wordpress Plugin) to the `/wp-content/plugins/` directory
@@ -59,6 +60,12 @@ The following WordPress Core Features can be **disabled/hidden separately**
 3. Go to Settings -> Tweakr and configure it
 
 ## Frequently Asked Questions ##
+
+### A lot of the Tweaks/Extensions are already available as Single Plugins ###
+Of course! But as a professional Web Agency it is much easier to develope, maintain and audit a single plugin instead of a set of 20+ plugins from different authors!
+
+### Why do you use your custom tracking code for Piwik/Google Analytics ###
+Because of the Opt-Out Buttons code and the possibility to control the options via the settings page.
 
 ### I miss some features / I found a bug ###
 Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open a [New Issue on GitHub](https://github.com/AndiDittrich/WordPress.Tweakr/issues)
