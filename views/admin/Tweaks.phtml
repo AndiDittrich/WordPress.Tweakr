@@ -6,13 +6,12 @@
     <h3 class="hndle"><span><?php _e('General', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
-        <?php 
-            // Hide Generator Tag
-            $this->_settingsUtility->displayCheckbox(__('Generator Tag', 'tweakr'), 'hide-generator', array(
-                'label' => 'Hide WordPress Generator Tag',
-                'description' => 'The Generator Meta Tag displays your current WordPress Version.'
+        <?php
+            // Mail From
+            $this->_settingsUtility->displayCheckbox(__('Fix Mail-From', 'tweakr'), 'fix-mailfrom-address', array(
+                'label' => 'Set the Mail-From parameter to BLOGNAME<wordpress@yourdomain.tld>',
+                'description' => 'This fix will solve problems with phpmailerExceptions which are caused by a malformed/invalid email-from-address.'
             ));
-            
         ?>
 
     <!-- // General -->
@@ -24,6 +23,13 @@
     <div class="inside tweakr-setting-section">
 
         <?php
+
+            // Hide Generator Tag
+            $this->_settingsUtility->displayCheckbox(__('Generator Tag', 'tweakr'), 'hide-generator', array(
+                'label' => 'Hide WordPress Generator Tag',
+                'description' => 'The Generator Meta Tag displays your current WordPress Version.'
+            ));
+
             // Hide Adminbar
             $this->_settingsUtility->displayCheckbox(__('Adminbar', 'tweakr'), 'hide-adminbar', array(
                 'label' => 'Global hide Admin-Toolbar',
@@ -127,4 +133,27 @@
         ?>
 
     <!-- // Feeds -->
+    </div></div>
+
+    <!-- User -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('User', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php 
+            // Control User E-Mail Notification
+            $this->_settingsUtility->displaySelect(__('New User Notification', 'tweakr'), 'user-registration-email-notification', array(
+                'default' => 'Default behaviour',
+                'both' => 'Notify Admin + User',
+                'admin' => 'Notify Admin only',
+                'user' => 'Notify User only',
+                'none' => 'Disable Notifications'
+            ), array(
+                'label' => 'Should an E-Mail send to the new User and/or the site admin?',
+                'description' => 'On each new User Registration WordPress will send a notifcation to the Site Admin (New User has been registered) as well as the Login Credentials to the new User. Sometimes it is required to suppress those E-Mails.'
+            ));
+            
+        ?>
+
+    <!-- // User -->
     </div></div>

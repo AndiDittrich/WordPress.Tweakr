@@ -18,7 +18,7 @@ class SettingsViewHelper{
     }
 
     // Generates a selectform  based on settings-name
-    public function displaySelect($title, $optionName, $values){
+    public function displaySelect($title, $optionName, $values, $options=array()){
         
         // open setting block
         $this->settingsHeader($optionName, $title);
@@ -29,19 +29,32 @@ class SettingsViewHelper{
             'id'   => 'tweakr-' . $optionName
         );
 
+        // wrap into label
+        echo HtmlUtil::generateTag('label', array(
+            'for' => 'tweakr[' . $optionName . ']'
+        ), false);
+
         // generate tag, escape attributes
         echo HtmlUtil::generateTag('select', $attb, false);
 
         // generate option list
-        foreach ($values as $key=>$value){
-            $selected = ($this->_config[$optionName] == $value) ? 'selected="selected"' : '';
-            echo '<option value="', esc_attr($value), '" '.$selected.'>', esc_html($key), '</option>';
+        foreach ($values as $optionValue=>$optionDescription){
+            $selected = ($this->_config[$optionName] == $optionValue) ? 'selected="selected"' : '';
+            echo '<option value="', esc_attr($optionValue), '" '.$selected.'>', esc_html($optionDescription), '</option>';
         }
         
         echo '</select>';
 
+        // add label text ?
+        if (isset($options['label'])){
+            echo esc_html($options['label']);
+        }
+
+        // close label
+        echo '</label>';
+
         // close setting block
-        $this->settingsFooter();
+        $this->settingsFooter($options);
     }
     
     // Generates a checkbox based on the settings-name

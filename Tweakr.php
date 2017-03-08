@@ -46,14 +46,18 @@ if (version_compare(phpversion(), '5.4', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/CacheManager.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/ResourceManager.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/PluginConfig.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/skltn/CssBuilder.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/Hash.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/API.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/EMail.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Feeds.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Frontend.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/GoogleAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/PiwikAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/ResourceLoader.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/TinyMCE.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Tweakr.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/UserNotification.php');
 
     
     // startup - NEVER CALL IT OUTSIDE THIS FILE !!

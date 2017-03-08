@@ -19,14 +19,15 @@ class ResourceManager{
         // filename not changed and relative url ? prepend plugin url, keep absolute path
         if ($filename == $url && preg_match('#^(?:/|[a-z]:/).*$#i', $filename) === 0){
             // append version ?
-            if ($version){
+            if (is_string($version)){
                 $filename .= '?' . $version;
             }
 
             // cache file ?
             if (preg_match('#^cache/(.*)$#', $filename, $matches) === 1){
                 // retrieve cache file url (add blog id)
-                $url = CacheManager::getFileUrl($matches[1]);
+                // add cache hash on request
+                $url = CacheManager::getFileUrl($matches[1], ($version === true));
 
                 // default: resource file
             }else{

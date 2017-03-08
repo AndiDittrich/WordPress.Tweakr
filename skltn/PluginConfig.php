@@ -22,6 +22,8 @@ class PluginConfig{
         'disable-oembed' => false,
         'hide-feed-link' => false,
         'hide-resource-hints' => false,
+        'fix-mailfrom-address' => false,
+        'user-registration-email-notification' => 'default',
         'disable-rss' => false,
         'disable-atom' => false,
         'disable-rdf' => false,
@@ -36,7 +38,8 @@ class PluginConfig{
         'piwik-analytics-subdomain-tracking' => false,
         'piwik-analytics-prepend-domain' => false,
         'piwik-analytics-dnt' => true,
-        'pwiki-analytics-simple-pagetitle' => false
+        'pwiki-analytics-simple-pagetitle' => false,
+        'tinymce-autowidth' => false
     );
 
     // validation
@@ -53,6 +56,8 @@ class PluginConfig{
         'disable-oembed' => 'boolean',
         'hide-feed-link' => 'boolean',
         'hide-resource-hints' => 'boolean',
+        'fix-mailfrom-address' => 'boolean',
+        'user-registration-email-notification' => 'string',
         'disable-rss' => 'boolean',
         'disable-atom' => 'boolean',
         'disable-rdf' => 'boolean',
@@ -67,7 +72,8 @@ class PluginConfig{
         'piwik-analytics-subdomain-tracking' => 'boolean',
         'piwik-analytics-prepend-domain' => 'boolean',
         'piwik-analytics-dnt' => 'boolean',
-        'pwiki-analytics-simple-pagetitle' => 'boolean'
+        'pwiki-analytics-simple-pagetitle' => 'boolean',
+        'tinymce-autowidth' => 'boolean'
     );
 
     // get the default plugin config

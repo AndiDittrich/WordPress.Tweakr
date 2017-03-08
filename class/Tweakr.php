@@ -49,7 +49,33 @@ class Tweakr{
 
         // create new resource loader
         $this->_resourceLoader = new Tweakr\ResourceLoader($this->_settingsManager, $this->_cacheManager);
-      
+
+        // TinyMCE Tweaks
+        // ------------------------------------------------------------------
+        $tinymceTweaks = new Tweakr\TinyMCE($this->_settingsManager, $this->_cacheManager);
+
+        // API
+        // ------------------------------------------------------------------
+        // xmlrpc
+        if ($this->_settingsManager->getOption('disable-xmlrpc-api')){
+            Tweakr\API::disableXmlRpc();
+        }
+
+        // rest api restrictions
+        if ($this->_settingsManager->getOption('restrict-rest-api')){
+            Tweakr\API::restrictRestApiAccess();
+        }
+
+        // New User Notifications
+        // ------------------------------------------------------------------
+        Tweakr\UserNotification::processNewRegistrations($this->_settingsManager->getOption('user-registration-email-notification'));
+
+        // Mails
+        // ------------------------------------------------------------------
+        if ($this->_settingsManager->getOption('fix-mailfrom-address')){
+            Tweakr\EMail::fixMailFromAddress();
+        }
+
         // frontend or admin area ?
         if (is_admin()){
             // add admin menu handler
@@ -72,18 +98,6 @@ class Tweakr{
             // initialize settings view helper
             $this->_settingsUtility = new Tweakr\skltn\SettingsViewHelper($this->_settingsManager);
         }else{
-
-            // API
-            // ------------------------------------------------------------------
-            // xmlrpc
-            if ($this->_settingsManager->getOption('disable-xmlrpc-api')){
-                Tweakr\API::disableXmlRpc();
-            }
-
-            // rest api restrictions
-            if ($this->_settingsManager->getOption('restrict-rest-api')){
-                Tweakr\API::restrictRestApiAccess();
-            }
 
             // Frontend
             // ------------------------------------------------------------------
@@ -170,7 +184,7 @@ class Tweakr{
                     add_shortcode('piwikanalytics-optout', array($piwikAnalytics, 'optButtonShortcode'));
                 }
             }
-            
+
             // apply frontend resource loading hooks
             $this->_resourceLoader->frontend();
         }
@@ -218,7 +232,7 @@ class Tweakr{
             $this->_settingsManager->setOption('salt', Tweakr\skltn\Hash::base64(mt_rand().mt_rand().time(), 20));
             
             // clear cache
-            //$this->_cacheManager->clearCache();
+            $this->_cacheManager->clearCache();
         }
                
         // render settings view
@@ -238,8 +252,7 @@ class Tweakr{
    
     // plugin activation action
     public function _wp_plugin_activate(){
-        //$this->_cacheManager->clearCache();
-        //$this->generateCSS();
+        $this->_cacheManager->clearCache();
     }
 
     public function _wp_plugin_deactivate(){
