@@ -21,6 +21,16 @@
     background-position: center center;
 }
 
+/* HighDPI Badge */
+@media  (-webkit-min-device-pixel-ratio: 2),
+        (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi){
+
+        #tweakr-title-badge {
+            background-image: url(badge80.png);
+        }
+}
+
 #tweakr-settings #post-body-content ul {
     padding-left: 30px;
     list-style: square;
