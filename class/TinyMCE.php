@@ -60,6 +60,9 @@ class TinyMCE{
         // add hash from last settings update to force a cache update
         $url = ResourceManager::getResourceUrl('cache/TinyMCE.css', true);
 
+        // add visual component css
+        $url .= ',' . ResourceManager::getResourceUrl('editor/VisualComponents.css', true);
+
         // other styles loaded ?
         if (empty($mce_css)){
             return $url;

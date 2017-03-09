@@ -1,0 +1,29 @@
+{
+  "name": "tweakr",
+  "description": "",
+  "private": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "Andi Dittrich",
+    "email": "ad@aenon-dynamics.com"
+  },
+  "license": "commercial",
+  "devDependencies": {},
+  "dependencies": {
+    "clean-css": "^4.0.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-util": "^0.5.5",
+    "gulp-filter": "^5.0.0",
+    "gulp-less": "^3.3.0",
+    "gulp-prettyerror": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.0",
+    "gulp-util": "^3.0.8",
+    "gulp-wrapper": "^1.0.0"
+  }
+}
