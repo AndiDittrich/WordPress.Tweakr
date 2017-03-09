@@ -1,4 +1,4 @@
-/*  AUTO GENERATED FILE - DO NOT EDIT !!
+/*!  AUTO GENERATED FILE - DO NOT EDIT !!
     WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
     ------------------------------------
     Corporate Plugin Settings Page Styles
@@ -10,15 +10,17 @@
     margin: 15px 0px 15px 0px;
 }
 
-#tweakr-title-badge {
+.tweakr-title-badge {
     display: inline-block;
-    padding: 0px 10px 0px 0px;
+    padding: 0px;
+    margin-right: 10px;
     width: 40px;
     height: 40px;
     vertical-align: middle;
     background-image: url(badge40.png);
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 100%;
 }
 
 /* HighDPI Badge */
@@ -26,7 +28,7 @@
         (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi){
 
-        #tweakr-title-badge {
+        .tweakr-title-badge {
             background-image: url(badge80.png);
         }
 }
