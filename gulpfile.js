@@ -13,7 +13,7 @@ var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 
 // Resources LESS to CSS
-gulp.task('default', function () {
+gulp.task('less', function () {
     return gulp.src(['resources/**/*.less'])
         .pipe(prettyError())
         .pipe(less())
@@ -32,3 +32,6 @@ gulp.task('default', function () {
 
         .pipe(gulp.dest('resources/'));
 });
+
+
+gulp.task('default', ['less']);

@@ -12,8 +12,7 @@
 }
 .visualComponent(){
     position: relative;
-    overflow: hidden;
-    border: dotted 1px;
+    border: dashed 1px;
 
     &::before{
         content: '-';
@@ -21,16 +20,16 @@
         text-align: center;
         text-transform: uppercase;
         font-style: normal;
-        height: 14px;
-        line-height: 14px;
+        height: 16px;
+        line-height: 16px;
         width: 100px;
         font-size: 10px;
         font-family: Arial, Helvetica, sans-serif;
         letter-spacing: 0px;
         font-weight: bold;
         position: absolute;
-        right: -1px;
-        top: -1px;
+        right: 8px;
+        top: -8px;
         z-index: 10;
     }
 }
@@ -49,26 +48,26 @@ h1, h2, h3, h4, h5, h6, p, section{
 }
 
 h1{
-    .visualComponentSettings('Heading 1', #9d1717, #f0f0f0);
+    .visualComponentSettings('Heading 1', #0073aa, #f0f0f0);
 }
 h2{
-    .visualComponentSettings('Heading 2', #9d1717, #f0f0f0);
+    .visualComponentSettings('Heading 2', #0073aa, #f0f0f0);
 }
 h3{
-    .visualComponentSettings('Heading 3', #9d1717, #f0f0f0);
+    .visualComponentSettings('Heading 3', #0073aa, #f0f0f0);
 }
 h4{
-    .visualComponentSettings('Heading 4', #9d1717, #f0f0f0);
+    .visualComponentSettings('Heading 4', #0073aa, #f0f0f0);
 }
 h5{
-    .visualComponentSettings('Heading 5', #9d1717, #f0f0f0);
+    .visualComponentSettings('Heading 5', #0073aa, #f0f0f0);
 }
 h6{
-    .visualComponentSettings('Heading 6', #9d1717, #f0f0f0);
+    .visualComponentSettings('Heading 6', #0073aa, #f0f0f0);
 }
 p{
-    .visualComponentSettings('Paragraph', #c0c0c0);
+    .visualComponentSettings('Paragraph', #23282d, #f0f0f0);
 }
 section{
-    .containerComponent('Section', #17539d, #f0f0f0);
+    .containerComponent('Section', #0073aa, #f0f0f0);
 }

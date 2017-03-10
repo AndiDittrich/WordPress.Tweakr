@@ -6,7 +6,6 @@
     <h3 class="hndle"><span><?php _e('Google Analytics', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
-        <h4><?php _e('General Settings', 'tweakr'); ?></h4>
 
         <?php 
             // Enable
@@ -15,7 +14,13 @@
                 'description' => 'The required Javascript Tracking Code will be added to your frontend including opt-out wrapper code.',
                 'readmore' => 'https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference'
             ));
+        ?>
 
+        <div class="tweakr-selective-section" data-trigger="#tweakr-google-analytics-enabled" data-condition="checked">
+
+        <h4><?php _e('General Settings', 'tweakr'); ?></h4>
+
+        <?php 
             // Tracking ID
             $this->_settingsUtility->displayInput(__('Tracking-ID', 'tweakr'), 'google-analytics-trackingid', array(
                 'placeholder' => 'UA-XXXXX-Y',
@@ -44,6 +49,8 @@
             ));
         ?>
 
+        </div>
+
     <!-- // Google Analytics -->
     </div></div>
 
@@ -53,8 +60,6 @@
     <h3 class="hndle"><span><?php _e('Piwik Analytics', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
-        <h4><?php _e('General Settings', 'tweakr'); ?></h4>
-
         <?php 
             // Enable
             $this->_settingsUtility->displayCheckbox(__('Enable', 'tweakr'), 'piwik-analytics-enabled', array(
@@ -62,6 +67,14 @@
                 'description' => 'The required Javascript Tracking Code will be added to your frontend including opt-out wrapper code.',
                 'readmore' => 'https://developer.piwik.org/guides/tracking-javascript-guide'
             ));
+
+        ?>
+
+        <div class="tweakr-selective-section" data-trigger="#tweakr-piwik-analytics-enabled" data-condition="checked">
+
+        <h4><?php _e('General Settings', 'tweakr'); ?></h4>
+
+        <?php
 
             // Piwik Host
             $this->_settingsUtility->displayInput(__('Piwik Host', 'tweakr'), 'piwik-analytics-host', array(
@@ -119,6 +132,7 @@
             ));
 
         ?>
+        </div>
 
     <!-- // PIWIK Analytics -->
     </div></div>

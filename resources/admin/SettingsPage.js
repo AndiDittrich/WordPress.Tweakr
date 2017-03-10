@@ -1,4 +1,4 @@
-/*  AUTO GENERATED FILE - DO NOT EDIT !!
+/*!  AUTO GENERATED FILE - DO NOT EDIT !!
     WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
     ------------------------------------
     Corporate Plugin Settings Page Functions
@@ -51,5 +51,43 @@ jQuery(document).ready(function(){
 
     // show navbar
     jQuery('#tweakr-tabnav').show();
+
+
+    // Selective Sections 
+    // --------------------------------------------------------
+    jQuery('.tweakr-selective-section').each(function(){
+        // get current element
+        var container = jQuery(this);
+
+        // get attributes
+        var trigger = container.attr('data-trigger');
+        var condition = container.attr('data-condition');
+
+        // attributes & condition set ?
+        if (!trigger || !condition){
+            return;
+        }
+
+        // get trigger element
+        var triggerElement = jQuery(trigger);
+
+        // valid element ?
+        if (!triggerElement){
+            return;
+        }
+
+        // checkbox
+        if (condition == 'checked'){
+            // onchange event
+            triggerElement.on('change', function(){
+                if (jQuery(this).is(":checked")){
+                    container.show();
+                }else{
+                    container.hide();
+                }
+            }).trigger('change');
+        }
+
+    });
 
 });

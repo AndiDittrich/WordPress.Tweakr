@@ -24,7 +24,7 @@ class CssBuilder{
 
     // add raw css
     public function addRaw($css){
-        $this->_rawBuffer .= $css;
+        $this->_rawBuffer .= "\n" . $css;
     }
 
     // render ruleset

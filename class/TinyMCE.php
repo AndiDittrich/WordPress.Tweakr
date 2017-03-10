@@ -37,8 +37,13 @@ class TinyMCE{
         if ($this->_settingsManager->getOption('tinymce-autowidth')){
             $cssBuilder->add('body.mce-content-body', array(
                 'width' => 'auto',
-                'max-width' => '80%'
+                'max-width' => '95%'
             ));
+        }
+
+        // append VisualComponents ?
+        if ($this->_settingsManager->getOption('tinymce-visualcomponents')){
+            $cssBuilder->addRaw(file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/editor/VisualComponents.min.css'));
         }
 
         // store cache file
@@ -59,9 +64,6 @@ class TinyMCE{
     public function loadEditorCSS($mce_css){
         // add hash from last settings update to force a cache update
         $url = ResourceManager::getResourceUrl('cache/TinyMCE.css', true);
-
-        // add visual component css
-        $url .= ',' . ResourceManager::getResourceUrl('editor/VisualComponents.css', true);
 
         // other styles loaded ?
         if (empty($mce_css)){

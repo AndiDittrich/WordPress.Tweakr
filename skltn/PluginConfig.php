@@ -39,7 +39,8 @@ class PluginConfig{
         'piwik-analytics-prepend-domain' => false,
         'piwik-analytics-dnt' => true,
         'pwiki-analytics-simple-pagetitle' => false,
-        'tinymce-autowidth' => false
+        'tinymce-autowidth' => false,
+        'tinymce-visualcomponents' => false
     );
 
     // validation
@@ -73,7 +74,8 @@ class PluginConfig{
         'piwik-analytics-prepend-domain' => 'boolean',
         'piwik-analytics-dnt' => 'boolean',
         'pwiki-analytics-simple-pagetitle' => 'boolean',
-        'tinymce-autowidth' => 'boolean'
+        'tinymce-autowidth' => 'boolean',
+        'tinymce-visualcomponents' => 'boolean'
     );
 
     // get the default plugin config
