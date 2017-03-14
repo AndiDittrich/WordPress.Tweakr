@@ -1,5 +1,5 @@
 // Tweakr Analytics Tracking Code with OPT-OUT Button
-(function(document, cookieName, trackingID, anonymizeIP){
+(function(_document, cookieName, trackingID, anonymizeIP){
     // get optout button
     var optoutButton = _document.getElementById('tweakr-ga-optout');
 
