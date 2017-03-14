@@ -28,21 +28,16 @@ gulp.task('less', function () {
     return gulp.src(['resources/**/*.less'])
         .pipe(prettyError())
         .pipe(less())
-
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-
         .pipe(cleanCSS({
             compatibility: 'ie8',
             advanced: false
         }))
-
         .pipe(rename({ suffix: '.min' }))
-
         .pipe(gulp.dest('resources/'));
 });
-
 
 gulp.task('default', ['less', 'js']);
