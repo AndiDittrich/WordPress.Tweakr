@@ -17,7 +17,7 @@ class ResourceManager{
         $url = apply_filters('tweakr_resource_url', $filename, TWEAKR_PLUGIN_URL, $version);
 
         // filename not changed and relative url ? prepend plugin url, keep absolute path
-        if ($filename == $url && preg_match('#^(?:/|[a-z]:/).*$#i', $filename) === 0){
+        if ($filename == $url && preg_match('#^(?:/|[a-z]+:/).*$#i', $filename) === 0){
             // append version ?
             if (is_string($version)){
                 $filename .= '?' . $version;

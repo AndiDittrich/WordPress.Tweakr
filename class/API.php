@@ -6,11 +6,34 @@ class API{
 
     // disable xmlrpc api
     public static function disableXmlRpc(){
-        // disable processing
+
+        // Hardcore Solution
+        // it immediately stops the script execution of all requests to xmlrpc.php
+        // the wp_xmlrpc_server instance is NEVER invoked!
+        // XMLRPC_REQUEST constant is set on top of the xmlrpc.php file
+        // @see https://core.trac.wordpress.org/browser/tags/4.7.3/src/xmlrpc.php
+        if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST === true){
+            http_response_code(403);
+            die('XMLRPC Rejected!');
+        }
+
+        /*
+        // disable XML-RPC methods that require a authentication
+        // won't disable public methods!
         add_filter('xmlrpc_enabled', function(){
             return false;
-        });
+        }, 9999);
 
+        // disable all methods by removing them from list
+        add_filter('xmlrpc_methods', function($methods){
+            return array();
+        }, 9999);
+        */
+
+        // RSD Content: /xmlrpc.php?rsd
+        // the rsd content is directly generated within xmlrpc.php (WP v4.7.3)
+        // it can only disabled by removing the xmlrpc.php file or interrupting its execution
+        
         // remove xmlrpc links
         remove_action('wp_head', 'rsd_link');
 
@@ -18,7 +41,7 @@ class API{
         add_filter('wp_headers', function($headers){
             unset($headers['X-Pingback']);
             return $headers;
-        });
+        }, 9999);
     }
 
     // disable rest api for unauthenticate users

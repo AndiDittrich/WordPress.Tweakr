@@ -16,12 +16,14 @@ It is designed as **all-in-one** solution espacially for **Web-Agencies** and **
 
 ### Plugin Features ###
 
+
+
 ### Tweaks ###
 The following WordPress Features can be **controlled separately**
 
 * Fix phpmailerExceptions by setting the mail-from parameter to a valid address
 * Control New User Registration E-Mails (send to admin and/or user)
-* Disable XMLRPC API
+* Disable XMLRPC API (Really!)
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
 * Disable Emojis
 * Disable oEmbeds
@@ -37,6 +39,7 @@ The following WordPress Features can be **controlled separately**
 
 ### Visual Editor ###
 
+* VisualComponent Extension visualize the HTML Element Structure (headings,section,p)
 * Remove the fixed-width restriction of the Editor-Area (set to 80% max)
 
 ### Google Analytics ###

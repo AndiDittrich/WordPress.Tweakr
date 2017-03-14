@@ -40,7 +40,8 @@ class PluginConfig{
         'piwik-analytics-dnt' => true,
         'pwiki-analytics-simple-pagetitle' => false,
         'tinymce-autowidth' => false,
-        'tinymce-visualcomponents' => false
+        'tinymce-visualcomponents' => false,
+        'rewrites-disable-feeds' => false
     );
 
     // validation
@@ -75,7 +76,8 @@ class PluginConfig{
         'piwik-analytics-dnt' => 'boolean',
         'pwiki-analytics-simple-pagetitle' => 'boolean',
         'tinymce-autowidth' => 'boolean',
-        'tinymce-visualcomponents' => 'boolean'
+        'tinymce-visualcomponents' => 'boolean',
+        'rewrites-disable-feeds' => 'boolean'
     );
 
     // get the default plugin config

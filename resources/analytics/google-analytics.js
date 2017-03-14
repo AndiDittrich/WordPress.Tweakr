@@ -1,5 +1,5 @@
 // Tweakr Analytics Tracking Code with OPT-OUT Button
-(function(_window, _document, cookieName, trackingID, anonymizeIP){
+(function(document, cookieName, trackingID, anonymizeIP){
     // get optout button
     var optoutButton = _document.getElementById('tweakr-ga-optout');
 
@@ -30,7 +30,7 @@
 
         // Google Analytics Code Snippet
         // @see https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference
-        (function(scriptTag){
+        (function(_window, scriptTag){
             // Acts as a pointer to support renaming - Not used by Tweakr
             _window['GoogleAnalyticsObject'] = 'ga';
 
@@ -52,7 +52,7 @@
             // insert script element to the top and load analytics.js
             var scriptElementAnchor = _document.getElementsByTagName(scriptTag)[0];
             scriptElementAnchor.parentNode.insertBefore(trackerScript, scriptElementAnchor);
-        })('script');
+        })(this, 'script');
 
         // Google Analytics Init
         ga('create', trackingID, 'auto');
@@ -67,5 +67,5 @@
         }
     }
 
-// initialize
-})(window, document, 'tweakr-ga-optout=');
+// initialize - we don't call the function directly to avoid optimization of unused arguments which are added dynamicsally to the code!
+}).call(window, document, 'tweakr-ga-optout=');

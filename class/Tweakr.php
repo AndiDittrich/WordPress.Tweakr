@@ -30,6 +30,9 @@ class Tweakr{
     // cache manager instance
     private $_cacheManager;
 
+    // permalink management
+    private $_permalinkStructure;
+
     public function __construct(){
         // fetch default config & validators
         $pluginConfig = new Tweakr\skltn\PluginConfig();
@@ -39,6 +42,9 @@ class Tweakr{
 
         // create new cache manager instance
         $this->_cacheManager = new Tweakr\skltn\CacheManager();
+
+        // permalink management - depends on activation hooks!
+        $this->_permalinkStructure = new Tweakr\PermalinkStructure($this->_settingsManager);
     }
 
     public function _wp_init(){
@@ -233,6 +239,9 @@ class Tweakr{
             
             // clear cache
             $this->_cacheManager->clearCache();
+
+            // regenerate rewrite rules
+            $this->_permalinkStructure->reloadRules();
         }
                
         // render settings view
@@ -253,9 +262,11 @@ class Tweakr{
     // plugin activation action
     public function _wp_plugin_activate(){
         $this->_cacheManager->clearCache();
+        $this->_permalinkStructure->reloadRules();
     }
 
     public function _wp_plugin_deactivate(){
+        $this->_permalinkStructure->clearRules();
     }
 
     public function _wp_plugin_upgrade($currentVersion){

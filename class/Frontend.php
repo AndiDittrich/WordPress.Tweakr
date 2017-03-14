@@ -40,12 +40,22 @@ class Frontend{
         remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
     }
 
-    // disable ombeds
+    // disable oembeds
+    // @see https://codex.wordpress.org/Embeds
     public static function disableOEmbeds(){
         remove_action('rest_api_init', 'wp_oembed_register_route');
-        remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
         remove_action('wp_head', 'wp_oembed_add_discovery_links');
         remove_action('wp_head', 'wp_oembed_add_host_js');
+        remove_filter('oembed_dataparse', 'wp_filter_oembed_result');
+        remove_filter('pre_oembed_result', 'wp_filter_pre_oembed_result');
+        add_filter('embed_oembed_discover', function(){
+            return false;
+        }, 9999);
+
+        // disable embed template files - page template is used as fallback
+        add_filter('embed_template_hierarchy', function($templates){
+            return array();
+        }, 9999);
     }
 
     // hide resource hints (dnsprefetch..)

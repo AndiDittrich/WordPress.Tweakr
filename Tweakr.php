@@ -53,6 +53,7 @@ if (version_compare(phpversion(), '5.4', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/class/Feeds.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Frontend.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/GoogleAnalytics.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/PermalinkStructure.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/PiwikAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/ResourceLoader.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/TinyMCE.php');

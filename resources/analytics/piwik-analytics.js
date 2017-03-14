@@ -1,5 +1,5 @@
 // Tweakr Piwik Analytics Tracking Code with OPT-OUT Button
-(function(_window, _document, cookieName, host, piwikParams){
+(function(_document, cookieName, host, piwikParams){
     // get optout button
     var optoutButton = _document.getElementById('tweakr-piwik-optout');
     
@@ -30,8 +30,8 @@
 
         // PIWIK Tracking Code
         // @see https://developer.piwik.org/guides/tracking-javascript-guide
-        _window._paq = piwikParams;
-        _window._paq.push(['setTrackerUrl', host + 'piwik.php']);
+        this._paq = piwikParams;
+        this._paq.push(['setTrackerUrl', host + 'piwik.php']);
         (function(scriptTag){
             // create script tag
             var trackerScript = _document.createElement(scriptTag);
@@ -53,5 +53,5 @@
         }
     }
 
-// initialize
-})(window, document, 'tweakr-piwik-optout=');
+// initialize - we don't call the function directly to avoid optimization of unused arguments which are added dynamicsally to the code!
+}).call(window, document, 'tweakr-piwik-optout=');

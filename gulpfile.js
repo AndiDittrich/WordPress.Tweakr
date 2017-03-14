@@ -1,6 +1,7 @@
 // GULP plugins
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
 var concat = require('gulp-concat-util');
 var rename = require('gulp-rename');
 var wrapper = require('gulp-wrapper');
@@ -11,6 +12,16 @@ var cleanCSS = require('gulp-clean-css');
 var prettyError = require('gulp-prettyerror');
 var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
+
+
+// Minify JS
+gulp.task('js', function () {
+    return gulp.src(['resources/**/*.js', '!resources/**/*.min.js'])
+        .pipe(prettyError())
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('resources/'));
+});
 
 // Resources LESS to CSS
 gulp.task('less', function () {
@@ -34,4 +45,4 @@ gulp.task('less', function () {
 });
 
 
-gulp.task('default', ['less']);
+gulp.task('default', ['less', 'js']);

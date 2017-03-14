@@ -41,7 +41,7 @@
             // Disable OEmbeds
             $this->_settingsUtility->displayCheckbox(__('oEmbed', 'tweakr'), 'disable-oembed', array(
                 'label' => 'Disable oEmbeds',
-                'description' => 'Removes related tags + scripts.'
+                'description' => 'Removes related tags, scripts, permalinks and endpoints.'
             ));
 
              // Hide Resource Hints
@@ -60,11 +60,13 @@
     <h3 class="hndle"><span><?php _e('API (REST/XMLRPC)', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
+        <p>WordPress build-in APIs might be useful in some cases, e.g. posting blog entries with a dedicated software. But they can be a common security risk.</p>
+
         <?php
             // Disable XMLRPC
             $this->_settingsUtility->displayCheckbox(__('XMLRPC', 'tweakr'), 'disable-xmlrpc-api', array(
                 'label' => 'Disable XMLRPC API',
-                'description' => 'The XMLRPC API is used for Pingback Communication with external services but is generally a common security risk.',
+                'description' => 'The XMLRPC API is used for Pingback Communication with external services as well as external control. This option will reject ALL xmlrpc actions by forcing the xmlrpc.php endpoint to return a HTTP403 response.',
                 'readmore' => 'https://codex.wordpress.org/XML-RPC_Support'
             ));
 
@@ -113,14 +115,20 @@
                 'description' => 'Removes the RDF Endpoint. User get redirected to homepage.',
                 'readmore' => 'https://codex.wordpress.org/WordPress_Feeds'
             ));
+
+            // Disable Feed Rewrites
+            $this->_settingsUtility->displayCheckbox(__('Rewrite Rules', 'tweakr'), 'rewrites-disable-feeds', array(
+                'label' => 'Disable Feed Rewrite Rules',
+                'description' => 'In case you have already disabled all feeds it is also possible to remove the related rewrite rules.'
+            ));
         ?>
 
     <!-- // Feeds -->
     </div></div>
 
-    <!-- Enhancements -->
+    <!-- Hotfix -->
     <div class="postbox">
-    <h3 class="hndle"><span><?php _e('Enhancements', 'tweakr'); ?></span></h3>
+    <h3 class="hndle"><span><?php _e('Hotfix', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
         <?php
@@ -131,7 +139,7 @@
             ));
         ?>
 
-    <!-- // Enhancements -->
+    <!-- // Hotfix -->
     </div></div>
 
     <!-- User -->
