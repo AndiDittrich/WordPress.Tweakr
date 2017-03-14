@@ -55,32 +55,6 @@
     <!-- // Frontend -->
     </div></div>
 
-    <!-- API -->
-    <div class="postbox">
-    <h3 class="hndle"><span><?php _e('API (REST/XMLRPC)', 'tweakr'); ?></span></h3>
-    <div class="inside tweakr-setting-section">
-
-        <p>WordPress build-in APIs might be useful in some cases, e.g. posting blog entries with a dedicated software. But they can be a common security risk.</p>
-
-        <?php
-            // Disable XMLRPC
-            $this->_settingsUtility->displayCheckbox(__('XMLRPC', 'tweakr'), 'disable-xmlrpc-api', array(
-                'label' => 'Disable XMLRPC API',
-                'description' => 'The XMLRPC API is used for Pingback Communication with external services as well as external control. This option will reject ALL xmlrpc actions by forcing the xmlrpc.php endpoint to return a HTTP403 response.',
-                'readmore' => 'https://codex.wordpress.org/XML-RPC_Support'
-            ));
-
-            // Restrict REST API
-            $this->_settingsUtility->displayCheckbox(__('REST API', 'tweakr'), 'restrict-rest-api', array(
-                'label' => 'Restrict REST API Access',
-                'description' => 'The REST JSON API will be restricted to Admin and Editor Users. Its not available for public access anymore.',
-                'readmore' => 'https://developer.wordpress.org/rest-api/'
-            ));
-        ?>
-
-    <!-- // API -->
-    </div></div>
-
     <!-- Feeds -->
     <div class="postbox">
     <h3 class="hndle"><span><?php _e('Feeds (RSS/RDF/ATOM)', 'tweakr'); ?></span></h3>
@@ -126,41 +100,4 @@
     <!-- // Feeds -->
     </div></div>
 
-    <!-- Hotfix -->
-    <div class="postbox">
-    <h3 class="hndle"><span><?php _e('Hotfix', 'tweakr'); ?></span></h3>
-    <div class="inside tweakr-setting-section">
-
-        <?php
-            // Mail From
-            $this->_settingsUtility->displayCheckbox(__('Fix Mail-From', 'tweakr'), 'fix-mailfrom-address', array(
-                'label' => 'Set the Mail-From parameter to BLOGNAME<wordpress@yourdomain.tld>',
-                'description' => 'This fix will solve problems with phpmailerExceptions which are caused by a malformed/invalid email-from-address.'
-            ));
-        ?>
-
-    <!-- // Hotfix -->
-    </div></div>
-
-    <!-- User -->
-    <div class="postbox">
-    <h3 class="hndle"><span><?php _e('User', 'tweakr'); ?></span></h3>
-    <div class="inside tweakr-setting-section">
-
-        <?php 
-            // Control User E-Mail Notification
-            $this->_settingsUtility->displaySelect(__('New User Notification', 'tweakr'), 'user-registration-email-notification', array(
-                'default' => 'Default behaviour',
-                'both' => 'Notify Admin + User',
-                'admin' => 'Notify Admin only',
-                'user' => 'Notify User only',
-                'none' => 'Disable Notifications'
-            ), array(
-                'label' => 'Should an E-Mail send to the new User and/or the site admin?',
-                'description' => 'On each new User Registration WordPress will send a notifcation to the Site Admin (New User has been registered) as well as the Login Credentials to the new User. Sometimes it is required to suppress those E-Mails.'
-            ));
-            
-        ?>
-
-    <!-- // User -->
-    </div></div>
+    
