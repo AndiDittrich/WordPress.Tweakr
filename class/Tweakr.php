@@ -218,7 +218,7 @@ class Tweakr{
     public function setupBackend(){
         if (current_user_can('manage_options')){
             // add options page
-            $optionsPage = add_options_page(__('Tweakr Toolkit', 'tweakr'), 'Tweakr', 'administrator', 'Tweakr', array($this, 'settingsPage'));
+            $optionsPage = add_menu_page(__('Tweakr Toolkit', 'tweakr'), 'Tweakr', 'administrator', 'Tweakr', array($this, 'settingsPage'), 'dashicons-admin-generic');
 
             // add links
             add_filter('plugin_row_meta', array($this, 'addPluginPageLinks'), 10, 2);
@@ -258,7 +258,7 @@ class Tweakr{
     public function addPluginPageLinks($links, $file){
         // current plugin ?
         if ($file == 'tweakr/Tweakr.php'){
-            $links[] = '<a href="'.admin_url('options-general.php?page=Tweakr'). '">'.__('Settings', 'tweakr').'</a>';
+            $links[] = '<a href="'.admin_url('admin.php?page=Tweakr'). '">'.__('Settings', 'tweakr').'</a>';
             $links[] = '<a href="https://twitter.com/andidittrich" target="_blank">'.__('News & Updates', 'tweakr').'</a>';
         }
 

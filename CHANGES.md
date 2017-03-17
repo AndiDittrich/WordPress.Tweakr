@@ -2,8 +2,10 @@
 
 ### 1.2 ###
 * Added: VisualComponents Extension to visualize the HTML Element Structure in Visual Editor Mode (headings,section,p)
+* Added: SMTP Mail Transport settings to deliver mails via external Mailserver
 * Added: Option to remove Rewrite Rules for all types of Feeds (RSS, RTF, ATOM, RSS2)
 * Added: Option to add `.html` extensions to **Pages** or **Categories**
+* Added: E-Mail settings to set the mail-from-address as well as mail-from-name manually
 * Changed: Settings Page Structure has been modified
 * Changed: Updated Piwik and Google Analytics Code
 * Changed: "Disable XMLRPC" will now force the `xmlrpc.php` Endpoint to return an HTTP403 Response

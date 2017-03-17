@@ -7,20 +7,18 @@ Stable tag: 1.1
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
-Extends your WordPress Blog with a bunch of common Tweaks and Utilities.
+Extend your Blog with common used Tweaks, Features and Utilities
 
 ## Description ##
 
-This plugin is a collection of common tweaks to get control of WordPress functions as well as a set of often used features we've created for our customers.
-It is designed as **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
+This plugin is a collection of common tweaks and features we've created for our customers.
+It is designed as compact **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
 
 ### Plugin Features ###
 
 ### Tweaks ###
 The following WordPress Features can be **controlled separately**
 
-* Fix phpmailerExceptions by setting the mail-from parameter to a valid address
-* Control New User Registration E-Mails (send to admin and/or user)
 * Disable XMLRPC API (Really!)
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
 * Disable Emojis
@@ -39,6 +37,15 @@ The following WordPress Features can be **controlled separately**
 
 * VisualComponent Extension visualize the HTML Element Structure (headings,section,p)
 * Remove the fixed-width restriction of the Editor-Area (set to 80% max)
+
+### E-Mail ###
+
+* Use External **SMTP** Mailserver to deliver mails transmitted by `wp_mail`
+* No Third Party libraries required! WordPress Internal **PHPMailer** class is used
+* Support for **TLS/SSL** Connections
+* Set the Mail-From-Name and Mail-From-Address manually
+* Fix phpmailerExceptions by setting the mail-from parameter to a valid address
+* Control New User Registration E-Mails (send to admin and/or user)
 
 ### Permalinks/Rewrite Rules ###
 
