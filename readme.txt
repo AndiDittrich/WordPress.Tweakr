@@ -3,25 +3,24 @@ Contributors: Andi Dittrich, aenondynamics
 Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 1.1
+Stable tag: 1.2
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
-Extends your WordPress Blog with a bunch of common Tweaks and Utilities.
+Supercharges your Blog with common used Tweaks, Features and Utilities
 
 == Description ==
 
-This plugin is a collection of common tweaks to get control of WordPress functions as well as a set of often used features we've created for our customers.
-It is designed as **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
+This plugin is a collection of common tweaks and features we've created for our customers.
+It is designed as compact **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
 
 = Plugin Features =
 
-= Tweaks =
-The following WordPress Features can be **controlled separately**
+The following Features can be **controlled independently**
 
-* Fix phpmailerExceptions by setting the mail-from parameter to a valid address
-* Control New User Registration E-Mails (send to admin and/or user)
-* Disable XMLRPC API
+= Tweaks =
+
+* Disable XMLRPC API (Really!)
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
 * Disable Emojis
 * Disable oEmbeds
@@ -37,7 +36,24 @@ The following WordPress Features can be **controlled separately**
 
 = Visual Editor =
 
+* VisualComponent Extension visualizes the HTML Element Structure (headings,section,p)
 * Remove the fixed-width restriction of the Editor-Area (set to 80% max)
+
+= E-Mail =
+
+* Use External **SMTP** Mailserver to deliver mails transmitted by `wp_mail`
+* No Third Party libraries required! WordPress Internal **PHPMailer** class is used
+* Support for **TLS/SSL** Connections
+* Set the Mail-From-Name and Mail-From-Address manually
+* Fix phpmailerExceptions by setting the mail-from parameter to a valid address
+* Control New User Registration E-Mails (send to admin and/or user)
+
+= Permalinks/Rewrite Rules =
+
+* Add `.html` extension to pages - e.g. `privacy-protecton.html`
+* Add `.html` extension to categories - e.g. `category/uncategorized.html`
+* Remove **embed** Rewrite Rules
+* Remove **feed** Rewrite Rules
 
 = Google Analytics =
 
@@ -78,16 +94,31 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 
 == Screenshots ==
 
-1. General Tweaks
-2. Analytics OPT-OUT Button
-2. Google Analytics Options
-2. Piwik Analytics Options
+1. Settings Page Overview
+2. VisualComponent Extension
+3. Google Analytics Options
+4. Piwik Analytics Options
+5. E-Mail SMTP Settings
+6. Analytics OPT-OUT Button
 
 == Upgrade Notice ==
 
 
 
 == Changelog ==
+
+= 1.2 =
+* Added: VisualComponents Extension to visualize the HTML Element Structure in Visual Editor Mode (headings,section,p)
+* Added: SMTP Mail Transport settings to deliver mails via external Mailserver
+* Added: Option to remove Rewrite Rules for all types of Feeds (RSS, RTF, ATOM, RSS2)
+* Added: Option to add `.html` extensions to **Pages** or **Categories**
+* Added: E-Mail settings to set the mail-from-address as well as mail-from-name manually
+* Changed: Settings Page Structure has been modified
+* Changed: New Piwik and Google Analytics Code
+* Changed: "Disable XMLRPC" will now force the `xmlrpc.php` Endpoint to return a HTTP403 Response
+* Changed: TinyMCE Autowidth is set to **95%**
+* Changed: **Disable oEmbeds** removes also the related Rewrite Rules as well as the endpoint (embed.php template page)
+* Changed: Renamed the setting of "Fix Mail-From" - has to be activated again
 
 = 1.1 =
 * Added: Google Analytics Tracking Option

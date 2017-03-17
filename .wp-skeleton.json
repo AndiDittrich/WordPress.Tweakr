@@ -2,13 +2,13 @@
     "slug": "tweakr",
     "name": "Tweakr",
     "namespace": "Tweakr",
-    "version": "1.2-BETA1",
+    "version": "1.2",
     "license": "MIT X11 License",
     "licenseFile": "LICENSE.txt",
     "constants": {},
     "plugin": {
         "name": "Tweakr Toolkit",
-        "description": "Extends your WordPress Blog with a bunch of common Tweaks and Utilities",
+        "description": "Supercharges your Blog with common used Tweaks, Features and Utilities",
         "url": "https://andidittrich.de/go/tweakr",
         "author": "Andi Dittrich",
         "authorUrl": "https://andidittrich.de"

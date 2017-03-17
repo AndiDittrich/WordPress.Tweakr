@@ -3,11 +3,11 @@ Contributors: Andi Dittrich, aenondynamics
 Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 1.1
+Stable tag: 1.2
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
-Extend your Blog with common used Tweaks, Features and Utilities
+Supercharges your Blog with common used Tweaks, Features and Utilities
 
 ## Description ##
 
@@ -16,8 +16,9 @@ It is designed as compact **all-in-one** solution espacially for **Web-Agencies*
 
 ### Plugin Features ###
 
+The following Features can be **controlled independently**
+
 ### Tweaks ###
-The following WordPress Features can be **controlled separately**
 
 * Disable XMLRPC API (Really!)
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
@@ -35,7 +36,7 @@ The following WordPress Features can be **controlled separately**
 
 ### Visual Editor ###
 
-* VisualComponent Extension visualize the HTML Element Structure (headings,section,p)
+* VisualComponent Extension visualizes the HTML Element Structure (headings,section,p)
 * Remove the fixed-width restriction of the Editor-Area (set to 80% max)
 
 ### E-Mail ###
@@ -93,10 +94,12 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 
 ## Screenshots ##
 
-1. General Tweaks
-2. Analytics OPT-OUT Button
-2. Google Analytics Options
-2. Piwik Analytics Options
+1. Settings Page Overview
+2. VisualComponent Extension
+3. Google Analytics Options
+4. Piwik Analytics Options
+5. E-Mail SMTP Settings
+6. Analytics OPT-OUT Button
 
 ## Upgrade Notice ##
 
