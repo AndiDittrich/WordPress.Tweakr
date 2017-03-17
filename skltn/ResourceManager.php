@@ -17,6 +17,9 @@ class ResourceManager{
         $url = apply_filters('tweakr_resource_url', $filename, TWEAKR_PLUGIN_URL, $version);
 
         // filename not changed and relative url ? prepend plugin url, keep absolute path
+        // regex will match URLs with protocol scheme like http:// ftp://
+        // as well as protocol-less schemes like //fonts.example.org
+        // and domain relative urls like /img/image1.png
         if ($filename == $url && preg_match('#^(?:/|[a-z]+:/).*$#i', $filename) === 0){
             // append version ?
             if (is_string($version)){

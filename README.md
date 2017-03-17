@@ -16,8 +16,6 @@ It is designed as **all-in-one** solution espacially for **Web-Agencies** and **
 
 ### Plugin Features ###
 
-
-
 ### Tweaks ###
 The following WordPress Features can be **controlled separately**
 
@@ -41,6 +39,13 @@ The following WordPress Features can be **controlled separately**
 
 * VisualComponent Extension visualize the HTML Element Structure (headings,section,p)
 * Remove the fixed-width restriction of the Editor-Area (set to 80% max)
+
+### Permalinks/Rewrite Rules ###
+
+* Add `.html` extension to pages - e.g. `privacy-protecton.html`
+* Add `.html` extension to categories - e.g. `category/uncategorized.html`
+* Remove **embed** Rewrite Rules
+* Remove **feed** Rewrite Rules
 
 ### Google Analytics ###
 

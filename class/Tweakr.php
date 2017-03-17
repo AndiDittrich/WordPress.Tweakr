@@ -31,7 +31,7 @@ class Tweakr{
     private $_cacheManager;
 
     // permalink management
-    private $_permalinkStructure;
+    private $_rewriteRules;
 
     public function __construct(){
         // fetch default config & validators
@@ -44,7 +44,7 @@ class Tweakr{
         $this->_cacheManager = new Tweakr\skltn\CacheManager();
 
         // permalink management - depends on activation hooks!
-        $this->_permalinkStructure = new Tweakr\PermalinkStructure($this->_settingsManager);
+        $this->_rewriteRules = new Tweakr\RewriteRules($this->_settingsManager);
     }
 
     public function _wp_init(){
@@ -55,6 +55,9 @@ class Tweakr{
 
         // create new resource loader
         $this->_resourceLoader = new Tweakr\ResourceLoader($this->_settingsManager, $this->_cacheManager);
+
+        // innitialize rewrite rules
+        $this->_rewriteRules->init();
 
         // TinyMCE Tweaks
         // ------------------------------------------------------------------
@@ -78,8 +81,11 @@ class Tweakr{
 
         // Mails
         // ------------------------------------------------------------------
-        if ($this->_settingsManager->getOption('fix-mailfrom-address')){
-            Tweakr\EMail::fixMailFromAddress();
+        if ($this->_settingsManager->getOption('email-from-auto') || !empty($this->_settingsManager->getOption('email-from-address'))){
+            Tweakr\EMail::setMailFromAddress($this->_settingsManager);
+        }
+        if ($this->_settingsManager->getOption('email-smtp-enabled')){
+            Tweakr\EMail::smtpTransport($this->_settingsManager);
         }
 
         // frontend or admin area ?
@@ -241,7 +247,7 @@ class Tweakr{
             $this->_cacheManager->clearCache();
 
             // regenerate rewrite rules
-            $this->_permalinkStructure->reloadRules();
+            $this->_rewriteRules->reload();
         }
                
         // render settings view
@@ -262,11 +268,11 @@ class Tweakr{
     // plugin activation action
     public function _wp_plugin_activate(){
         $this->_cacheManager->clearCache();
-        $this->_permalinkStructure->reloadRules();
+        $this->_rewriteRules->reload();
     }
 
     public function _wp_plugin_deactivate(){
-        $this->_permalinkStructure->clearRules();
+        $this->_rewriteRules->clear();
     }
 
     public function _wp_plugin_upgrade($currentVersion){

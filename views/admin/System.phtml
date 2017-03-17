@@ -6,35 +6,27 @@
     <h3 class="hndle"><span><?php _e('Permalink Strcuture', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
-        <h4><?php _e('Enhancements', 'tweakr'); ?></h4>
+        <p>The WordPress Core rewrite rules will be altered to add the .html extension to the following elements</p>
 
         <?php 
+             // Add .html to Pages
+            $this->_settingsUtility->displayCheckbox(__('Pages', 'tweakr'), 'rewrites-page-ext-html', array(
+                'label' => 'Add .html extension to all pages.'
+            ));
 
+            // Add .html to Categories
+            $this->_settingsUtility->displayCheckbox(__('Categories', 'tweakr'), 'rewrites-category-ext-html', array(
+                'label' => 'Add .html extension to all categories.'
+            ));
         ?>
 
     <!-- // Permalink -->
-    </div></div>
-
-    <!-- Rewrite Rules -->
-    <div class="postbox">
-    <h3 class="hndle"><span><?php _e('Rewrite Rules', 'tweakr'); ?></span></h3>
-    <div class="inside tweakr-setting-section">
-
-    <!-- // Rewrite Rules -->
     </div></div>
 
     <!-- E-Mail -->
     <div class="postbox">
     <h3 class="hndle"><span><?php _e('E-Mail', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
-
-        <?php
-            // Mail From
-            $this->_settingsUtility->displayCheckbox(__('Fix Mail-From', 'tweakr'), 'fix-mailfrom-address', array(
-                'label' => 'Set the Mail-From parameter to BLOGNAME<wordpress@yourdomain.tld>',
-                'description' => 'This fix will solve problems with phpmailerExceptions which are caused by a malformed/invalid email-from-address.'
-            ));
-        ?>
 
         <?php 
             // Control User E-Mail Notification
@@ -48,8 +40,96 @@
                 'label' => 'Should an E-Mail send to the new User and/or the site admin?',
                 'description' => 'On each new User Registration WordPress will send a notifcation to the Site Admin (New User has been registered) as well as the Login Credentials to the new User. Sometimes it is required to suppress those E-Mails.'
             ));
-            
+
         ?>
+
+        <h4>Mail Settings</h4>
+
+        <?php
+
+            // SMTP Transport
+            $this->_settingsUtility->displayCheckbox(__('SMTP', 'tweakr'), 'email-smtp-enabled', array(
+                'label' => 'Use external SMTP Server to send mails.',
+                'description' => 'The PHPMailer system used by WordPress provides the ability to send E-Mails via an external SMTP Server.',
+                'readmore'=> 'https://github.com/PHPMailer/PHPMailer/blob/master/examples/smtp.phps'
+            ));
+
+            // Mail From
+            $this->_settingsUtility->displayCheckbox(__('Fix Mail-From', 'tweakr'), 'email-from-auto', array(
+                'label' => 'Set the Mail-From parameter to BLOGNAME<wordpress@yourdomain.tld>',
+                'description' => 'This fix will solve problems with phpmailerExceptions which are caused by a malformed/invalid email-from-address.'
+            ));
+
+        ?>
+
+        <div class="tweakr-selective-section" data-trigger="#tweakr-email-from-auto" data-condition="!checked">
+
+        <?php
+
+            $this->_settingsUtility->displayInput(__('From Name', 'tweakr'), 'email-from-name', array(
+                'placeholder' => 'auto',
+                'label' => 'Sender Name',
+                'cssClass' => 'input-large',
+                'description' => 'Leave blank to use default value.'
+            ));
+
+            $this->_settingsUtility->displayInput(__('From Address', 'tweakr'), 'email-from-address', array(
+                'placeholder' => 'auto',
+                'label' => 'Sender Address',
+                'cssClass' => 'input-large',
+                'description' => 'Leave blank to use default value.'
+            ));
+        ?>
+
+        </div>
+
+        <div class="tweakr-selective-section" data-trigger="#tweakr-email-smtp-enabled" data-condition="checked">
+
+            <h4>SMTP Settings</h4>
+
+            <?php
+            // Hostname
+            $this->_settingsUtility->displayInput(__('Hostname', 'tweakr'), 'email-smtp-host', array(
+                'placeholder' => 'smtp.example.org',
+                'label' => 'Mailserver Hostname',
+                'cssClass' => 'input-large',
+                'description' => 'You will receive these settings from your webhosting provider.'
+            ));
+
+            // Port
+            $this->_settingsUtility->displayInput(__('Port', 'tweakr'), 'email-smtp-port', array(
+                'placeholder' => '587',
+                'label' => 'The Port of your Mailserver',
+                'description' => 'Typically 25 for unsecure connections or 465/587 for secure TLS connections.'
+            ));
+
+            // SSL/TLS
+            $this->_settingsUtility->displaySelect(__('Secure Connection', 'tweakr'), 'email-smtp-ssltls', array(
+                'none' => 'No Encryption',
+                'tls' => 'TLS Encryption (recommended)',
+                'ssl' => 'SSL Encryption (deprecated)'
+            ), array(
+                'label' => 'Enable secure connection via SSL/TLS',
+                'description' => 'The Port should be set to 587 for TLS or 465 for SSL (deprecated) but may differ depending on your hosting provider.',
+                'cssClass' => 'input-large'
+            ));
+
+            // Username
+            $this->_settingsUtility->displayInput(__('Username', 'tweakr'), 'email-smtp-username', array(
+                'placeholder' => 'sendmail@example.org',
+                'label' => 'SMTP Username (Username of the Mailbox)',
+                'cssClass' => 'input-large',
+            ));
+
+            // Password
+            $this->_settingsUtility->displayInput(__('Password', 'tweakr'), 'email-smtp-password', array(
+                'label' => 'SMTP Password',
+                'cssClass' => 'input-large',
+            ));
+
+            ?>
+
+        </div>
 
     <!-- // E-Mail -->
     </div></div>

@@ -1,4 +1,4 @@
-/*!  AUTO GENERATED FILE - DO NOT EDIT !!
+/*! AUTO GENERATED FILE - DO NOT EDIT !!
     WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
     ------------------------------------
     Corporate Plugin Settings Page Functions
@@ -76,7 +76,7 @@ jQuery(document).ready(function(){
             return;
         }
 
-        // checkbox
+        // checkbox - "checked" -> show element
         if (condition == 'checked'){
             // onchange event
             triggerElement.on('change', function(){
@@ -84,6 +84,17 @@ jQuery(document).ready(function(){
                     container.show();
                 }else{
                     container.hide();
+                }
+            }).trigger('change');
+
+        // checkbox - "checked" -> hide element
+        }else if (condition == '!checked'){
+            // onchange event
+            triggerElement.on('change', function(){
+                if (jQuery(this).is(":checked")){
+                    container.hide();
+                }else{
+                    container.show();
                 }
             }).trigger('change');
         }

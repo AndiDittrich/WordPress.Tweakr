@@ -22,7 +22,15 @@ class PluginConfig{
         'disable-oembed' => false,
         'hide-feed-link' => false,
         'hide-resource-hints' => false,
-        'fix-mailfrom-address' => false,
+        'email-from-auto' => false,
+        'email-from-address' => '',
+        'email-from-name' => '',
+        'email-smtp-enabled' => false,
+        'email-smtp-host' => '',
+        'email-smtp-port' => 587,
+        'email-smtp-username' => '',
+        'email-smtp-password' => '',
+        'email-smtp-ssltls' => 'tls',
         'user-registration-email-notification' => 'default',
         'disable-rss' => false,
         'disable-atom' => false,
@@ -41,7 +49,9 @@ class PluginConfig{
         'pwiki-analytics-simple-pagetitle' => false,
         'tinymce-autowidth' => false,
         'tinymce-visualcomponents' => false,
-        'rewrites-disable-feeds' => false
+        'rewrites-disable-feeds' => false,
+        'rewrites-page-ext-html' => false,
+        'rewrites-category-ext-html' => false
     );
 
     // validation
@@ -58,7 +68,15 @@ class PluginConfig{
         'disable-oembed' => 'boolean',
         'hide-feed-link' => 'boolean',
         'hide-resource-hints' => 'boolean',
-        'fix-mailfrom-address' => 'boolean',
+        'email-from-auto' => 'boolean',
+        'email-from-address' => 'string',
+        'email-from-name' => 'string',
+        'email-smtp-enabled' => 'boolean',
+        'email-smtp-host' => 'string',
+        'email-smtp-port' => 'int',
+        'email-smtp-username' => 'string',
+        'email-smtp-password' => 'string',
+        'email-smtp-ssltls' => 'string',
         'user-registration-email-notification' => 'string',
         'disable-rss' => 'boolean',
         'disable-atom' => 'boolean',
@@ -77,7 +95,9 @@ class PluginConfig{
         'pwiki-analytics-simple-pagetitle' => 'boolean',
         'tinymce-autowidth' => 'boolean',
         'tinymce-visualcomponents' => 'boolean',
-        'rewrites-disable-feeds' => 'boolean'
+        'rewrites-disable-feeds' => 'boolean',
+        'rewrites-page-ext-html' => 'boolean',
+        'rewrites-category-ext-html' => 'boolean'
     );
 
     // get the default plugin config
