@@ -10,15 +10,6 @@ class RewriteRules
     // settings manager instance
     private $_settingsManager;
 
-/*
-    // set of filters used to alter the rewrites
-    private $_filters = array(
-        'page_rewrite_rules' => 'pageRewrites',
-        'category_rewrite_rules' => 'categoryRewrites',
-//        'post_tag_rewrite_rules' => 'tagRewrites',
-        'rewrite_rules_array' => 'filterRewrites'
-    );
-*/
     public function __construct($settingsManager){
         parent::__construct();
 
@@ -27,11 +18,6 @@ class RewriteRules
 
     // executed on init hook
     public function init(){
-        // initialize rewrite filters
-        //foreach ($this->_filters as $name => $cb){
-            //add_filter($name, array($this, $cb), 100);
-        //}
-
         $this->addRuleFilter('page_rewrite_rules', array($this, 'pageRewrites'));
         $this->addRuleFilter('category_rewrite_rules', array($this, 'categoryRewrites'));
         $this->addRuleFilter('rewrite_rules_array', array($this, 'filterRewrites'));
@@ -69,18 +55,6 @@ class RewriteRules
         return $link;
     }
 
-/*
-    // flush rewrite rules
-    public function cleanup(){
-        // remove filters
-        foreach ($this->_filters as $name => $cb){
-            remove_filter($name, array($this, $cb), 100);
-        }
-
-        // regenrate rules
-        parent::cleanup();
-    }
-*/
     // called e.g. on plugin activation + settings update
     public function reload(){
         // regenrate rules
@@ -190,35 +164,4 @@ class RewriteRules
 
         return $rules;
     }
-
-/*
-    // allow much easier rule filtering by converting the assoc style original rules
-    // to a multidimension array: entry[] = array(regex, rewrite)
-    // each of the rewrite rules is passed to the callback function
-    private function applyRewriteFilter($cb, $originRules){
-        // temporary rules
-        $alteredRules = array();
-
-        // convert origin rules to temporary structure
-        foreach ($originRules as $regex => $rewrite){
-            $alteredRules[] = array($regex, $rewrite);
-        }
-
-        // apply filter callback
-        $alteredRules = array_map($cb, $alteredRules);
-
-        // convert back
-        $output = array();
-
-        // convert to assoc array
-        foreach ($alteredRules as $rule){
-            if ($rule != null){
-                $output[$rule[0]] = $rule[1];
-            }
-        }
-
-        return $output;
-    }
-*/
-    
 }
