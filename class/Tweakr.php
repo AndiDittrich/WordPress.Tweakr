@@ -342,14 +342,14 @@ class Tweakr{
             // plugin installed ?
             if ($version == '0.0.0'){
                 // store new version
-                update_option('tweakr-version', '1.3-BETA1');
+                update_option('tweakr-version', '1.3');
 
             // plugin upgraded ?
-            }else if (version_compare('1.3-BETA1', $version, '>')){
+            }else if (version_compare('1.3', $version, '>')){
                 // run upgrade hook
                 if ($i->_wp_plugin_upgrade($version)){
                     // store new version
-                    update_option('tweakr-version', '1.3-BETA1');
+                    update_option('tweakr-version', '1.3');
 
                     // set flag (string!)
                     update_option('tweakr-upgrade', 'true');

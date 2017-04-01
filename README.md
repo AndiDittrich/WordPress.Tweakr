@@ -1,18 +1,18 @@
 # Tweakr Toolkit #
 Contributors: Andi Dittrich, AenonDynamics
-Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
+Tags: tweaks, tools, security, api, json, rest-api, sitemap, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 1.2
+Stable tag: 1.3
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
-Supercharges your Blog with common used Tweaks, Features and Utilities
+Supercharges your Blog with production grade Tweaks, Features and Utilities
 
 ## Description ##
 
-This plugin is a collection of common tweaks and features - each of them can be **controlled independently**
-It is designed as compact **all-in-one solution** espacially for **Web-Agencies** and **Advanced Users**.
+This plugin is a collection of common used tweaks and features - each of them can be **controlled independently**
+It is designed as compact **all-in-one solution** espacially for **Web-Agencies** and **Advanced Users** with security in mind: just audit and trust a single plugin.
 
 ### Visual Editor ###
 
@@ -42,10 +42,12 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 * Password protected posts/pages or unpublished content is ignored!
 * XML Format regarding the [sitemaps.org specification](https://www.sitemaps.org/protocol.html)
 
-### System Tweaks ###
-
+### Security ###
 * Disable XMLRPC API (Really!)
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
+
+### System Tweaks ###
+
 * Disable Emojis
 * Disable oEmbeds
 * Hide Admin Toolbar

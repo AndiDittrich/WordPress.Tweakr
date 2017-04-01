@@ -1,38 +1,18 @@
 === Tweakr Toolkit ===
-Contributors: Andi Dittrich, aenondynamics
-Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
+Contributors: Andi Dittrich, AenonDynamics
+Tags: tweaks, tools, security, api, json, rest-api, sitemap, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 1.2
+Stable tag: 1.3
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
-Supercharges your Blog with common used Tweaks, Features and Utilities
+Supercharges your Blog with production grade Tweaks, Features and Utilities
 
 == Description ==
 
-This plugin is a collection of common tweaks and features we've created for our customers.
-It is designed as compact **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
-
-= Plugin Features =
-
-The following Features can be **controlled independently**
-
-= Tweaks =
-
-* Disable XMLRPC API (Really!)
-* Restrict REST (JSON) API Access to **Admin** and **Editor** User
-* Disable Emojis
-* Disable oEmbeds
-* Hide Admin Toolbar
-* Hide WordPress Generator Tag
-* Hide Windows Live Writer manifest file link
-* Hide Meta Pagination Links
-* Hide Feed Links
-* Hide Resource Hints
-* Disable RSS Feeds
-* Disable Atom Feeds
-* Disable RDF Feeds
+This plugin is a collection of common used tweaks and features - each of them can be **controlled independently**
+It is designed as compact **all-in-one solution** espacially for **Web-Agencies** and **Advanced Users** with security in mind: just audit and trust a single plugin.
 
 = Visual Editor =
 
@@ -41,7 +21,7 @@ The following Features can be **controlled independently**
 
 = E-Mail =
 
-* Use External **SMTP** Mailserver to deliver mails transmitted by `wp_mail`
+* Use **External SMTP Mailserver** to deliver mails transmitted by `wp_mail`
 * No Third Party libraries required! WordPress Internal **PHPMailer** class is used
 * Support for **TLS/SSL** Connections
 * Set the Mail-From-Name and Mail-From-Address manually
@@ -54,6 +34,31 @@ The following Features can be **controlled independently**
 * Add `.html` extension to categories - e.g. `category/uncategorized.html`
 * Remove **embed** Rewrite Rules
 * Remove **feed** Rewrite Rules
+
+= XML Sitemap =
+* Automatical XML Sitemap generation `sitemap.xml` (SEO)
+* Modern Search-Engines like Google, Bing can easier index your posts/pages
+* Only **Posts** and **Pages** are displayed
+* Password protected posts/pages or unpublished content is ignored!
+* XML Format regarding the [sitemaps.org specification](https://www.sitemaps.org/protocol.html)
+
+= Security =
+* Disable XMLRPC API (Really!)
+* Restrict REST (JSON) API Access to **Admin** and **Editor** User
+
+= System Tweaks =
+
+* Disable Emojis
+* Disable oEmbeds
+* Hide Admin Toolbar
+* Hide WordPress Generator Tag
+* Hide Windows Live Writer manifest file link
+* Hide Meta Pagination Links
+* Hide Feed Links
+* Hide Resource Hints
+* Disable RSS Feeds
+* Disable Atom Feeds
+* Disable RDF Feeds
 
 = Google Analytics =
 
@@ -106,6 +111,10 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 
 
 == Changelog ==
+
+= 1.3 =
+* Added: XML Sitemap Generator
+* Bugfix: Plugin Re-Activation doesn't flush (initialize) the rewrite rules
 
 = 1.2 =
 * Added: VisualComponents Extension to visualize the HTML Element Structure in Visual Editor Mode (headings,section,p)

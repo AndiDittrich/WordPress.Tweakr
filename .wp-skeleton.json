@@ -2,7 +2,7 @@
     "slug": "tweakr",
     "name": "Tweakr",
     "namespace": "Tweakr",
-    "version": "1.3-BETA1",
+    "version": "1.3",
     "license": "MIT X11 License",
     "licenseFile": "LICENSE.txt",
     "constants": {},

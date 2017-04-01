@@ -5,26 +5,6 @@
     <!-- ANT-contrib !-->
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
-    <!-- Generate Build -->
-    <target name="js-min">
-        <condition property="uglifyjs" value="uglifyjs.cmd">
-            <os family="windows" />
-        </condition>
-        <condition property="uglifyjs" value="uglifyjs">
-            <os family="unix" />
-        </condition>
-
-        <!-- Compressed Version -->
-        <echo message="Generating minified version.." />
-        <exec executable="${uglifyjs}">
-            <arg line="--compress"></arg>
-            <arg line="--mangle"></arg>
-            <arg line="--output resources/CryptexHyperlinkDecoder.min.js"></arg>
-            <arg line="--"></arg>
-            <arg line="resources/CryptexHyperlinkDecoder.js"></arg>
-        </exec>
-    </target>
-
     <!-- Plugin Test - DEVELOPMENT ONLY -->
     <target name="devcopy">
         <!-- Credentials, Host Settings !-->
