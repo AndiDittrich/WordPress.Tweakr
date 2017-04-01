@@ -96,8 +96,6 @@ class RewriteRules
             // ok
             return $rule;
         }, $rules);
-
-        return $rules;
     }
 
     // filters all category rewrite rules
@@ -116,8 +114,6 @@ class RewriteRules
             // ok
             return $rule;
         }, $rules);
-
-        return $rules;
     }
 /*
     // filters all post-tag rewrite rules
@@ -136,8 +132,6 @@ class RewriteRules
             // ok
             return $rule;
         }, $rules);
-
-        return $rules;
     }
 */
     // global rewrite rule filtering
@@ -161,7 +155,5 @@ class RewriteRules
             // ok
             return $rule;
         }, $rules);
-
-        return $rules;
     }
 }
