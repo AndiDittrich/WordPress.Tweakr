@@ -159,3 +159,22 @@
 
     <!-- // API -->
     </div></div>
+
+    <!-- XML Sitemap -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('Sitemap', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <p>Provides a XML Sitemap for Search Engines regarding the <a href="https://www.sitemaps.org/" target="_new">sitemaps.org</a> specification. Includes all published posts and pages.</p>
+
+        <?php 
+             // Add virtual sitemap.xml
+            $this->_settingsUtility->displayCheckbox(__('XML Sitemap', 'tweakr'), 'sitemap-xml-enabled', array(
+                'label' => 'Enable',
+                'description' => 'Automatically generated /sitemap.xml file.',
+                'readmore' => 'https://www.sitemaps.org/protocol.html'
+            ));
+        ?>
+
+    <!-- // XML Sitemap -->
+    </div></div>

@@ -51,7 +51,8 @@ class PluginConfig{
         'tinymce-visualcomponents' => false,
         'rewrites-disable-feeds' => false,
         'rewrites-page-ext-html' => false,
-        'rewrites-category-ext-html' => false
+        'rewrites-category-ext-html' => false,
+        'sitemap-xml-enabled' => false
     );
 
     // validation
@@ -97,7 +98,8 @@ class PluginConfig{
         'tinymce-visualcomponents' => 'boolean',
         'rewrites-disable-feeds' => 'boolean',
         'rewrites-page-ext-html' => 'boolean',
-        'rewrites-category-ext-html' => 'boolean'
+        'rewrites-category-ext-html' => 'boolean',
+        'sitemap-xml-enabled' => 'boolean'
     );
 
     // get the default plugin config

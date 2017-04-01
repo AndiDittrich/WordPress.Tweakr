@@ -1,5 +1,5 @@
 # Tweakr Toolkit #
-Contributors: Andi Dittrich, aenondynamics
+Contributors: Andi Dittrich, AenonDynamics
 Tags: tweaks, tools, hacks, api, json, rest-api, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
 Tested up to: 4.7
@@ -11,14 +11,38 @@ Supercharges your Blog with common used Tweaks, Features and Utilities
 
 ## Description ##
 
-This plugin is a collection of common tweaks and features we've created for our customers.
-It is designed as compact **all-in-one** solution espacially for **Web-Agencies** and **Advanced Users**.
+This plugin is a collection of common tweaks and features - each of them can be **controlled independently**
+It is designed as compact **all-in-one solution** espacially for **Web-Agencies** and **Advanced Users**.
 
-### Plugin Features ###
+### Visual Editor ###
 
-The following Features can be **controlled independently**
+* VisualComponent Extension visualizes the HTML Element Structure (headings,section,p)
+* Remove the fixed-width restriction of the Editor-Area (set to 80% max)
 
-### Tweaks ###
+### E-Mail ###
+
+* Use **External SMTP Mailserver** to deliver mails transmitted by `wp_mail`
+* No Third Party libraries required! WordPress Internal **PHPMailer** class is used
+* Support for **TLS/SSL** Connections
+* Set the Mail-From-Name and Mail-From-Address manually
+* Fix phpmailerExceptions by setting the mail-from parameter to a valid address
+* Control New User Registration E-Mails (send to admin and/or user)
+
+### Permalinks/Rewrite Rules ###
+
+* Add `.html` extension to pages - e.g. `privacy-protecton.html`
+* Add `.html` extension to categories - e.g. `category/uncategorized.html`
+* Remove **embed** Rewrite Rules
+* Remove **feed** Rewrite Rules
+
+### XML Sitemap ###
+* Automatical XML Sitemap generation `sitemap.xml` (SEO)
+* Modern Search-Engines like Google, Bing can easier index your posts/pages
+* Only **Posts** and **Pages** are displayed
+* Password protected posts/pages or unpublished content is ignored!
+* XML Format regarding the [sitemaps.org specification](https://www.sitemaps.org/protocol.html)
+
+### System Tweaks ###
 
 * Disable XMLRPC API (Really!)
 * Restrict REST (JSON) API Access to **Admin** and **Editor** User
@@ -33,27 +57,6 @@ The following Features can be **controlled independently**
 * Disable RSS Feeds
 * Disable Atom Feeds
 * Disable RDF Feeds
-
-### Visual Editor ###
-
-* VisualComponent Extension visualizes the HTML Element Structure (headings,section,p)
-* Remove the fixed-width restriction of the Editor-Area (set to 80% max)
-
-### E-Mail ###
-
-* Use External **SMTP** Mailserver to deliver mails transmitted by `wp_mail`
-* No Third Party libraries required! WordPress Internal **PHPMailer** class is used
-* Support for **TLS/SSL** Connections
-* Set the Mail-From-Name and Mail-From-Address manually
-* Fix phpmailerExceptions by setting the mail-from parameter to a valid address
-* Control New User Registration E-Mails (send to admin and/or user)
-
-### Permalinks/Rewrite Rules ###
-
-* Add `.html` extension to pages - e.g. `privacy-protecton.html`
-* Add `.html` extension to categories - e.g. `category/uncategorized.html`
-* Remove **embed** Rewrite Rules
-* Remove **feed** Rewrite Rules
 
 ### Google Analytics ###
 

@@ -33,7 +33,13 @@ class Tweakr{
     // permalink management
     private $_rewriteRules;
 
+    // virtual pages (sitemap)
+    private $_virtualPageManager;
+
     public function __construct(){
+        // Plugin PRE-INIT (CORE)
+        // ------------------------------------------------------------------
+
         // fetch default config & validators
         $pluginConfig = new Tweakr\skltn\PluginConfig();
 
@@ -45,9 +51,19 @@ class Tweakr{
 
         // permalink management - depends on activation hooks!
         $this->_rewriteRules = new Tweakr\RewriteRules($this->_settingsManager);
+
+        // virtual pages (rewrite endpoints)
+        $this->_virtualPageManager = new Tweakr\skltn\VirtualPageManager($this->_rewriteRules);
+
+        // XML Sitemap
+        // ------------------------------------------------------------------
+        if ($this->_settingsManager->getOption('sitemap-xml-enabled')){
+            $xmlSitemap = new Tweakr\XmlSitemap($this->_virtualPageManager);
+        }
     }
 
     public function _wp_init(){
+
         // load language files
         if ($this->_settingsManager->getOption('translation-enabled')){
             load_plugin_textdomain('tweakr', null, 'tweakr/lang/');
@@ -58,7 +74,7 @@ class Tweakr{
 
         // innitialize rewrite rules
         $this->_rewriteRules->init();
-
+      
         // TinyMCE Tweaks
         // ------------------------------------------------------------------
         $tinymceTweaks = new Tweakr\TinyMCE($this->_settingsManager, $this->_cacheManager);
@@ -267,12 +283,19 @@ class Tweakr{
    
     // plugin activation action
     public function _wp_plugin_activate(){
+        // initialize rewrite rules
+        $this->_rewriteRules->init();
+
+        // clear the cache
         $this->_cacheManager->clearCache();
+
+        // regenerate rewrite rules
         $this->_rewriteRules->reload();
     }
 
     public function _wp_plugin_deactivate(){
-        $this->_rewriteRules->clear();
+        // remove all rewrite rules
+        $this->_rewriteRules->cleanup();
     }
 
     public function _wp_plugin_upgrade($currentVersion){
@@ -319,14 +342,14 @@ class Tweakr{
             // plugin installed ?
             if ($version == '0.0.0'){
                 // store new version
-                update_option('tweakr-version', '1.2');
+                update_option('tweakr-version', '1.3-BETA1');
 
             // plugin upgraded ?
-            }else if (version_compare('1.2', $version, '>')){
+            }else if (version_compare('1.3-BETA1', $version, '>')){
                 // run upgrade hook
                 if ($i->_wp_plugin_upgrade($version)){
                     // store new version
-                    update_option('tweakr-version', '1.2');
+                    update_option('tweakr-version', '1.3-BETA1');
 
                     // set flag (string!)
                     update_option('tweakr-upgrade', 'true');

@@ -1,5 +1,9 @@
 ## Changelog ##
 
+### 1.3 ###
+* Added: XML Sitemap Generator
+* Bugfix: Plugin Re-Activation doesn't flush (initialize) the rewrite rules
+
 ### 1.2 ###
 * Added: VisualComponents Extension to visualize the HTML Element Structure in Visual Editor Mode (headings,section,p)
 * Added: SMTP Mail Transport settings to deliver mails via external Mailserver

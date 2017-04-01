@@ -3,7 +3,7 @@
     Plugin Name: Tweakr Toolkit
     Plugin URI: https://andidittrich.de/go/tweakr
     Description: Supercharges your Blog with common used Tweaks, Features and Utilities
-    Version: 1.2
+    Version: 1.3-BETA1
     Author: Andi Dittrich
     Author URI: https://andidittrich.de
     License: MIT X11 License
@@ -23,7 +23,7 @@
     Plugin Bootstrap Operation
 */
 define('TWEAKR_INIT', true);
-define('TWEAKR_VERSION', '1.2');
+define('TWEAKR_VERSION', '1.3-BETA1');
 define('TWEAKR_PLUGIN_PATH', dirname(__FILE__));
 define('TWEAKR_PLUGIN_URL', plugins_url('/tweakr/'));
 
@@ -48,6 +48,8 @@ if (version_compare(phpversion(), '5.4', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/PluginConfig.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/CssBuilder.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/Hash.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/skltn/VirtualPageManager.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/skltn/RewriteRuleHelper.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/API.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/EMail.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Feeds.php');
@@ -59,6 +61,7 @@ if (version_compare(phpversion(), '5.4', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/class/TinyMCE.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Tweakr.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/UserNotification.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/XmlSitemap.php');
 
     
     // startup - NEVER CALL IT OUTSIDE THIS FILE !!

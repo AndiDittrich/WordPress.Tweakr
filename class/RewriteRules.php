@@ -2,11 +2,15 @@
 
 namespace Tweakr;
 
-class RewriteRules{
+use Tweakr\skltn\RewriteRuleHelper;
+
+class RewriteRules
+    extends RewriteRuleHelper{
 
     // settings manager instance
     private $_settingsManager;
 
+/*
     // set of filters used to alter the rewrites
     private $_filters = array(
         'page_rewrite_rules' => 'pageRewrites',
@@ -14,17 +18,23 @@ class RewriteRules{
 //        'post_tag_rewrite_rules' => 'tagRewrites',
         'rewrite_rules_array' => 'filterRewrites'
     );
-
+*/
     public function __construct($settingsManager){
+        parent::__construct();
+
         $this->_settingsManager = $settingsManager;
     }
 
     // executed on init hook
     public function init(){
         // initialize rewrite filters
-        foreach ($this->_filters as $name => $cb){
-            add_filter($name, array($this, $cb), 100);
-        }
+        //foreach ($this->_filters as $name => $cb){
+            //add_filter($name, array($this, $cb), 100);
+        //}
+
+        $this->addRuleFilter('page_rewrite_rules', array($this, 'pageRewrites'));
+        $this->addRuleFilter('category_rewrite_rules', array($this, 'categoryRewrites'));
+        $this->addRuleFilter('rewrite_rules_array', array($this, 'filterRewrites'));
 
         // fix trailing slashes
         add_filter('user_trailingslashit', array($this, 'fixTrailingslashes'), 100, 2);
@@ -38,6 +48,9 @@ class RewriteRules{
                 return $link . '.html';
             }, 100);
         }
+
+        // additional rulesets
+        do_action('tweakr_rewriterules_init');
     }
 
     // helper function
@@ -56,17 +69,18 @@ class RewriteRules{
         return $link;
     }
 
+/*
     // flush rewrite rules
-    public function clear(){
+    public function cleanup(){
         // remove filters
         foreach ($this->_filters as $name => $cb){
             remove_filter($name, array($this, $cb), 100);
         }
 
         // regenrate rules
-        flush_rewrite_rules();
+        parent::cleanup();
     }
-
+*/
     // called e.g. on plugin activation + settings update
     public function reload(){
         // regenrate rules
@@ -177,6 +191,7 @@ class RewriteRules{
         return $rules;
     }
 
+/*
     // allow much easier rule filtering by converting the assoc style original rules
     // to a multidimension array: entry[] = array(regex, rewrite)
     // each of the rewrite rules is passed to the callback function
@@ -204,6 +219,6 @@ class RewriteRules{
 
         return $output;
     }
-
+*/
     
 }
