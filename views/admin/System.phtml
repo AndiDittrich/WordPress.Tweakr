@@ -18,6 +18,16 @@
             $this->_settingsUtility->displayCheckbox(__('Categories', 'tweakr'), 'rewrites-category-ext-html', array(
                 'label' => 'Add .html extension to all categories.'
             ));
+
+            // Add .html to custom Taxonomies
+            $this->_settingsUtility->displayCheckbox(__('Taxonomies', 'tweakr'), 'rewrites-custom-taxonomy-ext-html', array(
+                'label' => 'Add .html extension to custom taxonomies.'
+            ));
+
+            // Remove Trailing-Slashes
+            $this->_settingsUtility->displayCheckbox(__('Trailing Slashes', 'tweakr'), 'rewrites-trailingslashes-remove', array(
+                'label' => 'Remove trailing slashes from all permalinks'
+            ));
         ?>
 
     <!-- // Permalink -->

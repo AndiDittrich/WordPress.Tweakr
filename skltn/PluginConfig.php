@@ -52,6 +52,8 @@ class PluginConfig{
         'rewrites-disable-feeds' => false,
         'rewrites-page-ext-html' => false,
         'rewrites-category-ext-html' => false,
+        'rewrites-custom-taxonomy-ext-html' => false,
+        'rewrites-trailingslashes-remove' => false,
         'sitemap-xml-enabled' => false
     );
 
@@ -99,6 +101,8 @@ class PluginConfig{
         'rewrites-disable-feeds' => 'boolean',
         'rewrites-page-ext-html' => 'boolean',
         'rewrites-category-ext-html' => 'boolean',
+        'rewrites-custom-taxonomy-ext-html' => 'boolean',
+        'rewrites-trailingslashes-remove' => 'boolean',
         'sitemap-xml-enabled' => 'boolean'
     );
 

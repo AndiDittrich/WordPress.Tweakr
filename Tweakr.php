@@ -3,7 +3,7 @@
     Plugin Name: Tweakr Toolkit
     Plugin URI: https://andidittrich.de/go/tweakr
     Description: Supercharges your Blog with common used Tweaks, Features and Utilities
-    Version: 1.3
+    Version: 1.4-BETA2
     Author: Andi Dittrich
     Author URI: https://andidittrich.de
     License: MIT X11 License
@@ -23,7 +23,7 @@
     Plugin Bootstrap Operation
 */
 define('TWEAKR_INIT', true);
-define('TWEAKR_VERSION', '1.3');
+define('TWEAKR_VERSION', '1.4-BETA2');
 define('TWEAKR_PLUGIN_PATH', dirname(__FILE__));
 define('TWEAKR_PLUGIN_URL', plugins_url('/tweakr/'));
 

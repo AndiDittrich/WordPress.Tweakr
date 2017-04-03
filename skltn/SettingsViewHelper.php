@@ -26,7 +26,8 @@ class SettingsViewHelper{
         // element attributes
         $attb = array(
             'name' => 'tweakr-options[' . $optionName . ']',
-            'id'   => 'tweakr-' . $optionName
+            'id'   => 'tweakr-' . $optionName,
+            'class' => (isset($options['cssClass']) ? $options['cssClass'] : '')
         );
 
         // wrap into label

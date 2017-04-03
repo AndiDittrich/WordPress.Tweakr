@@ -84,7 +84,7 @@
     width: 150px;
 }
 
-.tweakr-setting input[type="text"].input-large{
+.tweakr-setting input[type="text"].input-large, .tweakr-setting select.input-large{
     width: 300px;
 }
 

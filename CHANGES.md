@@ -1,5 +1,9 @@
 ## Changelog ##
 
+### 1.4 ###
+* Added: Option to remove trailing-slashes from all permalinks
+* Added: Option to add `.html` extensions to custom taxonomies - feature requested on [WordPress.org Forums](https://wordpress.org/support/topic/add-html-to-custom-taxonomies-categories/)
+
 ### 1.3 ###
 * Added: XML Sitemap Generator
 * Bugfix: Plugin Re-Activation doesn't flush (initialize) the rewrite rules

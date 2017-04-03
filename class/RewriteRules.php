@@ -18,9 +18,27 @@ class RewriteRules
 
     // executed on init hook
     public function init(){
-        $this->addRuleFilter('page_rewrite_rules', array($this, 'pageRewrites'));
-        $this->addRuleFilter('category_rewrite_rules', array($this, 'categoryRewrites'));
+        $this->addRuleFilter('page_rewrite_rules', array($this, 'pageRewrites'));        
         $this->addRuleFilter('rewrite_rules_array', array($this, 'filterRewrites'));
+
+        // add .html extension to pages ?
+        if ($this->_settingsManager->getOption('rewrites-category-ext-html')){
+            $this->addRuleFilter('category_rewrite_rules', array($this, 'categoryRewrites'));
+        }
+
+        // add .html extension to custom taxonomies ?
+        if ($this->_settingsManager->getOption('rewrites-custom-taxonomy-ext-html')){
+            // get non-buildin (custom) taxonomies
+            $taxonomies = get_taxonomies(array(
+                'public'   => true,
+                '_builtin' => false
+            ), 'names', 'and'); 
+
+            // apply filter
+            foreach ($taxonomies as $slug){
+                $this->addRuleFilter($slug . '_rewrite_rules', array($this, 'taxonomyRewrites'));
+            }
+        }
 
         // fix trailing slashes
         add_filter('user_trailingslashit', array($this, 'fixTrailingslashes'), 100, 2);
@@ -63,6 +81,11 @@ class RewriteRules
 
     // removed trailing slashed from permalink structure
     public function fixTrailingslashes($url, $posttype){
+        // remove all trailingslashes ?
+        if ($this->_settingsManager->getOption('rewrites-trailingslashes-remove')){
+            return untrailingslashit($url);
+        }
+
         // add .html to pages ?
         if ($posttype == 'page' && $this->_settingsManager->getOption('rewrites-page-ext-html')){
             return untrailingslashit($url);
@@ -70,11 +93,13 @@ class RewriteRules
         // add .html to categories
         }else if ($posttype == 'category' && $this->_settingsManager->getOption('rewrites-category-ext-html')){
             return untrailingslashit($url);
+
 /*
         // add .html to post_tag
         }else if ($posttype == 'post_tag' && $this->_settingsManager->getOption('rewrites-posttag-ext-html')){
             return untrailingslashit($url);
 */
+        // no action
         }else{
             return $url;
         }
@@ -98,18 +123,32 @@ class RewriteRules
         }, $rules);
     }
 
+    // filters custom taxonomy rewrite rules
+    public function taxonomyRewrites($rules){
+
+         // filtering
+        return $this->applyRewriteFilter(function($rule){
+
+            // alter rewrite rule
+            // taxonomy link
+            // scheme: <rewrite-base>/<slug>/([^/]+)
+            $rule[0] = preg_replace('/^(.*\/\(\[\^\/\]\+\))\//U', '$1.html/', $rule[0]);
+            
+            // ok
+            return $rule;
+        }, $rules);
+    }
+
     // filters all category rewrite rules
     public function categoryRewrites($rules){
 
          // filtering
         return $this->applyRewriteFilter(function($rule){
 
-            // add .html extension to pages ?
-            if ($this->_settingsManager->getOption('rewrites-category-ext-html')){
-                // category link - match WordPress Regex and append html to the regex rule
-                // scheme: <category-rewrite-base>/(.+?)/...
-                $rule[0] = preg_replace('/(\/\(\.\+\?\))\//', '$1.html/', $rule[0]);
-            }
+            // alter rewrite rule
+            // category link - match WordPress Regex and append html to the regex rule
+            // scheme: <category-rewrite-base>/(.+?)/...
+            $rule[0] = preg_replace('/(\/\(\.\+\?\))\//', '$1.html/', $rule[0]);
 
             // ok
             return $rule;
