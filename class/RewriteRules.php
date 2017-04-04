@@ -10,6 +10,9 @@ class RewriteRules
     // settings manager instance
     private $_settingsManager;
 
+    // list of custom taxonomies
+    private $_customTaxonomies = array();
+
     public function __construct($settingsManager){
         parent::__construct();
 
@@ -26,16 +29,17 @@ class RewriteRules
             $this->addRuleFilter('category_rewrite_rules', array($this, 'categoryRewrites'));
         }
 
+        // get non-buildin (custom) taxonomies
+        $this->_customTaxonomies = apply_filter('tweakr_custom_taxonomies', get_taxonomies(array(
+            'public'   => true,
+            '_builtin' => false
+        ), 'names', 'and'));
+
         // add .html extension to custom taxonomies ?
         if ($this->_settingsManager->getOption('rewrites-custom-taxonomy-ext-html')){
-            // get non-buildin (custom) taxonomies
-            $taxonomies = get_taxonomies(array(
-                'public'   => true,
-                '_builtin' => false
-            ), 'names', 'and'); 
 
             // apply filter
-            foreach ($taxonomies as $slug){
+            foreach ($this->_customTaxonomies as $slug){
                 $this->addRuleFilter($slug . '_rewrite_rules', array($this, 'taxonomyRewrites'));
             }
         }
@@ -61,6 +65,11 @@ class RewriteRules
     public function filterTermLinks($link, $term, $taxonomy){
         // add .html to categories ? filter links
         if ($taxonomy == 'category' && $this->_settingsManager->getOption('rewrites-category-ext-html')){
+            return $link . '.html';
+        }
+
+        // add .html to custom taxonomies ?
+        if (in_array($taxonomy, $this->_customTaxonomies) && $this->_settingsManager->getOption('rewrites-custom-taxonomy-ext-html')){
             return $link . '.html';
         }
 /*
