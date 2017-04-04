@@ -30,7 +30,7 @@ class RewriteRules
         }
 
         // get non-buildin (custom) taxonomies
-        $this->_customTaxonomies = apply_filters('tweakr_custom_taxonomies', get_taxonomies(array(
+        $this->_customTaxonomies = apply_filters('tweakr_rewrites_custom_taxonomies', get_taxonomies(array(
             'public'   => true,
             '_builtin' => false
         ), 'names', 'and'));
