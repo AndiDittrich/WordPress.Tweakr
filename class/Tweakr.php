@@ -104,6 +104,12 @@ class Tweakr{
             Tweakr\EMail::smtpTransport($this->_settingsManager);
         }
 
+        // Permalinks
+        // ------------------------------------------------------------------
+        if ($this->_settingsManager->getOption('permalinks-virtual')){
+            Tweakr\LinkManager::useVirtualPermalinks();
+        }
+
         // frontend or admin area ?
         if (is_admin()){
             // add admin menu handler

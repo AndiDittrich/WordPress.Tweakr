@@ -1,9 +1,9 @@
 # Tweakr Toolkit #
 Contributors: Andi Dittrich, AenonDynamics
-Tags: tweaks, tools, security, api, json, rest-api, sitemap, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
+Tags: tweaks, tools, security, api, json, rest-api, permalinks, editor, tinymce, sitemap, enhancement, tuning, extend, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
-Tested up to: 4.7
-Stable tag: 1.3
+Tested up to: 4.8
+Stable tag: 1.4
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
@@ -34,6 +34,9 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 * Add `.html` extension to categories - e.g. `category/uncategorized.html`
 * Remove **embed** Rewrite Rules
 * Remove **feed** Rewrite Rules
+
+### Virtual Permalink URLs ###
+* Placeholders like `link://post.local/1234` can be used within the Link-Insert-Dialogs and got replaced by the real link during rendering - this avoids problems with different domains names.
 
 ### XML Sitemap ###
 * Automatical XML Sitemap generation `sitemap.xml` (SEO)

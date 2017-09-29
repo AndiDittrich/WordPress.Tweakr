@@ -3,6 +3,7 @@
 ### 1.4 ###
 * Added: Option to remove trailing-slashes from all permalinks
 * Added: Option to add `.html` extensions to custom taxonomies - feature requested on [WordPress.org Forums](https://wordpress.org/support/topic/add-html-to-custom-taxonomies-categories/)
+* Added: Virtual Permalinks to the Link-Insert-Dialogs. Placeholders like `link://post.local/1234` are used and replaced by the real link during rendering - this avoids problems with different domains
 
 ### 1.3 ###
 * Added: XML Sitemap Generator

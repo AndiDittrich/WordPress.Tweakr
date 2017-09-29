@@ -54,7 +54,8 @@ class PluginConfig{
         'rewrites-category-ext-html' => false,
         'rewrites-custom-taxonomy-ext-html' => false,
         'rewrites-trailingslashes-remove' => false,
-        'sitemap-xml-enabled' => false
+        'sitemap-xml-enabled' => false,
+        'permalinks-virtual' => false
     );
 
     // validation
@@ -103,7 +104,8 @@ class PluginConfig{
         'rewrites-category-ext-html' => 'boolean',
         'rewrites-custom-taxonomy-ext-html' => 'boolean',
         'rewrites-trailingslashes-remove' => 'boolean',
-        'sitemap-xml-enabled' => 'boolean'
+        'sitemap-xml-enabled' => 'boolean',
+        'permalinks-virtual' => 'boolean'
     );
 
     // get the default plugin config

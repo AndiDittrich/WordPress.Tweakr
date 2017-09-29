@@ -51,8 +51,6 @@ class API{
 
         // throw an error for non editor users
         if (!current_user_can('publish_pages')){
-
-
             
             // hook into the rest auth errors
             add_filter('rest_authentication_errors', function ($errors){

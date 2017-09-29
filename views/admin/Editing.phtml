@@ -23,3 +23,20 @@
 
     <!-- // TinyMCE -->
     </div></div>
+
+    <!-- General -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('General Editing', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php 
+            // Virtual Permalinks
+            $this->_settingsUtility->displayCheckbox(__('Virtual Permalinks', 'tweakr'), 'permalinks-virtual', array(
+                'label' => 'Enable Virtual Permalink URLs',
+                'description' => 'Placeholders like link://post.local/1234 are used within the Link-Insert-Dialogs and got replaced by the real link during rendering - this avoids problems with different domains names.'
+            ));
+        ?>
+
+    <!-- // General -->
+    </div></div>
+
