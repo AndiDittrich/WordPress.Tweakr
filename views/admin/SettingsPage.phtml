@@ -25,6 +25,7 @@
 <!-- Settings Tabs -->
 <h2 class="nav-tab-wrapper" id="tweakr-tabnav">
     <a data-tab="TweakrTabTweaks" class="nav-tab"><?php _e('Tweaks', 'tweakr'); ?></a>
+    <a data-tab="TweakrTabContent" class="nav-tab"><?php _e('Content', 'tweakr'); ?></a>
     <a data-tab="TweakrTabEditing" class="nav-tab"><?php _e('Editing', 'tweakr'); ?></a>
     <a data-tab="TweakrTabAnalytics" class="nav-tab"><?php _e('Analytics', 'tweakr'); ?></a>
     <a data-tab="TweakrTabSystem" class="nav-tab"><?php _e('System', 'tweakr'); ?></a>
@@ -46,6 +47,10 @@
              
         <div id="TweakrTabTweaks">
         <?php require ('Tweaks.phtml'); ?>
+        </div>
+
+        <div id="TweakrTabContent">
+        <?php require ('Content.phtml'); ?>
         </div>
 
         <div id="TweakrTabEditing">

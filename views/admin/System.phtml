@@ -1,38 +1,5 @@
 <?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
 
-
-    <!-- Permalink -->
-    <div class="postbox">
-    <h3 class="hndle"><span><?php _e('Permalink Strcuture', 'tweakr'); ?></span></h3>
-    <div class="inside tweakr-setting-section">
-
-        <p>The WordPress Core rewrite rules will be altered to add the .html extension to the following elements</p>
-
-        <?php 
-             // Add .html to Pages
-            $this->_settingsUtility->displayCheckbox(__('Pages', 'tweakr'), 'rewrites-page-ext-html', array(
-                'label' => 'Add .html extension to all pages.'
-            ));
-
-            // Add .html to Categories
-            $this->_settingsUtility->displayCheckbox(__('Categories', 'tweakr'), 'rewrites-category-ext-html', array(
-                'label' => 'Add .html extension to all categories.'
-            ));
-
-            // Add .html to custom Taxonomies
-            $this->_settingsUtility->displayCheckbox(__('Taxonomies', 'tweakr'), 'rewrites-custom-taxonomy-ext-html', array(
-                'label' => 'Add .html extension to custom taxonomies.'
-            ));
-
-            // Remove Trailing-Slashes
-            $this->_settingsUtility->displayCheckbox(__('Trailing Slashes', 'tweakr'), 'rewrites-trailingslashes-remove', array(
-                'label' => 'Remove trailing slashes from all permalinks'
-            ));
-        ?>
-
-    <!-- // Permalink -->
-    </div></div>
-
     <!-- E-Mail -->
     <div class="postbox">
     <h3 class="hndle"><span><?php _e('E-Mail', 'tweakr'); ?></span></h3>
