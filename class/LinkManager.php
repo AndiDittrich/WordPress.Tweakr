@@ -8,6 +8,7 @@ class LinkManager{
     public static function useVirtualPermalinks(){
 
         // called via wp-link-ajax action
+        // modify link dialog inserts
         add_filter('wp_link_query', function($results){
 
             // filter permalinks
@@ -21,7 +22,19 @@ class LinkManager{
             return $results;
         });
 
+        // called via wp-link-ajax action
+        // modify media urls
+        // wp_ajax_query_attachments -> wp_prepare_attachment_for_js
+        add_filter('wp_prepare_attachment_for_js', function($response, $attachment, $meta ){
+
+            // tweakr internal links scheme
+            $response['link'] = 'link://attachment.local/' . $response['id'];
+
+            return $response;
+        });
+
         // filter virtual permalinks via the_content
+        // virtual link to permalink
         add_filter('the_content', function($content){
 
             // find internal links
