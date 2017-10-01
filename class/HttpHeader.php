@@ -23,7 +23,7 @@ class HttpHeader{
             }
 
             return $header;
-        }, 9999);
+        }, 99999, 1);
     }
 
 }

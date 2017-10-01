@@ -65,4 +65,11 @@ class Frontend{
         }, 9999);
     }
 
+    // hide pingbacks
+    public static function disablePingbacks(){
+        add_filter('pings_open', function($open){
+            return false;
+        }, 9999);
+    }
+
 }

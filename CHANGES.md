@@ -7,6 +7,7 @@
 * Added: Virtual Permalinks to the Media-Insert-Dialogs. Placeholders like `link://attachment.local/1234` are used.
 * Added: Option to remove shortlink from HTTP-Header
 * Added: Option to remove REST-API URL from HTTP-Header
+* Added: Option to disable pingbacks/trackbacks for all posts/pages (set to closed)
 * Changed: By disabling the XMLRPC API the related HTTP-Header **X-Pingback** will be disabled
 * Changed: Permalink Settings are moved to the **Content** pane
 

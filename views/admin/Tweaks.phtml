@@ -47,7 +47,15 @@
              // Hide Resource Hints
             $this->_settingsUtility->displayCheckbox(__('Resource Hints', 'tweakr'), 'hide-resource-hints', array(
                 'label' => 'Hide Resource Hints',
-                'description' => 'Standard Resource Hints might not be useful (like w.org). This option will hide all registered types.'
+                'description' => 'Standard Resource Hints might not be useful (like w.org). This option will hide all registered types.',
+                'readmore' => 'https://make.wordpress.org/core/2016/07/06/resource-hints-in-4-6/'
+            ));
+
+            // Disable Pingback
+            $this->_settingsUtility->displayCheckbox(__('Pingback', 'tweakr'), 'disable-pingbacks', array(
+                'label' => 'Disable Pingbacks for all Posts/Pages',
+                'description' => 'Pingbacks/Trackbacks will be set to closed for all post/pages.',
+                'readmore' => 'https://codex.wordpress.org/Function_Reference/pings_open'
             ));
 
         ?>

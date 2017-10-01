@@ -176,6 +176,11 @@ class Tweakr{
                 Tweakr\Frontend::hideResourceHints();
             }
 
+            // Pingbacks
+            if ($this->_settingsManager->getOption('disable-pingbacks')){
+                Tweakr\Frontend::disablePingbacks();
+            }
+
             // Feeds
             // ------------------------------------------------------------------
 
