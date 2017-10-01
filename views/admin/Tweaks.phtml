@@ -100,4 +100,30 @@
     <!-- // Feeds -->
     </div></div>
 
+
+    <!-- HTTP Header -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('HTTP Header', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php
+
+            // Disable REST API Links
+            $this->_settingsUtility->displayCheckbox(__('REST API Link', 'tweakr'), 'httpheader-restlink', array(
+                'label' => 'Disable REST API Link',
+                'description' => 'Removes the REST API URL from HTTP Header.'
+            ));
+
+            // Disable Shortlink
+            $this->_settingsUtility->displayCheckbox(__('Shortlink', 'tweakr'), 'httpheader-shortlink', array(
+                'label' => 'Disable Shortlink',
+                'description' => 'Removes the Shortlink from HTTP Header.'
+            ));
+
+        ?>
+
+    <!-- // HTTP Header -->
+    </div></div>
+
+
     

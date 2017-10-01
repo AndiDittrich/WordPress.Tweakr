@@ -84,6 +84,7 @@ class Tweakr{
         // xmlrpc
         if ($this->_settingsManager->getOption('disable-xmlrpc-api')){
             Tweakr\API::disableXmlRpc();
+            Tweakr\HttpHeader::disableXPingback();
         }
 
         // rest api restrictions
@@ -108,6 +109,15 @@ class Tweakr{
         // ------------------------------------------------------------------
         if ($this->_settingsManager->getOption('permalinks-virtual')){
             Tweakr\LinkManager::useVirtualPermalinks();
+        }
+
+        // HTTP Header
+        // ------------------------------------------------------------------
+        if ($this->_settingsManager->getOption('httpheader-shortlink')){
+            Tweakr\HttpHeader::disableShortlink();
+        }
+        if ($this->_settingsManager->getOption('httpheader-restlink')){
+            Tweakr\HttpHeader::disableRestLink();
         }
 
         // frontend or admin area ?

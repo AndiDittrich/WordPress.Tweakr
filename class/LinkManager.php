@@ -25,7 +25,7 @@ class LinkManager{
         // called via wp-link-ajax action
         // modify media urls
         // wp_ajax_query_attachments -> wp_prepare_attachment_for_js
-        add_filter('wp_prepare_attachment_for_js', function($response, $attachment, $meta ){
+        add_filter('wp_prepare_attachment_for_js', function($response){
 
             // tweakr internal links scheme
             $response['link'] = 'link://attachment.local/' . $response['id'];

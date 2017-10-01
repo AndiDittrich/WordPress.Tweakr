@@ -5,6 +5,10 @@
 * Added: Option to add `.html` extensions to custom taxonomies - feature requested on [WordPress.org Forums](https://wordpress.org/support/topic/add-html-to-custom-taxonomies-categories/)
 * Added: Virtual Permalinks to the Link-Insert-Dialogs. Placeholders like `link://post.local/1234` are used and replaced by the real link during rendering - this avoids problems with different domains
 * Added: Virtual Permalinks to the Media-Insert-Dialogs. Placeholders like `link://attachment.local/1234` are used.
+* Added: Option to remove shortlink from HTTP-Header
+* Added: Option to remove REST-API URL from HTTP-Header
+* Changed: By disabling the XMLRPC API the related HTTP-Header **X-Pingback** will be disabled
+* Changed: Permalink Settings are moved to the **Content** pane
 
 ### 1.3 ###
 * Added: XML Sitemap Generator
