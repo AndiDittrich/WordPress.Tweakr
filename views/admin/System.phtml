@@ -155,3 +155,20 @@
 
     <!-- // XML Sitemap -->
     </div></div>
+
+    <!-- Monitoring -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('Monitoring', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <?php 
+            // Enable REST Endpoint
+            $this->_settingsUtility->displayCheckbox(__('Monitoring', 'tweakr'), 'monitoring-enabled', array(
+                'label' => 'Enable Monitoring API',
+                'description' => 'Adds a custom REST API Endpoint that allows you to query all installed plugins/themes.',
+                'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Monitoring.md'
+            ));
+        ?>
+
+    <!-- // XML Monitoring -->
+    </div></div>

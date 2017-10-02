@@ -8,6 +8,7 @@
 * Added: Option to remove shortlink from HTTP-Header
 * Added: Option to remove REST-API URL from HTTP-Header
 * Added: Option to disable pingbacks/trackbacks for all posts/pages (set to closed)
+* Added: REST API Monitoring endpoint `<hostname>/wp-json/tweakr/v1.0/monitoring`
 * Changed: By disabling the XMLRPC API the related HTTP-Header **X-Pingback** will be disabled
 * Changed: Permalink Settings are moved to the **Content** pane
 

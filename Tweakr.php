@@ -3,7 +3,7 @@
     Plugin Name: Tweakr Toolkit
     Plugin URI: https://andidittrich.de/go/tweakr
     Description: Supercharges your Blog with common used Tweaks, Features and Utilities
-    Version: 1.4-BETA2
+    Version: 1.4-BETA3
     Author: Andi Dittrich
     Author URI: https://andidittrich.de
     License: MIT X11 License
@@ -23,7 +23,7 @@
     Plugin Bootstrap Operation
 */
 define('TWEAKR_INIT', true);
-define('TWEAKR_VERSION', '1.4-BETA2');
+define('TWEAKR_VERSION', '1.4-BETA3');
 define('TWEAKR_PLUGIN_PATH', dirname(__FILE__));
 define('TWEAKR_PLUGIN_URL', plugins_url('/tweakr/'));
 
@@ -57,6 +57,7 @@ if (version_compare(phpversion(), '5.4', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/class/GoogleAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/HttpHeader.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/LinkManager.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/Monitoring.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/PiwikAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/ResourceLoader.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/RewriteRules.php');
