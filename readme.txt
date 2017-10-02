@@ -1,9 +1,9 @@
 === Tweakr Toolkit ===
 Contributors: Andi Dittrich, AenonDynamics
-Tags: tweaks, tools, security, api, json, rest-api, sitemap, enhancement, tuning, extend, enhancement, emoji, feeds, oembed, analytics, piwik, google analytics
+Tags: tweaks, tools, security, api, json, rest-api, permalinks, editor, tinymce, sitemap, enhancement, tuning, extend, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
-Tested up to: 4.7
-Stable tag: 1.3
+Tested up to: 4.8
+Stable tag: 1.4
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
@@ -34,6 +34,9 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 * Add `.html` extension to categories - e.g. `category/uncategorized.html`
 * Remove **embed** Rewrite Rules
 * Remove **feed** Rewrite Rules
+
+= Virtual Permalink URLs =
+* Placeholders like `link://post.local/1234` can be used within the Link-Insert-Dialogs and got replaced by the real link during rendering - this avoids problems with different domains names.
 
 = XML Sitemap =
 * Automatical XML Sitemap generation `sitemap.xml` (SEO)
@@ -111,6 +114,18 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 
 
 == Changelog ==
+
+= 1.4 =
+* Added: Option to remove trailing-slashes from all permalinks
+* Added: Option to add `.html` extensions to custom taxonomies - feature requested on [WordPress.org Forums](https://wordpress.org/support/topic/add-html-to-custom-taxonomies-categories/)
+* Added: Virtual Permalinks to the Link-Insert-Dialogs. Placeholders like `link://post.local/1234` are used and replaced by the real link during rendering - this avoids problems with different domains
+* Added: Virtual Permalinks to the Media-Insert-Dialogs. Placeholders like `link://attachment.local/1234` are used.
+* Added: Option to remove shortlink from HTTP-Header
+* Added: Option to remove REST-API URL from HTTP-Header
+* Added: Option to disable pingbacks/trackbacks for all posts/pages (set to closed)
+* Added: REST API Monitoring endpoint `<hostname>/wp-json/tweakr/v1.0/monitoring`
+* Changed: By disabling the XMLRPC API the related HTTP-Header **X-Pingback** will be disabled
+* Changed: Permalink Settings are moved to the **Content** pane
 
 = 1.3 =
 * Added: XML Sitemap Generator
