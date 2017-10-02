@@ -12,7 +12,7 @@ The endpoint requires an authentication of a user which owns `manage_options` ca
 
 ## Response Object ##
 
-```javascript
+```js
 {
     wp_version: '4.8.2',
     php_version: '5.6.30-0+deb8u1',
