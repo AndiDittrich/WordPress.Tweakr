@@ -177,6 +177,11 @@ class Tweakr{
                 Tweakr\Frontend::disableEmojis();
             }
 
+            // Smileys
+            if ($this->_settingsManager->getOption('disable-smileys')){
+                Tweakr\Frontend::disableSmileys();
+            }
+
             // Resource Hints
             if ($this->_settingsManager->getOption('hide-resource-hints')){
                 Tweakr\Frontend::hideResourceHints();
@@ -240,6 +245,23 @@ class Tweakr{
                 }
             }
 
+            // Robots.txt
+            // ------------------------------------------------------------------
+
+            // Alter robots.txt
+            if ($this->_settingsManager->getOption('sitemap-xml-robotstxt')){
+                // initialize
+                $robotsTxt = new Tweakr\Robots($this->_settingsManager);
+            }
+
+            // Page Metadata processing
+            // ------------------------------------------------------------------
+
+            $metadataManager = new Tweakr\Metadata($this->_settingsManager);
+
+            // Frontend Resources
+            // ------------------------------------------------------------------
+
             // apply frontend resource loading hooks
             $this->_resourceLoader->frontend();
         }
@@ -261,10 +283,11 @@ class Tweakr{
     public function setupBackend(){
         if (current_user_can('manage_options')){
             // add options page
-            $optionsPage = add_menu_page(__('Tweakr Toolkit', 'tweakr'), 'Tweakr', 'administrator', 'Tweakr', array($this, 'settingsPage'), 'dashicons-admin-generic');
+            $optionsPage = add_menu_page(TWEAKR_PLUGIN_TITLE, 'Tweakr', 'administrator', 'Tweakr', array($this, 'settingsPage'), 'dashicons-admin-generic');
 
             // add links
-            add_filter('plugin_row_meta', array($this, 'addPluginPageLinks'), 10, 2);
+            add_filter('plugin_action_links', array($this, 'addPluginPageSettingsLink'), 10, 2);
+            add_filter('plugin_row_meta', array($this, 'addPluginMetaLinks'), 10, 2);
 
             // load backend resources
             add_filter('load-'.$optionsPage, array($this->_resourceLoader, 'backendSettings'));
@@ -292,19 +315,27 @@ class Tweakr{
             // regenerate rewrite rules
             $this->_rewriteRules->reload();
         }
-               
+        
         // render settings view
         include(TWEAKR_PLUGIN_PATH.'/views/admin/SettingsPage.phtml');
     }
 
-    // links on the plugin page
-    public function addPluginPageLinks($links, $file){
+    // links to the plugin website & author's twitter channel ()
+    public function addPluginMetaLinks($links, $file){
         // current plugin ?
         if ($file == 'tweakr/Tweakr.php'){
-            $links[] = '<a href="'.admin_url('admin.php?page=Tweakr'). '">'.__('Settings', 'tweakr').'</a>';
-            $links[] = '<a href="https://twitter.com/andidittrich" target="_blank">'.__('News & Updates', 'tweakr').'</a>';
+            $links[] = '<a target="_blank" href="https://twitter.com/andidittrich">'.__('News & Updates', 'tweakr').'</a>';
         }
-
+        
+        return $links;
+    }
+    // links on the plugin page
+    public function addPluginPageSettingsLink($links, $file){
+        // current plugin ?
+        if ($file == 'tweakr/Tweakr.php'){
+            $links[] = '<a href="'.admin_url('admin.php?page=Tweakr').'">'.__('Settings', 'tweakr').'</a>';
+            $links[] = '<a href="'.admin_url('admin.php?page=Tweakr-About').'">'.__('About', 'tweakr').'</a>';
+        }
         return $links;
     }
    
@@ -369,14 +400,14 @@ class Tweakr{
             // plugin installed ?
             if ($version == '0.0.0'){
                 // store new version
-                update_option('tweakr-version', '1.4');
+                update_option('tweakr-version', '1.5-BETA1');
 
             // plugin upgraded ?
-            }else if (version_compare('1.4', $version, '>')){
+            }else if (version_compare('1.5-BETA1', $version, '>')){
                 // run upgrade hook
                 if ($i->_wp_plugin_upgrade($version)){
                     // store new version
-                    update_option('tweakr-version', '1.4');
+                    update_option('tweakr-version', '1.5-BETA1');
 
                     // set flag (string!)
                     update_option('tweakr-upgrade', 'true');

@@ -21,6 +21,11 @@ class RewriteRuleHelper{
     public function __construct(){
     }
 
+    public function init(){
+        // additional rulesets
+        do_action('tweakr_rewriterules_init');
+    }
+
     // proxy
     public function addRuleFilter($name, $cb){
         // passthrough

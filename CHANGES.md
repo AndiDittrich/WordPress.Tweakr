@@ -1,5 +1,12 @@
 ## Changelog ##
 
+### 1.5 ###
+* Added: option to hide privacy-policy page from search engines
+* Added: option to advertise the `sitemap.xml` in `robots.txt` file to be autoamitcally recognized by search engines
+* Added: option to disable smiley images (convert_smilies)
+* Changed: moved sitemap settings to content section
+
+
 ### 1.4 ###
 * Added: Option to remove trailing-slashes from all permalinks
 * Added: Option to add `.html` extensions to custom taxonomies - feature requested on [WordPress.org Forums](https://wordpress.org/support/topic/add-html-to-custom-taxonomies-categories/)

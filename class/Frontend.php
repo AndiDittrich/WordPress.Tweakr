@@ -40,6 +40,12 @@ class Frontend{
         remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
     }
 
+    // disable smileys
+    public static function disableSmileys(){
+        remove_filter('the_content', 'convert_smilies', 20);
+        add_filter('the_excerpt', 'convert_smilies');
+    }
+
     // disable oembeds
     // @see https://codex.wordpress.org/Embeds
     public static function disableOEmbeds(){

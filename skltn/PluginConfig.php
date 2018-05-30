@@ -19,6 +19,7 @@ class PluginConfig{
         'hide-wlwmlink' => false,
         'hide-meta-pagination-link' => false,
         'disable-emojis' => false,
+        'disable-smileys' => false,
         'disable-oembed' => false,
         'hide-feed-link' => false,
         'hide-resource-hints' => false,
@@ -59,6 +60,8 @@ class PluginConfig{
         'rewrites-custom-taxonomy-ext-html' => false,
         'rewrites-trailingslashes-remove' => false,
         'sitemap-xml-enabled' => false,
+        'sitemap-xml-robotstxt' => false,
+        'privacy-hide-policypage' => false,
         'permalinks-virtual' => false
     );
 
@@ -73,6 +76,7 @@ class PluginConfig{
         'hide-wlwmlink' => 'boolean',
         'hide-meta-pagination-link' => 'boolean',
         'disable-emojis' => 'boolean',
+        'disable-smileys' => 'boolean',
         'disable-oembed' => 'boolean',
         'hide-feed-link' => 'boolean',
         'hide-resource-hints' => 'boolean',
@@ -113,6 +117,8 @@ class PluginConfig{
         'rewrites-custom-taxonomy-ext-html' => 'boolean',
         'rewrites-trailingslashes-remove' => 'boolean',
         'sitemap-xml-enabled' => 'boolean',
+        'sitemap-xml-robotstxt' => 'boolean',
+        'privacy-hide-policypage' => 'boolean',
         'permalinks-virtual' => 'boolean'
     );
 

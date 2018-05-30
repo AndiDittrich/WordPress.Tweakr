@@ -2,7 +2,7 @@
 Contributors: Andi Dittrich, AenonDynamics
 Tags: tweaks, tools, security, api, json, rest-api, permalinks, editor, tinymce, sitemap, enhancement, tuning, extend, emoji, feeds, oembed, analytics, piwik, google analytics
 Requires at least: 4.7
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: 1.4
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT

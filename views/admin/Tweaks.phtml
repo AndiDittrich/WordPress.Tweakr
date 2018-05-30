@@ -34,8 +34,15 @@
             // Disable Emojis
             $this->_settingsUtility->displayCheckbox(__('Emojis', 'tweakr'), 'disable-emojis', array(
                 'label' => 'Disable Emojis',
-                'description' => 'In case you do not like the Emoji icons - this option also disables related scripts/styles.',
+                'description' => 'In case you do not like the Emoji icons - this option also disables related scripts/styles. By disabling emojis its recommended to disable smileys also to avoid invalid unicode characters.',
                 'readmore' => 'https://codex.wordpress.org/Emoji'
+            ));
+
+            // Disable Smileys
+            $this->_settingsUtility->displayCheckbox(__('Smileys', 'tweakr'), 'disable-smileys', array(
+                'label' => 'Disable Smileys',
+                'description' => 'Legacy smileys are not converted to images (the_content and the_excerpt).',
+                'readmore' => 'hhttps://codex.wordpress.org/Using_Smilies'
             ));
 
             // Disable OEmbeds

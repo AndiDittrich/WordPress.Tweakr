@@ -1,0 +1,21 @@
+<?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
+
+    <!-- Privacy Policy -->
+    <div class="postbox">
+    <h3 class="hndle"><span><?php _e('Privacy Policy', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <p>Hide Privacy-Policy page in search engines.<br />
+        This option excludes the page from all major search engines by adding <code>noindex,nofollow</code> metatag to the page to avoid automatic policy validation by dubious third parties.
+        </p>
+
+        <?php 
+            // hide page
+            $this->_settingsUtility->displayCheckbox(__('Privacy-Policy Page', 'tweakr'), 'privacy-hide-policypage', array(
+                'label' => 'Hide',
+                'description' => 'Exclude Privacy-Policy page from search engine indexes.'
+            ));
+        ?>
+
+    <!-- // XML Sitemap -->
+    </div></div>

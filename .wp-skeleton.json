@@ -2,16 +2,16 @@
     "slug": "tweakr",
     "name": "Tweakr",
     "namespace": "Tweakr",
-    "version": "1.4",
+    "version": "1.5-BETA1",
     "license": "MIT X11 License",
     "licenseFile": "LICENSE.txt",
     "constants": {},
     "plugin": {
-        "name": "Tweakr Toolkit",
-        "description": "Supercharges your Blog with common used Tweaks, Features and Utilities",
-        "url": "https://andidittrich.de/go/tweakr",
-        "author": "Andi Dittrich",
+        "name": "Tweakr - Utility Toolkit",
+        "description": "Supercharges your Blog with WP Core Tweaks, Advanced Features and Utilities",
+        "url": "https://github.com/AndiDittrich/WordPress.Tweakr",
+        "author": "Andi Dittrich, Aenon Dynamics",
         "authorUrl": "https://andidittrich.de"
     },
-    "skltnVersion": "0.9.0"
+    "skltnVersion": "0.10.0"
 }

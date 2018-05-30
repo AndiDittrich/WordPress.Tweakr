@@ -10,7 +10,7 @@ FILTER::tweakr_rewrites_custom_taxonomies
 #### Example 1 - Remove a Single Taxonomy ####
 
 ```php
-function mm_ejs_themes($taxonomies){
+function mm_taxonomies($taxonomies){
     unset $taxonomies['addon'];
     return $taxonomies;
 }
