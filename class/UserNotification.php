@@ -33,4 +33,12 @@ class UserNotification{
             wp_new_user_notification($user_id, null, $behaviour);
         });
     }
+
+    // core update
+    // @see https://codex.wordpress.org/Configuring_Automatic_Background_Updates
+    public static function suppressCoreUpdateNotifications(){
+
+        // disable updates
+        add_filter('auto_core_update_send_email', '__return_false');
+    }
 }

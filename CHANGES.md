@@ -1,11 +1,21 @@
 ## Changelog ##
 
-### 1.5 ###
+### 2.0 ###
+
+**License changed to GNU GENERAL PUBLIC LICENSE Version 2 (GPL-2.0)**
+
+* Added: option to control automatic updates (enable/disable updates by each component)
 * Added: option to hide privacy-policy page from search engines
 * Added: option to advertise the `sitemap.xml` in `robots.txt` file to be autoamitcally recognized by search engines
 * Added: option to disable smiley images (convert_smilies)
+* Added: option to center TinyMCE (VisualEditor) content within editing area (enhancement for large screens)
+* Added: VisualComponent styles for list elements `ul`, `ol`
+* Changed: updated the UI components
+* Changed: `wp-skltn` library updated to **0.16.0** - MPL 2.0 License
+* Changed: sessionStorage is used to store the current active tab instead of cookies
 * Changed: moved sitemap settings to content section
-
+* Changed: renamed Piwik Analytics to Matomo - see https://matomo.org/blog/2018/01/piwik-is-now-matomo/
+* Removed: `jquery-cookie` dependency
 
 ### 1.4 ###
 * Added: Option to remove trailing-slashes from all permalinks

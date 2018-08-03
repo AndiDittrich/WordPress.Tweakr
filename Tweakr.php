@@ -3,29 +3,20 @@
     Plugin Name: Tweakr - Utility Toolkit
     Plugin URI: https://github.com/AndiDittrich/WordPress.Tweakr
     Description: Supercharges your Blog with WP Core Tweaks, Advanced Features and Utilities
-    Version: 1.5-BETA1
+    Version: 2.0
     Author: Andi Dittrich, Aenon Dynamics
     Author URI: https://andidittrich.de
-    License: MIT X11 License
+    License: GPL-2.0
     Text Domain: tweakr
     Domain Path: /lang
-
-    ----
-    The MIT License (X11 License)
-    Copyright (c) 2016-2018 Andi Dittrich <https://andidittrich.de>
-    Permission is hereby granted, free of charge, to any personobtaining a copy of this software and associated documentationfiles (the "Software"), to deal in the Software withoutrestriction, including without limitation the rights to use,copy, modify, merge, publish, distribute, sublicense, and/or sellcopies of the Software, and to permit persons to whom theSoftware is furnished to do so, subject to the followingconditions:
-    The above copyright notice and this permission notice shall beincluded in all copies or substantial portions of the Software.
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIESOF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE ANDNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHTHOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISINGFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OROTHER DEALINGS IN THE SOFTWARE.
 */
 
 
-/*  AUTO GENERATED FILE - DO NOT EDIT !!
-    WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
-    ------------------------------------
-    Plugin Bootstrap Operation
-*/
+// Plugin Bootstrap Operation
+// AUTO GENERATED CODE - DO NOT EDIT !!!
 define('TWEAKR_INIT', true);
-define('TWEAKR_VERSION', '1.5-BETA1');
+define('TWEAKR_VERSION', '2.0');
+define('TWEAKR_WPSKLTN_VERSION', '0.16.0');
 define('TWEAKR_PLUGIN_TITLE', 'Tweakr - Utility Toolkit');
 define('TWEAKR_PLUGIN_HEADLINE', 'Supercharges your Blog with WP Core Tweaks, Advanced Features and Utilities');
 define('TWEAKR_PLUGIN_PATH', dirname(__FILE__));
@@ -54,16 +45,18 @@ if (version_compare(phpversion(), '5.4', '>=')){
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/Hash.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/VirtualPageManager.php');
     require_once(TWEAKR_PLUGIN_PATH.'/skltn/RewriteRuleHelper.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/skltn/Plugin.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/API.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/AutomaticUpdates.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/EMail.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Feeds.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Frontend.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/GoogleAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/HttpHeader.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/LinkManager.php');
+    require_once(TWEAKR_PLUGIN_PATH.'/class/MatomoAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Metadata.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Monitoring.php');
-    require_once(TWEAKR_PLUGIN_PATH.'/class/PiwikAnalytics.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/ResourceLoader.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/RewriteRules.php');
     require_once(TWEAKR_PLUGIN_PATH.'/class/Robots.php');

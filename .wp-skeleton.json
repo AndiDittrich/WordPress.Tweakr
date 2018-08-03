@@ -2,8 +2,8 @@
     "slug": "tweakr",
     "name": "Tweakr",
     "namespace": "Tweakr",
-    "version": "1.5-BETA1",
-    "license": "MIT X11 License",
+    "version": "2.0",
+    "license": "GPL-2.0",
     "licenseFile": "LICENSE.txt",
     "constants": {},
     "plugin": {
@@ -13,5 +13,5 @@
         "author": "Andi Dittrich, Aenon Dynamics",
         "authorUrl": "https://andidittrich.de"
     },
-    "skltnVersion": "0.10.0"
+    "skltnVersion": "0.16.0"
 }

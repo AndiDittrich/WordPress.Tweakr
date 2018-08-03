@@ -2,7 +2,7 @@
 
 
     <!-- TinyMCE -->
-    <div class="postbox">
+    <div class="postbox tweakr-postbox">
     <h3 class="hndle"><span><?php _e('Visual Editor (TinyMCE)', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
@@ -11,6 +11,12 @@
             $this->_settingsUtility->displayCheckbox(__('Autowidth', 'tweakr'), 'tinymce-autowidth', array(
                 'label' => 'Enable automatic width',
                 'description' => 'Removes the fixed-width restriction and set it to auto (95% of maximal available width will be used).'
+            ));
+
+            // Centered
+            $this->_settingsUtility->displayCheckbox(__('Centered Content', 'tweakr'), 'tinymce-centered', array(
+                'label' => 'Enable',
+                'description' => 'Content within the editor pane will be centered.'
             ));
 
             // Visual Components

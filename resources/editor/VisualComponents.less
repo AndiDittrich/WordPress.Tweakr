@@ -1,8 +1,8 @@
 /*! Tweakr VisualComponents for TinyMCE (WordPress 4.7) */
 
 // Generator
-.visualComponentSettings(@text, @color, @textcolor: #202020){
-    border-color: @color;
+.visualComponentSettings(@text, @color, @textcolor: #202020, @border: solid 1px){
+    border: @border @color;
 
     &::before{
         content: @text;
@@ -13,6 +13,7 @@
 .visualComponent(){
     position: relative;
     border: dashed 1px;
+    padding: 3px;
 
     &::before{
         content: '-';
@@ -31,43 +32,57 @@
         right: 8px;
         top: -8px;
         z-index: 10;
+        left: 50%;
+        top: -16px;
+        margin-left: -50px;
     }
 }
-.containerComponent(@text, @color, @textcolor: #202020){
+.containerComponent(@text, @color, @textcolor: #202020, @border: solid 2px){
     .visualComponentSettings(@text, @color, @textcolor);
-        padding: 20px 10px 10px 10px;
-        border: solid 2px @color;
-        margin: 10px 0px 10px 0px;
-        &::before{
-            width: 400px;
+    padding: 20px 0px 10px 10px;
+    border: @border @color;
+    margin: 10px 0px 10px 0px;
+    border-left-width: 10px;
+    border-right-width: 0px;
+    &::before{
+        width: 400px;
+        margin-left: -200px;
     }
 }
 
-h1, h2, h3, h4, h5, h6, p, section{
+h1, h2, h3, h4, h5, h6, p, ul, ol, section{
     .visualComponent();
 }
 
 h1{
-    .visualComponentSettings('Heading 1', #0073aa, #f0f0f0);
+    .visualComponentSettings('Heading 1', #0073aa, #f0f0f0, solid 2px);
 }
 h2{
-    .visualComponentSettings('Heading 2', #0073aa, #f0f0f0);
+    .visualComponentSettings('Heading 2', #0073aa, #f0f0f0, solid 2px);
 }
 h3{
-    .visualComponentSettings('Heading 3', #0073aa, #f0f0f0);
+    .visualComponentSettings('Heading 3', #0073aa, #f0f0f0, solid 2px);
 }
 h4{
-    .visualComponentSettings('Heading 4', #0073aa, #f0f0f0);
+    .visualComponentSettings('Heading 4', #0073aa, #f0f0f0, dotted 2px);
 }
 h5{
-    .visualComponentSettings('Heading 5', #0073aa, #f0f0f0);
+    .visualComponentSettings('Heading 5', #0073aa, #f0f0f0, dotted 2px);
 }
 h6{
-    .visualComponentSettings('Heading 6', #0073aa, #f0f0f0);
+    .visualComponentSettings('Heading 6', #0073aa, #f0f0f0, dotted 2px);
 }
 p{
-    .visualComponentSettings('Paragraph', #23282d, #f0f0f0);
+    .visualComponentSettings('Paragraph', #23282d, #f0f0f0, dotted 2px);
+}
+ul{
+    .visualComponentSettings('Unordered List', #637281, #f0f0f0, dotted 2px);
+    list-style: inside;
+}
+ol{
+    .visualComponentSettings('Ordered List', #637281, #f0f0f0, dotted 2px);
+    list-style: inside;
 }
 section{
-    .containerComponent('Section', #0073aa, #f0f0f0);
+    .containerComponent('Section', #23282d, #f0f0f0, solid 2px);
 }

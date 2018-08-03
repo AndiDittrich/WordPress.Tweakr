@@ -43,7 +43,7 @@ class Frontend{
     // disable smileys
     public static function disableSmileys(){
         remove_filter('the_content', 'convert_smilies', 20);
-        add_filter('the_excerpt', 'convert_smilies');
+        remove_filter('the_excerpt', 'convert_smilies');
     }
 
     // disable oembeds

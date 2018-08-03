@@ -2,15 +2,15 @@
 
 
     <!-- Google Analytics -->
-    <div class="postbox">
+    <div class="postbox tweakr-postbox">
     <h3 class="hndle"><span><?php _e('Google Analytics', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
 
         <?php 
             // Enable
-            $this->_settingsUtility->displayCheckbox(__('Enable', 'tweakr'), 'google-analytics-enabled', array(
-                'label' => 'Enable Google Analytics Tracking',
+            $this->_settingsUtility->displayCheckbox(__('Google Analytics Tracking', 'tweakr'), 'google-analytics-enabled', array(
+                'label' => 'Enable ',
                 'description' => 'The required Javascript Tracking Code will be added to your frontend including opt-out wrapper code.',
                 'readmore' => 'https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference'
             ));
@@ -55,17 +55,17 @@
     </div></div>
 
 
-     <!-- PIWIK Analytics -->
-    <div class="postbox">
-    <h3 class="hndle"><span><?php _e('Piwik Analytics', 'tweakr'); ?></span></h3>
+     <!-- MATOMO/PIWIK Analytics -->
+    <div class="postbox tweakr-postbox">
+    <h3 class="hndle"><span><?php _e('Matomo (formerly Piwik) Analytics', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
         <?php 
             // Enable
-            $this->_settingsUtility->displayCheckbox(__('Enable', 'tweakr'), 'piwik-analytics-enabled', array(
-                'label' => 'Enable Piwik Analytics',
+            $this->_settingsUtility->displayCheckbox(__('Matomo Analytics', 'tweakr'), 'piwik-analytics-enabled', array(
+                'label' => 'Enable',
                 'description' => 'The required Javascript Tracking Code will be added to your frontend including opt-out wrapper code.',
-                'readmore' => 'https://developer.piwik.org/guides/tracking-javascript-guide'
+                'readmore' => 'https://developer.matomo.org/guides/tracking-javascript-guide'
             ));
 
         ?>
@@ -77,12 +77,12 @@
         <?php
 
             // Piwik Host
-            $this->_settingsUtility->displayInput(__('Piwik Host', 'tweakr'), 'piwik-analytics-host', array(
+            $this->_settingsUtility->displayInput(__('Matomo Host', 'tweakr'), 'piwik-analytics-host', array(
                 'placeholder' => 'https://piwik.example.org',
-                'label' => 'Your Piwik Host',
+                'label' => 'Your Matomo Host',
                 'cssClass' => 'input-large',
-                'description' => 'Insert the full URL of your Piwik installation.',
-                'readmore' => 'https://developer.piwik.org/guides/tracking-javascript-guide'
+                'description' => 'Insert the full URL of your Matomo installation.',
+                'readmore' => 'https://developer.matomo.org/guides/tracking-javascript-guide'
             ));
 
             // Site ID
@@ -90,7 +90,7 @@
                 'placeholder' => '123',
                 'label' => 'The Unique Site-ID of this Project',
                 'description' => 'Add your Site-ID here.',
-                'readmore' => 'https://piwik.org/faq/general/faq_19212/'
+                'readmore' => 'https://matomo.org/faq/general/faq_19212/'
             ));
             
         ?>
@@ -102,7 +102,7 @@
             // OPT-OUT
             $this->_settingsUtility->displayCheckbox(__('User Optional Out', 'tweakr'), 'piwik-analytics-optout-shortcode', array(
                 'label' => 'Enable opt-out shortcode',
-                'description' => 'An additional shortcode will become available which generates an opt-out button. Piwik Analytics can be disabled by each user individually - in this case a persistent cookie is set which blocks the tracking code. It is recommended to add this button to the end of your privacy policy.',
+                'description' => 'An additional shortcode will become available which generates an opt-out button. MATOMO Analytics can be disabled by each user individually - in this case a persistent cookie is set which blocks the tracking code. It is recommended to add this button to the end of your privacy policy.',
                 'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Analytics_OptOut.md'
             ));
 
@@ -122,7 +122,7 @@
              // ClientSide DoNotTrack
             $this->_settingsUtility->displayCheckbox(__('DoNotTrack', 'tweakr'), 'piwik-analytics-dnt', array(
                 'label' => 'Enable Client-Side DoNotTrack recognition.',
-                'description' => 'Visitors with DoNotTrack preference set will no be tracked. Normally this option should be permanently enabled within your Piwik Website settings!'
+                'description' => 'Visitors with DoNotTrack preference set will no be tracked. Normally this option should be permanently enabled within your MATOMO Website settings!'
             ));
 
             // Simple Document Title
@@ -134,5 +134,5 @@
         ?>
         </div>
 
-    <!-- // PIWIK Analytics -->
+    <!-- // MATOMO/PIWIK Analytics -->
     </div></div>

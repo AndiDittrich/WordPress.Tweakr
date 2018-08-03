@@ -1,22 +1,6 @@
 <?php
-/**
-    Tweakr Class
-    Version: 1.0
-    Author: Andi Dittrich
-    Author URI: https://andidittrich.de
-    Plugin URI: https://andidittrich.de/go/tweakr
-    License: MIT X11-License
-    
-    Copyright (c) 2016-2017, Andi Dittrich
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-
-class Tweakr{
+class Tweakr extends \tweakr\skltn\Plugin{
 
     // resource loader instamce
     private $_resourceLoader;
@@ -60,9 +44,23 @@ class Tweakr{
         if ($this->_settingsManager->getOption('sitemap-xml-enabled')){
             $xmlSitemap = new Tweakr\XmlSitemap($this->_virtualPageManager);
         }
+
+        // Automatic Updates (WordPress Installation)
+        // ------------------------------------------------------------------
+        if ($this->_settingsManager->getOption('autoupdate-disable') === true){
+            Tweakr\AutomaticUpdates::disableAll();
+        }
+
+        // control component updates
+        Tweakr\AutomaticUpdates::coreUpdates($this->_settingsManager->getOption('autoupdate-core'));
+        Tweakr\AutomaticUpdates::pluginUpdates($this->_settingsManager->getOption('autoupdate-plugins'));
+        Tweakr\AutomaticUpdates::themeUpdates($this->_settingsManager->getOption('autoupdate-themes'));
+        Tweakr\AutomaticUpdates::translationUpdates($this->_settingsManager->getOption('autoupdate-translations'));
     }
 
     public function _wp_init(){
+        // execute extended functions
+        parent::_wp_init();
 
         // load language files
         if ($this->_settingsManager->getOption('translation-enabled')){
@@ -98,9 +96,13 @@ class Tweakr{
             $monitoring->registerRestEndpoint();
         }
 
-        // New User Notifications
+        // User Notifications
         // ------------------------------------------------------------------
         Tweakr\UserNotification::processNewRegistrations($this->_settingsManager->getOption('user-registration-email-notification'));
+
+        if ($this->_settingsManager->getOption('autoupdate-notifications') === false){
+            Tweakr\UserNotification::suppressCoreUpdateNotifications();
+        }
 
         // Mails
         // ------------------------------------------------------------------
@@ -130,20 +132,6 @@ class Tweakr{
         if (is_admin()){
             // add admin menu handler
             add_action('admin_menu', array($this, 'setupBackend'));
-
-            // add plugin upgrade notification
-            add_action('in_plugin_update_message-tweakr/Tweakr.php', array($this, 'showUpgradeAvailabilityNotification'), 10, 2);
-
-            // plugin upgraded ?
-            if (get_option('tweakr-upgrade', '-') === 'true'){
-                // add admin message handler
-                add_action('admin_notices', array($this, 'showUpgradeMessage'));
-                add_action('network_admin_notices', array($this, 'showUpgradeMessage'));
-
-                // clear flag - avoid issues with caching plugin - override AND delete the flag
-                update_option('tweakr-upgrade', '-');
-                delete_option('tweakr-upgrade');
-            }
 
             // initialize settings view helper
             $this->_settingsUtility = new Tweakr\skltn\SettingsViewHelper($this->_settingsManager);
@@ -230,18 +218,18 @@ class Tweakr{
                 }
             }
 
-            // Piwik Analytics
+            // Matomo Analytics
             // ------------------------------------------------------------------
 
             // Piwik Analytics
             if ($this->_settingsManager->getOption('piwik-analytics-enabled')){
 
                 // initialize
-                $piwikAnalytics = new Tweakr\PiwikAnalytics($this->_settingsManager);
+                $matomoAnalytics = new Tweakr\MatomoAnalytics($this->_settingsManager);
                 
                 // Piwik Analytics OptOut Button
                 if ($this->_settingsManager->getOption('piwik-analytics-optout-shortcode')){
-                    add_shortcode('piwikanalytics-optout', array($piwikAnalytics, 'optButtonShortcode'));
+                    add_shortcode('piwikanalytics-optout', array($matomoAnalytics, 'optButtonShortcode'));
                 }
             }
 
@@ -355,71 +343,4 @@ class Tweakr{
         // remove all rewrite rules
         $this->_rewriteRules->cleanup();
     }
-
-    public function _wp_plugin_upgrade($currentVersion){
-        // upgrade successfull
-        return true;
-    }
-
-    // Show Upgrade Notification in Plugin List for an available new Version
-    public function showUpgradeAvailabilityNotification($currentPluginMetadata, $newPluginMetadata){
-        // check "upgrade_notice"
-        if (isset($newPluginMetadata->upgrade_notice) && strlen(trim($newPluginMetadata->upgrade_notice)) > 0){
-            echo '<p style="background-color: #d54e21; padding: 10px; color: #f9f9f9; margin-top: 10px"><strong>Important Upgrade Notice:</strong> ';
-            echo esc_html($newPluginMetadata->upgrade_notice), '</p>';
-        }
-    }
-
-    // Show Admin Notice for Successfull Plugin Upgrade
-    public function showUpgradeMessage(){
-        // styling
-        echo '<div class="notice notice-success is-dismissible"><p>';
-        echo '<strong>Tweakr Plugin Upgrade:</strong> The Plugin has been upgraded to <strong>', TWEAKR_VERSION, '</strong>';
-        echo '</p></div>';
-    }
-
-
-//!WP::SKELETON
-
-    // static entry/initialize singleton instance
-    public static function run($pluginName){
-        // check if singleton instance is available
-        if (self::$__instance==null){
-            // create new instance if not
-            $i = self::$__instance = new self();
-
-            // register plugin related hooks
-            register_activation_hook($pluginName, array($i, '_wp_plugin_activate'));
-            register_deactivation_hook($pluginName, array($i, '_wp_plugin_deactivate'));
-            add_action('init', array($i, '_wp_init'));
-            add_action('init', array($i, '_wp_lateinit'), 9999);
-
-            // fetch plugin version
-            $version = get_option('tweakr-version', '0.0.0');
-
-            // plugin installed ?
-            if ($version == '0.0.0'){
-                // store new version
-                update_option('tweakr-version', '1.5-BETA1');
-
-            // plugin upgraded ?
-            }else if (version_compare('1.5-BETA1', $version, '>')){
-                // run upgrade hook
-                if ($i->_wp_plugin_upgrade($version)){
-                    // store new version
-                    update_option('tweakr-version', '1.5-BETA1');
-
-                    // set flag (string!)
-                    update_option('tweakr-upgrade', 'true');
-                }
-            }
-        }
-    }
-
-    // singleton instance
-    private static $__instance;
-    public static function getInstance(){
-        return self::$__instance;
-    }
-//!!WP::SKELETON
 }

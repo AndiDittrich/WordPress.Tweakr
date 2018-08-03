@@ -1,6 +1,6 @@
 <?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
 
-<div class="postbox">
+<div class="postbox tweakr-postbox">
 <h3 class="hndle"><?php _e('System Info', 'tweakr'); ?></h3>
 <div class="inside">
 <!-- Metabox-Content -->
@@ -14,6 +14,8 @@
         // tweakr version
         echo '<li>', __('Tweakr Plugin Version:', 'tweakr'), ' <span class="tweakr-text-true">', TWEAKR_VERSION, '</span></li>';
 
+        // framework version
+        echo '<li>', __('WP-Skeleton Version:', 'tweakr'), ' <span class="tweakr-text-true">', TWEAKR_WPSKLTN_VERSION, '</span></li>';
         ?>
     </ul>
 

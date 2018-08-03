@@ -1,11 +1,24 @@
-/*! AUTO GENERATED FILE - DO NOT EDIT !!
-    WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
-    ------------------------------------
-    Corporate Plugin Settings Page Styles
+/*
+// ---------------------------------------------------------------------------------------------------------------
+// -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
+// --
+// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- https://github.com/AndiDittrich/WP-Skeleton
+// --
+// ---------------------------------------------------------------------------------------------------------------
+// --
+// -- This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+// -- If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+// --
+// ---------------------------------------------------------------------------------------------------------------
 */
-
 /* Page Layout
 -------------------------------- */
+#tweakr-settings {
+    max-width: 1500px;
+    margin: auto;
+}
+
 #tweakr-settings .maintitle {
     margin: 15px 0px 15px 0px;
 }
@@ -42,19 +55,36 @@
     line-height: 20px;
 }
 
-/* Form Structure
+.tweakr-postbox p{
+    padding: 5px 15px 5px 15px;
+    border-left: solid 10px #e5e5e5;
+    background-color: #fafafc;
+}
+
+/* Column Layout
 -------------------------------- */
-.tweakr-setting-section h4 {
-    color: #0074a2;
-    display: block;
-    text-indent: 15px;
-    border-bottom: solid 4px #efefef;
-    line-height: 2em;
-    max-width: 1000px;
-    text-transform: uppercase;
+.tweakr-postbox h3 {
+    background-color: #23282d !important;
+    color: #ffffff !important;
+    cursor: default;
     font-style: italic;
 }
 
+/* Form Structure
+-------------------------------- */
+.tweakr-setting-section h4 {
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 2em;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: #23282d;
+    
+    border-bottom: solid 5px #e5e5e5;
+    font-style: italic;
+    text-transform: none;
+}
 .tweakr-setting-section img {
     padding-left: 15px;
 }
@@ -101,9 +131,7 @@
 }
 
 .tweakr-setting label {
-    height: 30px;
     line-height: 30px;
-    padding: 0px 5px 0px 0px;
 }
 
 .tweakr-setting select{
@@ -151,15 +179,6 @@
     background-color: #ffffff;
 }
 
-/* Column Layout
--------------------------------- */
-#tweakr-settings .postbox h3 {
-    background-color: #23282d !important;
-    color: #ffffff !important;
-    cursor: default;
-    font-style: italic;
-}
-
 /* Footer
 -------------------------------- */
 #tweakr-settings .credits {
@@ -170,7 +189,6 @@
 /* Tab Nav
 -------------------------------- */
 #tweakr-tabnav {
-    display: none;
     position: relative !important;
 }
 
@@ -192,4 +210,72 @@
     padding: 5px;
     display: inline-block;
     margin: 0px !important;
+}
+
+/* Form Checkbox
+-------------------------------- */
+
+/* outer container */
+.tweakr-type-checkbox{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* outer switch container */
+.tweakr-type-checkbox label{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    margin-bottom: 5px;
+}
+
+/* hide checkbox */
+.tweakr-type-checkbox input{
+    display: none;
+}
+
+/* labels text */
+.tweakr-type-checkbox .tweakr-label-text{
+    position: absolute;
+    display: block;
+    min-width: 300px;
+    left: 60px;
+}
+
+/* slider knob */
+.tweakr-ui-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: #c0c0c0;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.tweakr-ui-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    top: 3px;
+    background-color: #ffffff;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.tweakr-type-checkbox input:checked + .tweakr-ui-slider {
+    background-color: #0074a2;
+}
+
+.tweakr-type-checkbox input:focus + .tweakr-ui-slider {
+    box-shadow: 0 0 1px #0074a2;
+}
+
+.tweakr-type-checkbox input:checked + .tweakr-ui-slider:before {
+    transform: translateX(22px);
 }

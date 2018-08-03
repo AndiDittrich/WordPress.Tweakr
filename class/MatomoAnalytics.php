@@ -5,7 +5,7 @@ namespace Tweakr;
 use \Tweakr\skltn\ResourceManager as ResourceManager;
 use \Tweakr\skltn\HtmlUtil as HtmlUtil;
 
-class PiwikAnalytics{
+class MatomoAnalytics{
 
     // the current page title
     private $_currentPageTitle;
@@ -105,7 +105,7 @@ class PiwikAnalytics{
         $params[] = array('enableLinkTracking');
 
         // get minified tracking code
-        $code = file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/analytics/piwik-analytics.min.js');
+        $code = file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/analytics/matomo-analytics.min.js');
 
         // strip closing bracket
         $code = substr($code, 0, -2);
@@ -140,8 +140,8 @@ class PiwikAnalytics{
 
         // set defaults
         $attb = shortcode_atts( array(
-            'in' => 'Disable Piwik Analytics',
-            'out' => 'Piwik Analytics has been disabled!',
+            'in' => 'Disable Matomo Analytics',
+            'out' => 'Matomo Analytics has been disabled!',
         ), $attb );
 
         // enabled or disabled ? visual user feedback

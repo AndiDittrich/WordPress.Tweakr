@@ -1,7 +1,7 @@
 <?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
 
     <!-- E-Mail -->
-    <div class="postbox">
+    <div class="postbox tweakr-postbox">
     <h3 class="hndle"><span><?php _e('E-Mail', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
@@ -33,8 +33,8 @@
 
             // Mail From
             $this->_settingsUtility->displayCheckbox(__('Fix Mail-From', 'tweakr'), 'email-from-auto', array(
-                'label' => 'Set the Mail-From parameter to BLOGNAME<wordpress@yourdomain.tld>',
-                'description' => 'This fix will solve problems with phpmailerExceptions which are caused by a malformed/invalid email-from-address.'
+                'label' => 'Enable',
+                'description' => 'Sets the Mail-From parameter to BLOGNAME<wordpress@yourdomain.tld>. This fix will solve problems with phpmailerExceptions which are caused by a malformed/invalid email-from-address.'
             ));
 
         ?>
@@ -111,8 +111,84 @@
     <!-- // E-Mail -->
     </div></div>
 
+    <!-- Automatic Updates -->
+    <div class="postbox tweakr-postbox">
+    <h3 class="hndle"><span><?php _e('Automatic Updates (WordPress Installation)', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+        <p>As a security feature, WordPress provides an automatic-update mechanism to keep your installation up-to-date. In some special cases you may want to change the update policy or enable automatic updates for plugins and themes.</p>
+
+        <?php
+            // Global
+            $this->_settingsUtility->displayCheckbox(__('Disable Automatic Updates', 'tweakr'), 'autoupdate-disable', array(
+                'label' => 'Disable All',
+                'description' => 'In some special cases it might be required (but not recommended!) to disable all types of automatic updates.',
+                'readmore' => 'https://codex.wordpress.org/Configuring_Automatic_Background_Updates'
+            ));
+            
+            // Notifications
+            $this->_settingsUtility->displayCheckbox(__('E-Mail Notifications', 'tweakr'), 'autoupdate-notifications', array(
+                'label' => 'Enable',
+                'description' => 'An automatic E-Mail notification is send to the default address in case an automatic update happened or failed.',
+                'readmore' => 'https://codex.wordpress.org/Configuring_Automatic_Background_Updates'
+            ));
+        ?>
+
+        <h4><?php _e('Component Update Policy', 'tweakr'); ?></h4>
+
+        <?php
+            
+            // core
+            $this->_settingsUtility->displaySelect(__('Core Updates', 'tweakr'), 'autoupdate-core', array(
+                'default' => 'Default behaviour (enabled)',
+                'enabled' => 'Enable Core Updates (enforced)',
+                'disabled' => 'Disable Core Updates (enforced)',
+            ), array(
+                'label' => 'Core Policy',
+                'description' => 'By default, the Core (WordPress Installation) is automatically updated by WordPress.',
+                'readmore' => 'https://codex.wordpress.org/Configuring_Automatic_Background_Updates'
+            ));
+
+            // plugins
+            $this->_settingsUtility->displaySelect(__('Plugin Updates', 'tweakr'), 'autoupdate-plugins', array(
+                'default' => 'Default behaviour (disabled)',
+                'enabled' => 'Enable Plugin Updates (enforced)',
+                'disabled' => 'Disable Plugin Updates (enforced)',
+            ), array(
+                'label' => 'Plugin Policy',
+                'description' => 'By default, plugins are not automatically updated by WordPress.',
+                'readmore' => 'https://codex.wordpress.org/Configuring_Automatic_Background_Updates'
+            ));
+
+            // themes
+            $this->_settingsUtility->displaySelect(__('Theme Updates', 'tweakr'), 'autoupdate-themes', array(
+                'default' => 'Default behaviour (disabled)',
+                'enabled' => 'Enable Theme Updates (enforced)',
+                'disabled' => 'Disable Theme Updates (enforced)',
+            ), array(
+                'label' => 'Theme Policy',
+                'description' => 'By default, themes are not automatically updated by WordPress.',
+                'readmore' => 'https://codex.wordpress.org/Configuring_Automatic_Background_Updates'
+            ));
+
+            // translations
+            $this->_settingsUtility->displaySelect(__('Translation Updates', 'tweakr'), 'autoupdate-translations', array(
+                'default' => 'Default behaviour (enabled)',
+                'enabled' => 'Enable Translation Updates (enforced)',
+                'disabled' => 'Disable Translation Updates (enforced)',
+            ), array(
+                'label' => 'Translation Policy',
+                'description' => 'By default, translations are automatically updated by WordPress.',
+                'readmore' => 'https://codex.wordpress.org/Configuring_Automatic_Background_Updates'
+            ));
+
+        ?>
+
+    <!-- // Automatic Updates -->
+    </div></div>
+
     <!-- API -->
-    <div class="postbox">
+    <div class="postbox tweakr-postbox">
     <h3 class="hndle"><span><?php _e('API (REST/XMLRPC)', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
@@ -120,15 +196,15 @@
 
         <?php
             // Disable XMLRPC
-            $this->_settingsUtility->displayCheckbox(__('XMLRPC', 'tweakr'), 'disable-xmlrpc-api', array(
-                'label' => 'Disable XMLRPC API',
+            $this->_settingsUtility->displayCheckbox(__('XMLRPC API', 'tweakr'), 'disable-xmlrpc-api', array(
+                'label' => 'Disable API',
                 'description' => 'The XMLRPC API is used for Pingback Communication with external services as well as external control. This option will reject ALL xmlrpc actions by forcing the xmlrpc.php endpoint to return a HTTP403 response.',
                 'readmore' => 'https://codex.wordpress.org/XML-RPC_Support'
             ));
 
             // Restrict REST API
             $this->_settingsUtility->displayCheckbox(__('REST API', 'tweakr'), 'restrict-rest-api', array(
-                'label' => 'Restrict REST API Access',
+                'label' => 'Restrict Access',
                 'description' => 'The REST JSON API will be restricted to Admin and Editor Users. Its not available for public access anymore.',
                 'readmore' => 'https://developer.wordpress.org/rest-api/'
             ));
@@ -138,14 +214,14 @@
     </div></div>
 
     <!-- Monitoring -->
-    <div class="postbox">
+    <div class="postbox tweakr-postbox">
     <h3 class="hndle"><span><?php _e('Monitoring', 'tweakr'); ?></span></h3>
     <div class="inside tweakr-setting-section">
 
         <?php 
             // Enable REST Endpoint
-            $this->_settingsUtility->displayCheckbox(__('Monitoring', 'tweakr'), 'monitoring-enabled', array(
-                'label' => 'Enable Monitoring API',
+            $this->_settingsUtility->displayCheckbox(__('Monitoring API', 'tweakr'), 'monitoring-enabled', array(
+                'label' => 'Enable',
                 'description' => 'Adds a custom REST API Endpoint that allows you to query all installed plugins/themes.',
                 'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Monitoring.md'
             ));

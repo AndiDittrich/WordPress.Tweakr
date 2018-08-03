@@ -1,9 +1,19 @@
 <?php
-/*  AUTO GENERATED FILE - DO NOT EDIT !!
-    WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
-    ------------------------------------
-    Manages plugin related static resources
-*/
+// ---------------------------------------------------------------------------------------------------------------
+// -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
+// --
+// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- https://github.com/AndiDittrich/WP-Skeleton
+// --
+// ---------------------------------------------------------------------------------------------------------------
+// --
+// -- This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+// -- If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+// --
+// ---------------------------------------------------------------------------------------------------------------
+
+// Manages plugin related static resources
+
 namespace Tweakr\skltn;
 
 class ResourceManager{
@@ -65,13 +75,14 @@ class ResourceManager{
 
     // cache
     private static $__dynamicScriptBuffer = false;
+    private static $__dynamicStyleBuffer = false;
 
     // enqueue dynamics scripts
     public static function enqueueDynamicScript($script){
         // initialized ?
         if (self::$__dynamicScriptBuffer === false){
             // hook into footer print script action
-            add_action('wp_print_footer_scripts', function(){
+            add_action('wp_footer', function(){
                 echo '<script type="text/javascript">/* <![CDATA[ */', self::$__dynamicScriptBuffer ,' /* ]]> */</script>';
             });
 
@@ -81,5 +92,22 @@ class ResourceManager{
 
         // append
         self::$__dynamicScriptBuffer .= $script;
+    }
+
+    // enqueue dynamics styles
+    public static function enqueueDynamicStyle($style){
+        // initialized ?
+        if (self::$__dynamicStyleBuffer === false){
+            // hook into header to print styles
+            add_action('wp_head', function(){
+                echo '<style type="text/css">', self::$__dynamicStyleBuffer ,'</style>';
+            });
+
+            // clear buffer
+            self::$__dynamicStyleBuffer = '';
+        }
+
+        // append
+        self::$__dynamicStyleBuffer .= $style;
     }
 }

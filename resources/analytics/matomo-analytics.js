@@ -1,4 +1,4 @@
-// Tweakr Piwik Analytics Tracking Code with OPT-OUT Button
+// Tweakr Matomo (Piwik) Analytics Tracking Code with OPT-OUT Button
 (function(_document, cookieName, host, piwikParams){
     // get optout button
     var optoutButton = _document.getElementById('tweakr-piwik-optout');
@@ -29,7 +29,7 @@
         }
 
         // PIWIK Tracking Code
-        // @see https://developer.piwik.org/guides/tracking-javascript-guide
+        // @see https://developer.matomo.org/guides/tracking-javascript-guide
         this._paq = piwikParams;
         this._paq.push(['setTrackerUrl', host + 'piwik.php']);
         (function(scriptTag){

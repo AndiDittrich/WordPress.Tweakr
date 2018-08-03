@@ -7,7 +7,7 @@
     "name": "Andi Dittrich",
     "email": "ad@aenon-dynamics.com"
   },
-  "license": "commercial",
+  "license": "GPL-2.0",
   "dependencies": {},
   "devDependencies": {
     "clean-css": "^4.0.8",

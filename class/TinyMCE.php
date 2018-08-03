@@ -41,6 +41,13 @@ class TinyMCE{
             ));
         }
 
+        // center tinymce content ?
+        if ($this->_settingsManager->getOption('tinymce-centered')){
+            $cssBuilder->add('body.mce-content-body', array(
+                'margin' => '40px auto 40px auto'
+            ));
+        }
+
         // append VisualComponents ?
         if ($this->_settingsManager->getOption('tinymce-visualcomponents')){
             $cssBuilder->addRaw(file_get_contents(TWEAKR_PLUGIN_PATH . '/resources/editor/VisualComponents.min.css'));

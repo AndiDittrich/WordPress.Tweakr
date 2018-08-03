@@ -1,9 +1,19 @@
 <?php
-/*  AUTO GENERATED FILE - DO NOT EDIT !!
-    WP-SKELEKTON | MIT X11 License | https://github.com/AndiDittrich/WP-Skeleton
-    ------------------------------------
-    Plugin Config Defaults
-*/
+// ---------------------------------------------------------------------------------------------------------------
+// -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
+// --
+// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- https://github.com/AndiDittrich/WP-Skeleton
+// --
+// ---------------------------------------------------------------------------------------------------------------
+// --
+// -- This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+// -- If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
+// --
+// ---------------------------------------------------------------------------------------------------------------
+
+// Plugin Config Defaults
+
 namespace Tweakr\skltn;
 
 class PluginConfig{
@@ -54,6 +64,7 @@ class PluginConfig{
         'pwiki-analytics-simple-pagetitle' => false,
         'tinymce-autowidth' => false,
         'tinymce-visualcomponents' => false,
+        'tinymce-centered' => false,
         'rewrites-disable-feeds' => false,
         'rewrites-page-ext-html' => false,
         'rewrites-category-ext-html' => false,
@@ -62,7 +73,13 @@ class PluginConfig{
         'sitemap-xml-enabled' => false,
         'sitemap-xml-robotstxt' => false,
         'privacy-hide-policypage' => false,
-        'permalinks-virtual' => false
+        'permalinks-virtual' => false,
+        'autoupdate-notifications' => true,
+        'autoupdate-disable' => false,
+        'autoupdate-core' => 'default',
+        'autoupdate-plugins' => 'default',
+        'autoupdate-themes' => 'default',
+        'autoupdate-translations' => 'default'
     );
 
     // validation
@@ -111,6 +128,7 @@ class PluginConfig{
         'pwiki-analytics-simple-pagetitle' => 'boolean',
         'tinymce-autowidth' => 'boolean',
         'tinymce-visualcomponents' => 'boolean',
+        'tinymce-centered' => 'boolean',
         'rewrites-disable-feeds' => 'boolean',
         'rewrites-page-ext-html' => 'boolean',
         'rewrites-category-ext-html' => 'boolean',
@@ -119,7 +137,13 @@ class PluginConfig{
         'sitemap-xml-enabled' => 'boolean',
         'sitemap-xml-robotstxt' => 'boolean',
         'privacy-hide-policypage' => 'boolean',
-        'permalinks-virtual' => 'boolean'
+        'permalinks-virtual' => 'boolean',
+        'autoupdate-notifications' => 'boolean',
+        'autoupdate-disable' => 'boolean',
+        'autoupdate-core' => 'string',
+        'autoupdate-plugins' => 'string',
+        'autoupdate-themes' => 'string',
+        'autoupdate-translations' => 'string'
     );
 
     // get the default plugin config

@@ -1,9 +1,9 @@
-# Tweakr Toolkit #
+# Tweakr - Utility Toolkit #
 Contributors: Andi Dittrich, AenonDynamics
-Tags: tweaks, tools, security, api, json, rest-api, permalinks, editor, tinymce, sitemap, enhancement, tuning, extend, emoji, feeds, oembed, analytics, piwik, google analytics
+Tags: tweaks, tools, security, api, json, rest-api, permalinks, editor, tinymce, sitemap, enhancement, tuning, extend, emoji, feeds, oembed, analytics, piwik, matomo, google analytics
 Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 1.4
+Stable tag: 2.0
 License: MIT X11-License
 License URI: http://opensource.org/licenses/MIT
 
@@ -27,6 +27,14 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 * Set the Mail-From-Name and Mail-From-Address manually
 * Fix phpmailerExceptions by setting the mail-from parameter to a valid address
 * Control New User Registration E-Mails (send to admin and/or user)
+
+### Automatic Updates ###
+
+* Control Automatic-Update policy
+* Enable automatic Theme Updates
+* Enable automatic Plugin Updates
+* Disable Automatic Updates
+* Disable Update Notification (E-Mail)
 
 ### Permalinks/Rewrite Rules ###
 
@@ -52,6 +60,7 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 ### System Tweaks ###
 
 * Disable Emojis
+* Disable Smileys
 * Disable oEmbeds
 * Hide Admin Toolbar
 * Hide WordPress Generator Tag
@@ -67,13 +76,13 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 
 * Google Analytics Support - just add your Tracking-ID
 * AnonymizeIP Option
-* OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers
+* OPT-OUT Shortcode/Button (required by GDPR/DSGVO) - also works with Caching Plugins or CDN Servers
 * IE8 Compatible
 
-### Piwik Analytics ###
+### Matomo/Piwik Analytics ###
 
-* Piwik3 Support - add your Piwik Host URL + Site ID - thats it!
-* OPT-OUT Shortcode/Button - also works with Caching Plugins or CDN Servers
+* Matomo v3 Support - add your Host URL + Site ID - thats it!
+* OPT-OUT Shortcode/Button (required by GDPR/DSGVO) - also works with Caching Plugins or CDN Servers
 * Simple Page Name Option (Records the Document Title without Blog Name)
 * DoNoTrack Option
 * Option to add the Hostname to your Document Title (useful for multidomain sites)
