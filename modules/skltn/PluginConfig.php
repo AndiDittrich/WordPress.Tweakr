@@ -2,7 +2,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 // -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
 // --
-// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- Copyright (c) 2016-2019 Andi Dittrich
 // -- https://github.com/AndiDittrich/WP-Skeleton
 // --
 // ---------------------------------------------------------------------------------------------------------------
@@ -70,6 +70,7 @@ class PluginConfig{
         'rewrites-category-ext-html' => false,
         'rewrites-custom-taxonomy-ext-html' => false,
         'rewrites-trailingslashes-remove' => false,
+        'rewrites-ext-html-optional' => false,
         'sitemap-xml-enabled' => false,
         'sitemap-xml-robotstxt' => false,
         'privacy-hide-policypage' => false,
@@ -134,6 +135,7 @@ class PluginConfig{
         'rewrites-category-ext-html' => 'boolean',
         'rewrites-custom-taxonomy-ext-html' => 'boolean',
         'rewrites-trailingslashes-remove' => 'boolean',
+        'rewrites-ext-html-optional' => 'boolean',
         'sitemap-xml-enabled' => 'boolean',
         'sitemap-xml-robotstxt' => 'boolean',
         'privacy-hide-policypage' => 'boolean',

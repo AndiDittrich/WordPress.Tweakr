@@ -2,7 +2,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 // -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
 // --
-// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- Copyright (c) 2016-2019 Andi Dittrich
 // -- https://github.com/AndiDittrich/WP-Skeleton
 // --
 // ---------------------------------------------------------------------------------------------------------------
@@ -43,10 +43,15 @@ class CssBuilder{
         $this->_rawBuffer .= "\n" . $css;
     }
 
+    // add raw css from file
+    public function addFile($filename){
+        $this->_rawBuffer .= file_get_contents($filename) . "\n" ;
+    }
+
     // render ruleset
     public function render(){
         // local output buffer
-        $css = '/* Tweakr dynamic generated stylesheet - DO NOT EDIT */';
+        $css = "\n\n/* Tweakr dynamic generated stylesheet - DO NOT EDIT */";
 
         // get rulesets
         foreach ($this->_buffer as $selector => $rules){
@@ -63,9 +68,7 @@ class CssBuilder{
         }
 
         // add raw css
-        $css .= $this->_rawBuffer;
-
-        return $css;
+        return $this->_rawBuffer . $css;
     }
     
 }

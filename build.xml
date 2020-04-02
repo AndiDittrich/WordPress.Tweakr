@@ -5,18 +5,44 @@
     <!-- ANT-contrib !-->
     <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
-    <!-- Plugin Test - DEVELOPMENT ONLY -->
-    <target name="devcopy">
+    <target name="full" depends="readme, dist"/>
+
+    <!-- run plugin within wordpress wpdev container !-->
+    <target name="dev" depends="dist">
         <!-- Credentials, Host Settings !-->
-        <loadproperties srcFile=".credentials/account.conf" prefix="dev"/>
+        <loadproperties srcFile=".credentials/wordpress.conf" prefix="WP"/>
 
-        <!-- transfer deploy plugin !-->
-        <echo message="Uploading files"/>
+        <!-- Build Docker Image !-->
+        <exec executable="docker" failonerror="true">
+            <arg line="build -t tweakr-test -f Dockerfile ."/>
+        </exec>
 
-        <scp todir="${dev.user}@${dev.host}:${dev.path}" trust="true" port="${dev.port}"
-             keyfile="${user.home}/${dev.keyfile}">
-            <fileset dir="."/>
-        </scp>
+        <!-- Run Webserver !-->
+        <exec executable="docker" failonerror="true">
+            <arg line="run --name tweakr-test-env -p 8080:8080 --rm -e WP_DSN=${WP.DSN} --interactive tweakr-test"/>
+        </exec>
+    </target>
+
+    <!-- Create Dist copy !-->
+    <target name="dist">
+        <!-- cleanup !-->
+        <delete dir="dist"/>
+        <mkdir dir="dist"/>
+
+        <!-- Copy Plugin !-->
+        <copy todir="dist">
+            <fileset dir=".">
+                <include name="cache/**" />
+                <include name="modules/**" />
+                <include name="docs/**" />
+                <include name="lang/**" />
+                <include name="resources/**" />
+                <include name="views/**" />
+                <include name="Tweakr.php" />
+                <include name="readme.txt" />
+                <include name="LICENSE" />
+            </fileset>
+        </copy>
     </target>
 
     <!-- GitHub readme + changes => WordPress transformation !-->
@@ -30,14 +56,6 @@
         <replaceregexp file="readme.txt" match="^###(.*)###" replace="=\1=" byline="true"/>
         <replaceregexp file="readme.txt" match="^##(.*)##" replace="==\1==" byline="true"/>
         <replaceregexp file="readme.txt" match="^#(.*)#" replace="===\1===" byline="true"/>
-    </target>
-
-    <!-- Generate Langage Files -->
-    <target name="potgen">
-        <!-- Merge required source files !-->
-        <exec executable="php">
-            <arg value="util/GeneratePOT.php"/>
-        </exec>
     </target>
 
     <!-- Create Release Tag !-->
@@ -61,9 +79,8 @@
                 <!-- Copy Plugin !-->
                 <copy todir="${svn.tag.path}">
                     <fileset dir=".">
-                        <include name="skltn/**" />
+                        <include name="modules/**" />
                         <include name="cache/**" />
-                        <include name="class/**" />
                         <include name="lang/**" />
                         <include name="resources/**" />
                         <include name="views/**" />

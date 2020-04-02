@@ -1,0 +1,68 @@
+<?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
+<?php add_thickbox(); ?>
+
+<!-- TweakrSettings:wrap -->
+<div class="wrap" id="tweakr-settings" data-tweakr-page="system">
+
+<!-- Settings Tabs -->
+<h2 class="nav-tab-wrapper" id="tweakr-tabnav">
+    <a data-tab="TweakrTabSystem" class="nav-tab"><?php _e('System', 'tweakr'); ?></a>
+    <a data-tab="TweakrTabAPI" class="nav-tab"><?php _e('API', 'tweakr'); ?></a>
+    <a data-tab="TweakrTabPrivacy" class="nav-tab"><?php _e('Privacy', 'tweakr'); ?></a>
+</h2>
+
+<!-- Main Title -->
+<h1 class="maintitle"><span class="tweakr-title-badge"></span><?php echo TWEAKR_PLUGIN_TITLE; ?></h1>
+<p><?php echo TWEAKR_PLUGIN_HEADLINE; ?></p>
+
+<!-- settings !-->
+<form method="post" action="options.php">
+    <?php settings_fields('tweakr-settings-group' ); ?>
+    <!-- #poststuff -->
+    <div id="poststuff">
+
+<!-- 2 Column Layout -->
+<div id="post-body" class="metabox-holder columns-2">
+    <div id="post-body-content" class="tweakr-tab-container">
+
+        <div id="TweakrTabSystem">
+        <?php require (TWEAKR_PLUGIN_PATH . '/views/admin/system/System.phtml'); ?>
+        </div>
+
+        <div id="TweakrTabAPI">
+        <?php require (TWEAKR_PLUGIN_PATH . '/views/admin/system/API.phtml'); ?>
+        </div>
+
+        <div id="TweakrTabPrivacy">
+        <?php require (TWEAKR_PLUGIN_PATH . '/views/admin/system/Privacy.phtml'); ?>
+        </div>
+  
+        <!-- submit !-->
+        <?php submit_button(); ?>
+
+    </div>
+    <!-- // MAIN COLUMN -->
+    
+    <!-- Right Column -->
+    <div id="postbox-container-1" class="postbox-container">
+        <?php require(TWEAKR_PLUGIN_PATH . '/views/admin/SystemInfo.phtml'); ?>
+        <?php require(TWEAKR_PLUGIN_PATH . '/views/admin/Related.phtml'); ?>
+    </div>
+    <!-- // Right Column -->
+    
+</div>
+<!-- // 2 Column Layout -->
+
+</div>
+<!-- // #poststuff -->
+
+</form>
+<div class="clear"></div>
+
+<?php require(TWEAKR_PLUGIN_PATH . '/views/admin/Credits.phtml'); ?>
+<?php require(TWEAKR_PLUGIN_PATH . '/views/admin/License.phtml'); ?>
+
+</div>
+<!-- // TweakrSettings:wrap -->
+
+<div class="clear"></div>

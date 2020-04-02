@@ -1,0 +1,56 @@
+<?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
+
+
+    <!-- Google Analytics -->
+    <div class="postbox tweakr-postbox">
+    <h3 class="hndle"><span><?php _e('Google Analytics', 'tweakr'); ?></span></h3>
+    <div class="inside tweakr-setting-section">
+
+
+        <?php 
+            // Enable
+            $this->_settingsUtility->displayCheckbox(__('Google Analytics Tracking', 'tweakr'), 'google-analytics-enabled', array(
+                'label' => 'Enable ',
+                'description' => 'The required Javascript Tracking Code will be added to your frontend including opt-out wrapper code.',
+                'readmore' => 'https://developers.google.com/analytics/devguides/collection/analyticsjs/tracking-snippet-reference'
+            ));
+        ?>
+
+        <div class="tweakr-selective-section" data-trigger="#tweakr-google-analytics-enabled" data-condition="checked">
+
+        <h4><?php _e('General Settings', 'tweakr'); ?></h4>
+
+        <?php 
+            // Tracking ID
+            $this->_settingsUtility->displayInput(__('Tracking-ID', 'tweakr'), 'google-analytics-trackingid', array(
+                'placeholder' => 'UA-XXXXX-Y',
+                'label' => 'The Unique Tracking ID of this Project',
+                'description' => 'Add your tracking-ID here.',
+                'readmore' => 'https://support.google.com/analytics/answer/1008080?hl=en'
+            ));
+
+        ?>
+
+        <h4><?php _e('Options', 'tweakr'); ?></h4>
+
+        <?php
+            // OPT-OUT
+            $this->_settingsUtility->displayCheckbox(__('User Optional Out', 'tweakr'), 'google-analytics-optout-shortcode', array(
+                'label' => 'Enable opt-out shortcode',
+                'description' => 'An additional shortcode will become available which generates an opt-out button. Google Analytics can be disabled by each user individually - in this case a persistent cookie is set which blocks the tracking code. It is recommended to add this button to the end of your privacy policy.',
+                'readmore' => 'https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/docs/Analytics_OptOut.md'
+            ));
+
+            // Anonymize IP
+            $this->_settingsUtility->displayCheckbox(__('Anonymize IP', 'tweakr'), 'google-analytics-anonymizeip', array(
+                'label' => 'IP Anonymization in Analytics',
+                'description' => 'Anonymize the Visitors IP Address to comply with privacy laws, especially in the European Union.',
+                'readmore' => 'https://support.google.com/analytics/answer/2763052?hl=en'
+            ));
+        ?>
+
+        </div>
+
+    <!-- // Google Analytics -->
+    </div></div>
+

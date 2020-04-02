@@ -2,10 +2,10 @@
 Contributors: Andi Dittrich, AenonDynamics
 Tags: tweaks, tools, security, api, json, rest-api, permalinks, editor, tinymce, sitemap, enhancement, tuning, extend, emoji, feeds, oembed, analytics, piwik, matomo, google analytics
 Requires at least: 4.7
-Tested up to: 4.9
-Stable tag: 2.0
-License: MIT X11-License
-License URI: http://opensource.org/licenses/MIT
+Tested up to: 5.4
+Stable tag: 2.1
+License: GPL-2.0
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Supercharges your Blog with production grade Tweaks, Features and Utilities
 
@@ -40,6 +40,7 @@ It is designed as compact **all-in-one solution** espacially for **Web-Agencies*
 
 * Add `.html` extension to pages - e.g. `privacy-protecton.html`
 * Add `.html` extension to categories - e.g. `category/uncategorized.html`
+* Optional or enforced html extensions (backward compatibility)
 * Remove **embed** Rewrite Rules
 * Remove **feed** Rewrite Rules
 
@@ -123,6 +124,14 @@ Send an email to Andi Dittrich (andi _D0T dittrich At a3non .dOT org) or or open
 
 
 == Changelog ==
+
+= 2.1 =
+
+* Added: option to set the `.html` extension as optional
+* Changed: `wp-skltn` library updated to **0.22.1** - MPL 2.0 License
+* Changed: applied new `wp-skltn` plugin structure - files moved into `modules/` directory
+* Bugfix: invalid regex in `.html` extension rewrite rule accepted any character instead of a dot
+* Bugfix: metadata generator throws a php notice due to non extisting global `$post` object
 
 = 2.0 =
 

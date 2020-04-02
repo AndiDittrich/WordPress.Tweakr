@@ -2,7 +2,7 @@
     "slug": "tweakr",
     "name": "Tweakr",
     "namespace": "Tweakr",
-    "version": "2.0",
+    "version": "2.1",
     "license": "GPL-2.0",
     "licenseFile": "LICENSE.txt",
     "constants": {},
@@ -13,5 +13,6 @@
         "author": "Andi Dittrich, Aenon Dynamics",
         "authorUrl": "https://andidittrich.de"
     },
-    "skltnVersion": "0.16.0"
+    "phpVersion": "5.6",
+    "skltnVersion": "0.22.0"
 }

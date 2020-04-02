@@ -1,16 +1,10 @@
 // GULP plugins
 var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
-var concat = require('gulp-concat-util');
 var rename = require('gulp-rename');
-var wrapper = require('gulp-wrapper');
-var filter = require('gulp-filter');
-var replace = require('gulp-replace');
 var less = require('gulp-less');
 var cleanCSS = require('gulp-clean-css');
 var prettyError = require('gulp-prettyerror');
-var path = require('path');
 var autoprefixer = require('gulp-autoprefixer');
 
 
@@ -40,4 +34,4 @@ gulp.task('less', function () {
         .pipe(gulp.dest('resources/'));
 });
 
-gulp.task('default', ['less', 'js']);
+gulp.task('default', gulp.series(['less', 'js']));

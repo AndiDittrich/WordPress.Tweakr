@@ -30,10 +30,10 @@ class Metadata{
 
 
     public function injectMetadata(){
-        global $post;
+        $post = get_post();
 
         // post/page in exclude list ?
-        if (in_array($post->ID, $this->_hidePages)){
+        if (isset($post) && in_array($post->ID, $this->_hidePages)){
             echo Htmlutil::generateTag('meta', array(
                 'name' => 'robots',
                 'content' => 'noindex,nofollow'

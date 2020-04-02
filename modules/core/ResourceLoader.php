@@ -31,9 +31,9 @@ class ResourceLoader{
     // settings page resources
     public function appendAdminResources(){
         // UI Styles
-        ResourceManager::enqueueStyle('tweakr-settings', 'admin/settings.css');
+        ResourceManager::enqueueStyle('tweakr-settings', 'admin/skltn.css');
 
         // settings page
-        ResourceManager::enqueueScript('tweakr-settings-init', 'admin/settings.js', array('jquery'));
+        ResourceManager::enqueueScript('tweakr-settings', 'admin/skltn.js', array('jquery'));
     }
 }

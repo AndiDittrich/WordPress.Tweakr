@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 // -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
 // --
-// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- Copyright (c) 2016-2019 Andi Dittrich
 // -- https://github.com/AndiDittrich/WP-Skeleton
 // --
 // ---------------------------------------------------------------------------------------------------------------
@@ -13,16 +13,20 @@
 // Plugin Settings Page Functions
 jQuery(document).ready(function(jq){
     // try to fetch session storage
-    const storage = window.sessionStorage || null;
+    var storage = window.sessionStorage || null;
 
     // Tabs/Sections
     // --------------------------------------------------------
     if (typeof storage === 'object'){
+        // get query string as storage id
+        // required in case multiple admin pages are used
+        var pageName = jq('.wrap').attr('data-tweakr-page') || 'tweakr';
+
         // hide containers
-        jq('#post-body-content > div').hide();
+        jq('.tweakr-tab-container > div').hide();
 
         // try to restore last tab
-        var recentSelectedTabID = storage.getItem('tweakr-tabnav');
+        var recentSelectedTabID = storage.getItem('tweakr-' + pageName);
 
         // get currently active tab
         var currentTab = (recentSelectedTabID ? jq("#tweakr-tabnav a[data-tab='" + recentSelectedTabID + "']") : jq('#tweakr-tabnav a:first-child'));
@@ -49,7 +53,7 @@ jQuery(document).ready(function(jq){
 
                 // store current tab
                 try{
-                    storage.setItem('tweakr-tabnav', currentTab.attr('data-tab'));
+                    storage.setItem('tweakr-' + pageName, currentTab.attr('data-tab'));
                 // storage operation may fail (private browser mode; non free space)
                 }catch(e){
                 }
@@ -67,62 +71,12 @@ jQuery(document).ready(function(jq){
         msg.delay(1500).fadeOut(500);
     }
 
-    // colorpicker
+    // iris colorpicker
     // --------------------------------------------------------
-    if (typeof jQuery.fn.ColorPicker === 'function'){
 
-        // utility function to set foreground
-        function setHighContrastForeground(el, backgroundColor){
-            // get color as HSV
-            var hsv = jq.Color(backgroundColor);
-
-            // foreground color based on background (best contrast)
-            if (hsv.lightness() > 0.5){
-                el.css('color', '#000000');
-            } else {
-                el.css('color', '#f0f0f0');
-            }
-        }
-
-        // initialize colorpicker
-        jq('.tweakr-colorpicker').ColorPicker({
-            onSubmit: function (hsb, hex, rgb, element){
-                // get current element
-                var el = jq(element);
-
-                // set input value
-                el.val('#' + hex);
-
-                // set input background color
-                el.css('background-color', '#' + hex);
-                
-                // hide color picker window
-                el.ColorPickerHide();
-
-                setHighContrastForeground(el, '#' + hex);
-            },
-            onBeforeShow: function () {
-                jq(this).ColorPickerSetColor(this.value);
-            }
-        });
-
-        // initialize colors
-        jq('.tweakr-colorpicker').each(function(){
-            // get current element
-            var el = jq(this);
-
-            // get element color value
-            var color = el.val();
-
-            // color available ?
-            if (color.length > 0){
-                // set element background color
-                el.css('background-color', color);
-
-                setHighContrastForeground(el, color);
-            }
-        });
-    }    
+    if (typeof jQuery.fn.wpColorPicker === 'function'){
+        jq('.tweakr-colorpicker').wpColorPicker();
+    }
 
     // Selective Option Sections 
     // --------------------------------------------------------

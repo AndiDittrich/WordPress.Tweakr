@@ -7,11 +7,18 @@ use Tweakr\skltn\RewriteRuleHelper;
 class RewriteRules
     extends RewriteRuleHelper{
 
+    // html rewrite rules
+    const HTML_EXT_OPTIONAL = '$1(?:\.html)?';
+    const HTML_EXT_ENFORCE = '$1\.html';
+
     // settings manager instance
     private $_settingsManager;
 
     // list of custom taxonomies
     private $_customTaxonomies = array();
+
+    // selected html extension regex
+    private $_htmlExtensionRegex = self::HTML_EXT_ENFORCE;
 
     public function __construct($settingsManager){
         parent::__construct();
@@ -21,7 +28,12 @@ class RewriteRules
 
     // executed on init hook
     public function init(){
-        $this->addRuleFilter('page_rewrite_rules', array($this, 'pageRewrites'));        
+        // option html extension or required ?
+        if ($this->_settingsManager->getOption('rewrites-ext-html-optional')){
+            $this->_htmlExtensionRegex = self::HTML_EXT_OPTIONAL;
+        }
+
+        $this->addRuleFilter('page_rewrite_rules', array($this, 'pageRewrites'));
         $this->addRuleFilter('rewrite_rules_array', array($this, 'filterRewrites'));
 
         // add .html extension to pages ?
@@ -124,7 +136,7 @@ class RewriteRules
             if ($this->_settingsManager->getOption('rewrites-page-ext-html')){
                 // page link - match WordPress Regex and append html to the regex rule
                 // scheme: (.?.+?)/
-                $rule[0] = preg_replace('/^(\(\.\?\.\+\?\))/', '$1.html', $rule[0]);
+                $rule[0] = preg_replace('/^(\(\.\?\.\+\?\))/', $this->_htmlExtensionRegex, $rule[0]);
             }
 
             // ok
@@ -141,7 +153,7 @@ class RewriteRules
             // alter rewrite rule
             // taxonomy link
             // scheme: <rewrite-base>/<slug>/([^/]+)
-            $rule[0] = preg_replace('/^(.*\/\(\[\^\/\]\+\))\//U', '$1.html/', $rule[0]);
+            $rule[0] = preg_replace('/^(.*\/\(\[\^\/\]\+\))\//U', $this->_htmlExtensionRegex . '/', $rule[0]);
             
             // ok
             return $rule;
@@ -157,7 +169,7 @@ class RewriteRules
             // alter rewrite rule
             // category link - match WordPress Regex and append html to the regex rule
             // scheme: <category-rewrite-base>/(.+?)/...
-            $rule[0] = preg_replace('/(\/\(\.\+\?\))\//', '$1.html/', $rule[0]);
+            $rule[0] = preg_replace('/(\/\(\.\+\?\))\//', $this->_htmlExtensionRegex . '/', $rule[0]);
 
             // ok
             return $rule;

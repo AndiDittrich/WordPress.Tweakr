@@ -2,7 +2,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 // -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
 // --
-// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- Copyright (c) 2016-2019 Andi Dittrich
 // -- https://github.com/AndiDittrich/WP-Skeleton
 // --
 // ---------------------------------------------------------------------------------------------------------------
@@ -74,32 +74,67 @@ class ResourceManager{
     }
 
     // cache
-    private static $__dynamicScriptBuffer = false;
+    private static $__dynamicScriptBufferHeader = false;
+    private static $__dynamicScriptBufferFooter = false;
     private static $__dynamicStyleBuffer = false;
 
     // enqueue dynamics scripts
-    public static function enqueueDynamicScript($script){
-        // initialized ?
-        if (self::$__dynamicScriptBuffer === false){
-            // hook into footer print script action
-            add_action('wp_footer', function(){
-                echo '<script type="text/javascript">/* <![CDATA[ */', self::$__dynamicScriptBuffer ,' /* ]]> */</script>';
-            });
+    public static function enqueueDynamicScript($script, $dependencie=null, $position='footer'){
 
-            // clear buffer
-            self::$__dynamicScriptBuffer = '';
+        // dependencie set ?
+        if ($dependencie !== null){
+            // use build-in wordpress hook
+            wp_add_inline_script($dependencie, $script);
+            return;
         }
 
-        // append
-        self::$__dynamicScriptBuffer .= $script;
+        // position footer or header ?
+        if ($position === 'header'){
+            // initialized ?
+            if (self::$__dynamicScriptBufferHeader === false){
+                // admin or frontend ?
+                $hook = (is_admin() ? 'admin_print_scripts' : 'wp_head');
+
+                // hook into footer print script action
+                add_action($hook, function(){
+                    echo '<script type="text/javascript">/* <![CDATA[ */', self::$__dynamicScriptBufferHeader ,' /* ]]> */</script>';
+                });
+
+                // clear buffer
+                self::$__dynamicScriptBufferHeader = '';
+            }
+
+            // append content to buffer
+            self::$__dynamicScriptBufferHeader .= $script;
+        }else{
+            // initialized ?
+            if (self::$__dynamicScriptBufferFooter === false){
+                // admin or frontend ?
+                $hook = (is_admin() ? 'admin_footer' : 'wp_footer');
+
+                // hook into footer print script action
+                add_action($hook, function(){
+                    echo '<script type="text/javascript">/* <![CDATA[ */', self::$__dynamicScriptBufferFooter ,' /* ]]> */</script>';
+                });
+
+                // clear buffer
+                self::$__dynamicScriptBufferFooter = '';
+            }
+
+            // append content to buffer
+            self::$__dynamicScriptBufferFooter .= $script;
+        }
     }
 
     // enqueue dynamics styles
     public static function enqueueDynamicStyle($style){
         // initialized ?
         if (self::$__dynamicStyleBuffer === false){
+            // admin or frontend ?
+            $hook = (is_admin() ? 'admin_print_scripts' : 'wp_head');
+
             // hook into header to print styles
-            add_action('wp_head', function(){
+            add_action($hook, function(){
                 echo '<style type="text/css">', self::$__dynamicStyleBuffer ,'</style>';
             });
 

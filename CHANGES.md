@@ -1,5 +1,14 @@
 ## Changelog ##
 
+### 2.1 ###
+
+* Added: option to set the `.html` extension as optional
+* Changed: new plugin menu structure
+* Changed: `wp-skltn` library updated to **0.22.1** - MPL 2.0 License
+* Changed: applied new `wp-skltn` plugin structure - files moved into `modules/` directory
+* Bugfix: invalid regex in `.html` extension rewrite rule accepted any character instead of a dot
+* Bugfix: metadata generator throws a php notice due to non extisting global `$post` object
+
 ### 2.0 ###
 
 **License changed to GNU GENERAL PUBLIC LICENSE Version 2 (GPL-2.0)**

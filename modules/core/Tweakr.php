@@ -4,12 +4,6 @@ class Tweakr extends \tweakr\skltn\Plugin{
 
     // resource loader instamce
     private $_resourceLoader;
-    
-    // settings manager instance
-    private $_settingsManager;
-
-    // settings view helper
-    private $_settingsUtility; 
 
     // cache manager instance
     private $_cacheManager;
@@ -56,6 +50,16 @@ class Tweakr extends \tweakr\skltn\Plugin{
         Tweakr\AutomaticUpdates::pluginUpdates($this->_settingsManager->getOption('autoupdate-plugins'));
         Tweakr\AutomaticUpdates::themeUpdates($this->_settingsManager->getOption('autoupdate-themes'));
         Tweakr\AutomaticUpdates::translationUpdates($this->_settingsManager->getOption('autoupdate-translations'));
+
+         // set default settings page
+         $this->_pluginMetaSettingsPage = 'tweaks';
+         $this->_pluginMetaAboutPage = 'about';
+ 
+         // plugin meta links
+         $this->_pluginMetaLinks = array(
+             'https://twitter.com/andidittrich' => __('News & Updates', 'tweakr'),
+             'https://github.com/AndiDittrich/WordPress.Tweakr/issues' => __('Report Bugs', 'tweakr')
+         );
     }
 
     public function _wp_init(){
@@ -130,11 +134,6 @@ class Tweakr extends \tweakr\skltn\Plugin{
 
         // frontend or admin area ?
         if (is_admin()){
-            // add admin menu handler
-            add_action('admin_menu', array($this, 'setupBackend'));
-
-            // initialize settings view helper
-            $this->_settingsUtility = new Tweakr\skltn\SettingsViewHelper($this->_settingsManager);
         }else{
 
             // Frontend
@@ -268,7 +267,7 @@ class Tweakr extends \tweakr\skltn\Plugin{
         }
     }
     
-    public function setupBackend(){
+    public function ssssetupBackend(){
         if (current_user_can('manage_options')){
             // add options page
             $optionsPage = add_menu_page(TWEAKR_PLUGIN_TITLE, 'Tweakr', 'administrator', 'Tweakr', array($this, 'settingsPage'), 'dashicons-admin-generic');
@@ -289,6 +288,50 @@ class Tweakr extends \tweakr\skltn\Plugin{
         }
     }
     
+    // backend menu structure
+    protected function getBackendMenu(){
+        // menu group + first entry
+        return array(
+            'pagetitle' => TWEAKR_PLUGIN_TITLE,
+            'title' => 'Tweakr',
+            'title2' => 'Tweaks',
+            'slug' => 'tweakr-tweaks',
+            'icon' => 'dashicons-admin-generic',
+            'template' => 'tweaks/TweaksPage',
+            'resources' => array($this->_resourceLoader, 'backendSettings'),
+            'render' => array($this, 'settingsPage'),
+            'items' => array(
+
+                // analytics
+                array(
+                    'pagetitle' => TWEAKR_PLUGIN_TITLE,
+                    'title' => 'Analytics',
+                    'slug' => 'tweakr-analytics',
+                    'template' => 'analytics/AnalyticsPage',
+                    'resources' => array($this->_resourceLoader, 'backendSettings')
+                ),
+
+                // system
+                array(
+                    'pagetitle' => TWEAKR_PLUGIN_TITLE,
+                    'title' => 'System',
+                    'slug' => 'tweakr-system',
+                    'template' => 'system/SystemPage',
+                    'resources' => array($this->_resourceLoader, 'backendSettings')
+                ),
+ 
+                // about
+                array(
+                    'pagetitle' => TWEAKR_PLUGIN_TITLE,
+                    'title' => 'About',
+                    'slug' => 'tweakr-about',
+                    'template' => 'about/AboutPage',
+                    'resources' => array($this->_resourceLoader, 'backendSettings')
+                )
+            )
+        );
+    }
+
 
     // options page
     public function settingsPage(){
@@ -305,27 +348,11 @@ class Tweakr extends \tweakr\skltn\Plugin{
         }
         
         // render settings view
-        include(TWEAKR_PLUGIN_PATH.'/views/admin/SettingsPage.phtml');
+        //include(TWEAKR_PLUGIN_PATH.'/views/admin/SettingsPage.phtml');
+
+        return array();
     }
 
-    // links to the plugin website & author's twitter channel ()
-    public function addPluginMetaLinks($links, $file){
-        // current plugin ?
-        if ($file == 'tweakr/Tweakr.php'){
-            $links[] = '<a target="_blank" href="https://twitter.com/andidittrich">'.__('News & Updates', 'tweakr').'</a>';
-        }
-        
-        return $links;
-    }
-    // links on the plugin page
-    public function addPluginPageSettingsLink($links, $file){
-        // current plugin ?
-        if ($file == 'tweakr/Tweakr.php'){
-            $links[] = '<a href="'.admin_url('admin.php?page=Tweakr').'">'.__('Settings', 'tweakr').'</a>';
-            $links[] = '<a href="'.admin_url('admin.php?page=Tweakr-About').'">'.__('About', 'tweakr').'</a>';
-        }
-        return $links;
-    }
    
     // plugin activation action
     public function _wp_plugin_activate(){

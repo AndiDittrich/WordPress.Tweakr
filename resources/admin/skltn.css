@@ -2,7 +2,7 @@
 // ---------------------------------------------------------------------------------------------------------------
 // -- WP-SKELETON AUTO GENERATED FILE - DO NOT EDIT !!!
 // --
-// -- Copyright (c) 2016-2018 Andi Dittrich
+// -- Copyright (c) 2016-2019 Andi Dittrich
 // -- https://github.com/AndiDittrich/WP-Skeleton
 // --
 // ---------------------------------------------------------------------------------------------------------------
@@ -59,6 +59,24 @@
     padding: 5px 15px 5px 15px;
     border-left: solid 10px #e5e5e5;
     background-color: #fafafc;
+}
+
+/* Color Picker
+-------------------------------- */
+/* overlay positioning */
+#tweakr-settings .iris-border{
+    position: absolute;
+    z-index: 100;
+    box-shadow: 0px 0px 10px #23282d;
+}
+
+/* hide clear button */
+#tweakr-settings .wp-picker-clear{
+    display: none;
+}
+
+#tweakr-settings .wp-color-result-text{
+    color: #f9f9f9;
 }
 
 /* Column Layout
@@ -278,4 +296,107 @@
 
 .tweakr-type-checkbox input:checked + .tweakr-ui-slider:before {
     transform: translateX(22px);
+}
+
+/* About Page
+-------------------------------- */
+
+#tweakr-badge{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 150px;
+    height: 150px;
+    background-image: url(badge150.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}
+
+#tweakr-about hr{
+    margin-top: 50px;
+}
+
+#tweakr-about .headline-title{
+    font-size: 2em;
+    font-weight: normal;
+    line-height: 1.4;
+    margin: 1.25em 0 0.6em;
+    text-align: center;
+}
+
+#tweakr-about .featured-image img,
+#tweakr-about .news-image img{
+    box-shadow: 4px 4px 18px 0px rgba(0,0,0,0.39);
+    border: solid 1px #c0c0c0;
+}
+
+/* Changelog Tab
+-------------------------------- */
+#tweakr-tab-changelog li{
+    list-style: disc outside;
+    margin-left: 2em;
+}
+
+#tweakr-tab-changelog .changelog-more{
+    font-size: 0.8em;
+    margin-top: 2em;
+}
+
+/* News Tab
+-------------------------------- */
+#tweakr-tab-news .headline{
+    text-align: center;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+#tweakr-tab-news p{
+    font-size: 1em;
+}
+#tweakr-tab-news .introduction{
+    margin-top: 2em;
+    font-weight: bold;
+}
+
+/* Column Layout */
+#tweakr-about .col-md-2{
+    min-width: 350px;
+    width: 49%;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#tweakr-about .news-section{
+    padding: 10px 10px 20px 10px;
+}
+
+#tweakr-about .news-section p{
+    text-align: center;
+}
+
+#tweakr-about .news-section h4{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#tweakr-about .news-image{
+    display: block;
+    width: auto;
+}
+
+#tweakr-about .news-image img{
+    display: block;
+    margin: auto;
+}
+
+/* Debug Tab
+-------------------------------- */
+#tweakr-tab-debug pre{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }

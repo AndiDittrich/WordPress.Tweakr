@@ -1,0 +1,64 @@
+<?php if (!defined('TWEAKR_INIT')) die('DIRECT ACCESS PROHIBITED'); ?>
+
+<div class="wrap about-wrap" id="tweakr-about" data-tweakr-page="about">
+
+    <!-- News Title !-->
+    <h1>Welcome to Tweakr <?php echo TWEAKR_VERSION ?></h1>
+
+    <!-- News Subtext !-->
+    <div class="about-text">
+        Thanks for upgrading! Many new features and improvements are available that you will enjoy.
+    </div>
+
+    <!-- Logo on the right !-->
+    <div id="tweakr-badge"></div>
+
+    <!-- Settings Tabs -->
+    <h2 class="nav-tab-wrapper" id="tweakr-tabnav">
+        <a data-tab="tweakr-tab-changelog" class="nav-tab"><?php _e('Changelog', 'tweakr'); ?></a>
+        <a data-tab="tweakr-tab-debug" class="nav-tab"><?php _e('Debug', 'tweakr'); ?></a>
+    </h2>
+
+    <div class="tweakr-tab-container">
+        <!-- Changelog Tab !-->
+        <div id="tweakr-tab-changelog">
+            <h3 class="changelog-title">What have been changed in <?php echo TWEAKR_VERSION ?></h3>
+
+            <?php include(TWEAKR_PLUGIN_PATH.'/views/admin/about/Changelog.html'); ?>
+
+            <p class="changelog-more">Need more ? View the <a href="https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/CHANGES.md">full history on GitHub</a></p>
+
+        </div>
+
+        <!-- Debug Tab !-->
+        <div id="tweakr-tab-debug">
+            <h3 class="changelog-title">DEBUG Informations</h3>
+
+            <p>Please attach the following informations to your issue/bug report!</p>
+
+            <p><strong>Plugin Configuration</strong></p>
+            <p>
+                <?php
+                    echo '<pre>', esc_html(json_encode($this->_settingsManager->getOptions(), JSON_PRETTY_PRINT)), '</pre>';
+                ?>
+            </p>
+        </div>
+
+    </div>
+    
+    <hr />
+
+    <!-- Footer NAV !-->
+    <p class="related"><strong>Related:</strong>
+        <a href="https://twitter.com/andidittrich/">@AndiDittrich</a> &bullet;
+        <a href="https:/andidittrich.de">Author's Page</a>
+    </p>
+    <p class="related"><strong>GitHub:</strong>
+        <a href="https://github.com/AndiDittrich/WordPress.Tweakr">Development</a> &bullet;
+        <a href="https://github.com/AndiDittrich/WordPress.Tweakr/issues">Report Bugs</a> &bullet;
+        <a href="https://github.com/AndiDittrich/WordPress.Tweakr/commits/master">Commits</a> &bullet;
+        <a href="https://github.com/AndiDittrich/WordPress.Tweakr/blob/master/CHANGES.md">Changelog</a> &bullet;
+        <a href="https://github.com/AndiDittrich/WordPress.Tweakr/releases">Releases</a>
+    </p>
+
+</div>
